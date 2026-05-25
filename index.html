@@ -3,306 +3,222 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Agro Futuro</title>
+<title>AgroPulse</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header class="header">
-<nav class="navbar">
-<h1 class="logo">Agro<span>Futuro</span></h1>
+<div class="noise"></div>
+<div class="bg-orb orb-one"></div>
+<div class="bg-orb orb-two"></div>
+
+<header class="topbar">
+<div class="brand">Agro<span>Pulse</span></div>
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
-<ul id="menu">
-<li><a href="#inicio">Início</a></li>
-<li><a href="#producao">Produção</a></li>
-<li><a href="#sustentabilidade">Sustentabilidade</a></li>
-<li><a href="#desafios">Desafios</a></li>
-<li><a href="#futuro">Futuro</a></li>
-<li><a href="#interativo">Interativo</a></li>
-</ul>
+<nav id="menu">
+<a href="#home">Início</a>
+<a href="#tech">Tecnologias</a>
+<a href="#impacto">Impactos</a>
+<a href="#solucoes">Soluções</a>
+<a href="#interativo">Interativo</a>
 </nav>
 </header>
 
-<section id="inicio" class="hero">
-<div class="orbit"></div>
-<div class="hero-content">
-<span class="badge">Tecnologia • Campo • Futuro</span>
-<h2>O agro do futuro começa agora</h2>
-<p>Produção inteligente, solo vivo, energia limpa e tecnologia trabalhando juntas.</p>
-<div class="hero-buttons">
-<a href="#interativo" class="btn">Testar ferramentas</a>
-<a href="#futuro" class="btn ghost">Ver soluções</a>
+<section id="home" class="hero">
+<div class="hero-text">
+<p class="tag">AGRO • DADOS • SUSTENTABILIDADE</p>
+<h1>O campo conectado ao futuro.</h1>
+<p>
+Um projeto visual sobre como o agronegócio pode crescer com inteligência,
+tecnologia limpa e respeito aos recursos naturais.
+</p>
+<div class="actions">
+<a class="primary" href="#interativo">Explorar</a>
+<a class="secondary" href="#tech">Ver tecnologias</a>
 </div>
+</div>
+
+<div class="visual-panel">
+<div class="planet">
+<span>🌱</span>
+</div>
+<div class="scan-line"></div>
+<div class="floating-card card-a">Drones</div>
+<div class="floating-card card-b">Energia solar</div>
+<div class="floating-card card-c">Irrigação IA</div>
 </div>
 </section>
 
 <main>
-<section class="intro reveal">
-<h2>Pergunta norteadora</h2>
-<p>Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?</p>
+<section class="question">
+<h2>Como produzir mais sem esgotar o planeta?</h2>
+<p>
+A resposta passa por inovação, preservação, regeneração do solo,
+uso eficiente da água e decisões baseadas em dados.
+</p>
 </section>
 
-<section id="producao" class="section reveal">
-<h2>Produção agrícola</h2>
-<div class="stats">
-<div>
-<strong data-target="25">0</strong>
-<span>% do PIB ligado ao agro</span>
-</div>
-<div>
-<strong data-target="30">0</strong>
-<span>% de economia estimada com irrigação inteligente</span>
-</div>
-<div>
-<strong data-target="4">0</strong>
-<span>tecnologias-chave</span>
-</div>
-</div>
-
-<div class="cards">
-<article class="card">
+<section id="tech" class="section">
+<h2>Tecnologias sustentáveis</h2>
+<div class="diagonal-grid">
+<article>
+<span>01</span>
 <h3>Agricultura de precisão</h3>
-<p>Dados, sensores e GPS ajudam a produzir mais com menos desperdício.</p>
+<p>Usa sensores, mapas e dados para aplicar recursos apenas onde necessário.</p>
 </article>
-<article class="card">
+<article>
+<span>02</span>
+<h3>Irrigação inteligente</h3>
+<p>Reduz desperdício de água com automação e monitoramento do solo.</p>
+</article>
+<article>
+<span>03</span>
 <h3>Drones agrícolas</h3>
-<p>Monitoram lavouras, identificam falhas e apoiam decisões rápidas.</p>
+<p>Monitoram lavouras, pragas, falhas de plantio e produtividade.</p>
 </article>
-<article class="card">
+<article>
+<span>04</span>
 <h3>Energia renovável</h3>
-<p>Solar, biomassa e biogás reduzem custos e emissões no campo.</p>
+<p>Solar, biogás e biomassa tornam a produção mais limpa e eficiente.</p>
 </article>
 </div>
 </section>
 
-<section id="sustentabilidade" class="section green reveal">
-<h2>Sustentabilidade no campo</h2>
-<div class="tabs">
-<button onclick="abrirAba('solo')">Solo</button>
-<button onclick="abrirAba('agua')">Água</button>
-<button onclick="abrirAba('energia')">Energia</button>
+<section id="impacto" class="section split">
+<div>
+<h2>Impactos ambientais</h2>
+<p>
+O crescimento sem planejamento pode gerar desmatamento, alto consumo de água,
+emissão de carbono e perda de biodiversidade.
+</p>
 </div>
-<div id="tabContent" class="tab-content">
-Clique em uma tecnologia para explorar.
-</div>
-</section>
-
-<section id="desafios" class="section reveal">
-<h2>Desafios ambientais</h2>
-<div class="timeline">
-<div><span>01</span><p>Desmatamento reduz biodiversidade e altera o clima.</p></div>
-<div><span>02</span><p>Uso excessivo da água pressiona rios e aquíferos.</p></div>
-<div><span>03</span><p>Emissões de carbono aumentam o impacto climático.</p></div>
-<div><span>04</span><p>Solo degradado perde fertilidade e produtividade.</p></div>
+<div class="impact-board">
+<button onclick="mostrarImpacto('Desmatamento reduz biodiversidade e altera o equilíbrio climático.')">Desmatamento</button>
+<button onclick="mostrarImpacto('Uso excessivo da água pressiona rios, nascentes e aquíferos.')">Uso da água</button>
+<button onclick="mostrarImpacto('Emissões de carbono intensificam o aquecimento global.')">Carbono</button>
+<p id="impactoTexto">Clique em um desafio para visualizar.</p>
 </div>
 </section>
 
-<section id="futuro" class="section future reveal">
-<h2>Soluções e futuro</h2>
-<div class="cards">
-<article class="card glass">
-<h3>Agricultura regenerativa</h3>
-<p>Recupera o solo e fortalece a biodiversidade.</p>
-</article>
-<article class="card glass">
-<h3>IA no campo</h3>
-<p>Ajuda a prever pragas, clima, produtividade e desperdícios.</p>
-</article>
-<article class="card glass">
-<h3>Rastreabilidade</h3>
-<p>Permite acompanhar a origem e o impacto da produção.</p>
-</article>
+<section id="solucoes" class="section">
+<h2>Soluções para o futuro</h2>
+<div class="solution-wheel">
+<div>Solo vivo</div>
+<div>Dados</div>
+<div>Energia limpa</div>
+<div>Rastreabilidade</div>
+<div>Regeneração</div>
 </div>
 </section>
 
-<section id="interativo" class="section tools reveal">
-<h2>Área interativa</h2>
+<section id="interativo" class="section interactive">
+<h2>Laboratório interativo</h2>
 
-<div class="interactive-grid">
-<div class="panel">
-<h3>Calculadora de impacto</h3>
-<p>Informe o consumo mensal de água.</p>
-<input type="number" id="agua" placeholder="Ex: 10000 litros" />
-<button onclick="calcularImpacto()">Calcular economia</button>
-<div class="progress">
-<div id="bar"></div>
-</div>
+<div class="lab">
+<div class="module">
+<h3>Calculadora de economia de água</h3>
+<input type="number" id="agua" placeholder="Litros usados por mês" />
+<button onclick="calcular()">Calcular</button>
+<div class="meter"><div id="meterFill"></div></div>
 <p id="resultado"></p>
 </div>
 
-<div class="panel">
-<h3>Quiz sustentável</h3>
-<p id="perguntaQuiz"></p>
-<div id="opcoesQuiz"></div>
-<p id="quizResultado"></p>
+<div class="module">
+<h3>Quiz rápido</h3>
+<p id="pergunta"></p>
+<div id="respostas"></div>
+<p id="pontuacao"></p>
 </div>
 </div>
 </section>
 
-<section class="section gallery reveal">
-<h2>Galeria interativa</h2>
-<div class="gallery-grid">
-<div onclick="abrirModal('🌱 Plantações inteligentes')">🌱 Plantações</div>
-<div onclick="abrirModal('🚁 Drones monitorando lavouras')">🚁 Drones</div>
-<div onclick="abrirModal('☀️ Energia solar no campo')">☀️ Solar</div>
-<div onclick="abrirModal('🌍 Solo fértil e preservado')">🌍 Solo</div>
+<section class="section map">
+<h2>Mapa agrícola conceitual</h2>
+<div class="map-grid">
+<div class="pin p1">🌾</div>
+<div class="pin p2">☀️</div>
+<div class="pin p3">💧</div>
+<div class="pin p4">🚁</div>
 </div>
-</section>
-
-<section id="contato" class="section contact reveal">
-<h2>Mensagem final</h2>
-<form onsubmit="enviarFormulario(event)">
-<input type="text" placeholder="Seu nome" required />
-<input type="email" placeholder="Seu e-mail" required />
-<textarea placeholder="Escreva uma ideia para um agro mais sustentável" required></textarea>
-<button type="submit">Enviar ideia</button>
-</form>
-<p id="formMsg"></p>
 </section>
 </main>
 
-<div id="modal" class="modal" onclick="fecharModal()">
-<div class="modal-box">
-<h3 id="modalText"></h3>
-<p>Clique fora para fechar.</p>
-</div>
-</div>
-
 <footer>
-<p>AgroFuturo — tecnologia para produzir, preservar e regenerar.</p>
+<p>AgroPulse — produção inteligente para um planeta vivo.</p>
 </footer>
 
 <script>
 function toggleMenu() {
-document.getElementById("menu").classList.toggle("active");
+document.getElementById("menu").classList.toggle("open");
 }
 
-function abrirAba(tipo) {
-const textos = {
-solo: "Plantio direto, rotação de culturas e cobertura vegetal protegem a fertilidade do solo.",
-agua: "Irrigação inteligente usa sensores para aplicar água apenas quando necessário.",
-energia: "Energia solar, biomassa e biogás diminuem custos e reduzem emissões."
-};
-document.getElementById("tabContent").textContent = textos[tipo];
+function mostrarImpacto(texto) {
+document.getElementById("impactoTexto").textContent = texto;
 }
 
-function calcularImpacto() {
+function calcular() {
 const agua = Number(document.getElementById("agua").value);
 const resultado = document.getElementById("resultado");
-const bar = document.getElementById("bar");
+const fill = document.getElementById("meterFill");
 
 if (!agua || agua <= 0) {
 resultado.textContent = "Digite um valor válido.";
-bar.style.width = "0%";
+fill.style.width = "0";
 return;
 }
 
 const economia = agua * 0.3;
-resultado.textContent = `Economia estimada: ${economia.toFixed(0)} litros por mês.`;
-bar.style.width = "70%";
+resultado.textContent = `Economia estimada: ${economia.toFixed(0)} litros/mês.`;
+fill.style.width = "70%";
 }
 
-const perguntas = [
+const quiz = [
 {
-q: "Qual tecnologia ajuda a monitorar lavouras pelo alto?",
-opcoes: ["Drones", "Queimadas", "Desmatamento"],
-correta: 0
+q: "Qual tecnologia ajuda a mapear lavouras?",
+a: ["Drones", "Queimada", "Desmatamento"],
+c: 0
 },
 {
 q: "Qual prática protege o solo?",
-opcoes: ["Rotação de culturas", "Erosão", "Uso excessivo de água"],
-correta: 0
+a: ["Rotação de culturas", "Erosão", "Monocultura sem manejo"],
+c: 0
 },
 {
-q: "Qual energia é renovável?",
-opcoes: ["Carvão mineral", "Solar", "Diesel"],
-correta: 1
+q: "Qual fonte é renovável?",
+a: ["Diesel", "Carvão", "Solar"],
+c: 2
 }
 ];
 
-let atual = 0;
-let pontos = 0;
+let etapa = 0;
+let score = 0;
 
-function carregarQuiz() {
-const pergunta = perguntas[atual];
-document.getElementById("perguntaQuiz").textContent = pergunta.q;
-document.getElementById("opcoesQuiz").innerHTML = "";
+function carregarPergunta() {
+const item = quiz[etapa];
+document.getElementById("pergunta").textContent = item.q;
+document.getElementById("respostas").innerHTML = "";
 
-pergunta.opcoes.forEach((opcao, index) => {
+item.a.forEach((texto, i) => {
 const btn = document.createElement("button");
-btn.textContent = opcao;
-btn.onclick = () => responderQuiz(index);
-document.getElementById("opcoesQuiz").appendChild(btn);
+btn.textContent = texto;
+btn.onclick = () => responder(i);
+document.getElementById("respostas").appendChild(btn);
 });
 }
 
-function responderQuiz(index) {
-if (index === perguntas[atual].correta) pontos++;
+function responder(i) {
+if (i === quiz[etapa].c) score++;
+etapa++;
 
-atual++;
-
-if (atual < perguntas.length) {
-carregarQuiz();
+if (etapa < quiz.length) {
+carregarPergunta();
 } else {
-document.getElementById("perguntaQuiz").textContent = "Quiz finalizado!";
-document.getElementById("opcoesQuiz").innerHTML = "";
-document.getElementById("quizResultado").textContent =
-`Você fez ${pontos} de ${perguntas.length} pontos.`;
+document.getElementById("pergunta").textContent = "Quiz finalizado.";
+document.getElementById("respostas").innerHTML = "";
+document.getElementById("pontuacao").textContent = `Pontuação: ${score}/${quiz.length}`;
 }
 }
 
-function abrirModal(texto) {
-document.getElementById("modalText").textContent = texto;
-document.getElementById("modal").style.display = "flex";
-}
-
-function fecharModal() {
-document.getElementById("modal").style.display = "none";
-}
-
-function enviarFormulario(event) {
-event.preventDefault();
-document.getElementById("formMsg").textContent =
-"Ideia enviada. O futuro do agro também depende de consciência coletiva.";
-event.target.reset();
-}
-
-const reveals = document.querySelectorAll(".reveal");
-
-function mostrarAoRolar() {
-reveals.forEach((el) => {
-const topo = el.getBoundingClientRect().top;
-if (topo < window.innerHeight - 100) {
-el.classList.add("show");
-}
-});
-}
-
-const counters = document.querySelectorAll("[data-target]");
-let contadorAtivado = false;
-
-function animarContadores() {
-if (contadorAtivado) return;
-
-counters.forEach((counter) => {
-const target = Number(counter.dataset.target);
-let valor = 0;
-const intervalo = setInterval(() => {
-valor++;
-counter.textContent = valor;
-if (valor >= target) clearInterval(intervalo);
-}, 35);
-});
-
-contadorAtivado = true;
-}
-
-window.addEventListener("scroll", () => {
-mostrarAoRolar();
-if (window.scrollY > 250) animarContadores();
-});
-
-carregarQuiz();
-mostrarAoRolar();
+carregarPergunta();
 </script>
 </body>
 </html>
