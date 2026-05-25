@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Agro Sustentável</title>
+<title>Agro Futuro</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <header class="header">
 <nav class="navbar">
-<h1 class="logo">Agro Sustentável</h1>
+<h1 class="logo">Agro<span>Futuro</span></h1>
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
 <ul id="menu">
 <li><a href="#inicio">Início</a></li>
@@ -17,144 +17,158 @@
 <li><a href="#sustentabilidade">Sustentabilidade</a></li>
 <li><a href="#desafios">Desafios</a></li>
 <li><a href="#futuro">Futuro</a></li>
-<li><a href="#contato">Contato</a></li>
+<li><a href="#interativo">Interativo</a></li>
 </ul>
 </nav>
 </header>
 
 <section id="inicio" class="hero">
+<div class="orbit"></div>
 <div class="hero-content">
-<h2>Produzir hoje sem destruir o amanhã</h2>
-<p>
-O agronegócio pode crescer com tecnologia, responsabilidade ambiental
-e preservação dos recursos naturais.
-</p>
-<a href="#producao" class="btn">Explorar projeto</a>
+<span class="badge">Tecnologia • Campo • Futuro</span>
+<h2>O agro do futuro começa agora</h2>
+<p>Produção inteligente, solo vivo, energia limpa e tecnologia trabalhando juntas.</p>
+<div class="hero-buttons">
+<a href="#interativo" class="btn">Testar ferramentas</a>
+<a href="#futuro" class="btn ghost">Ver soluções</a>
+</div>
 </div>
 </section>
 
 <main>
-<section class="intro">
+<section class="intro reveal">
 <h2>Pergunta norteadora</h2>
-<p>
-Como o agronegócio pode crescer economicamente sem comprometer os
-recursos naturais das futuras gerações?
-</p>
+<p>Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?</p>
 </section>
 
-<section id="producao" class="section">
+<section id="producao" class="section reveal">
 <h2>Produção agrícola</h2>
+<div class="stats">
+<div>
+<strong data-target="25">0</strong>
+<span>% do PIB ligado ao agro</span>
+</div>
+<div>
+<strong data-target="30">0</strong>
+<span>% de economia estimada com irrigação inteligente</span>
+</div>
+<div>
+<strong data-target="4">0</strong>
+<span>tecnologias-chave</span>
+</div>
+</div>
+
 <div class="cards">
 <article class="card">
-<h3>Importância econômica</h3>
-<p>
-O agro movimenta cadeias de produção, exportação, tecnologia,
-transporte, indústria e geração de empregos.
-</p>
-</article>
-<article class="card">
 <h3>Agricultura de precisão</h3>
-<p>
-Sensores, GPS, dados e softwares ajudam a aplicar água, fertilizantes
-e defensivos na quantidade correta.
-</p>
+<p>Dados, sensores e GPS ajudam a produzir mais com menos desperdício.</p>
 </article>
 <article class="card">
 <h3>Drones agrícolas</h3>
-<p>
-Drones auxiliam no monitoramento da lavoura, identificação de pragas,
-mapeamento e pulverização localizada.
-</p>
+<p>Monitoram lavouras, identificam falhas e apoiam decisões rápidas.</p>
+</article>
+<article class="card">
+<h3>Energia renovável</h3>
+<p>Solar, biomassa e biogás reduzem custos e emissões no campo.</p>
 </article>
 </div>
 </section>
 
-<section id="sustentabilidade" class="section green">
+<section id="sustentabilidade" class="section green reveal">
 <h2>Sustentabilidade no campo</h2>
-<div class="grid">
-<div>
-<h3>Conservação do solo</h3>
-<p>Plantio direto, rotação de culturas e cobertura vegetal reduzem erosão.</p>
+<div class="tabs">
+<button onclick="abrirAba('solo')">Solo</button>
+<button onclick="abrirAba('agua')">Água</button>
+<button onclick="abrirAba('energia')">Energia</button>
 </div>
-<div>
-<h3>Irrigação inteligente</h3>
-<p>Sistemas automatizados evitam desperdício e melhoram o uso da água.</p>
-</div>
-<div>
-<h3>Energia renovável</h3>
-<p>Energia solar, biomassa e biogás reduzem custos e emissões.</p>
-</div>
+<div id="tabContent" class="tab-content">
+Clique em uma tecnologia para explorar.
 </div>
 </section>
 
-<section id="desafios" class="section">
+<section id="desafios" class="section reveal">
 <h2>Desafios ambientais</h2>
-<ul class="list">
-<li><strong>Desmatamento:</strong> perda de biodiversidade e alteração do clima.</li>
-<li><strong>Uso da água:</strong> risco de desperdício e pressão sobre rios e aquíferos.</li>
-<li><strong>Emissão de carbono:</strong> impacto sobre o aquecimento global.</li>
-<li><strong>Degradação do solo:</strong> perda de fertilidade e produtividade futura.</li>
-</ul>
+<div class="timeline">
+<div><span>01</span><p>Desmatamento reduz biodiversidade e altera o clima.</p></div>
+<div><span>02</span><p>Uso excessivo da água pressiona rios e aquíferos.</p></div>
+<div><span>03</span><p>Emissões de carbono aumentam o impacto climático.</p></div>
+<div><span>04</span><p>Solo degradado perde fertilidade e produtividade.</p></div>
+</div>
 </section>
 
-<section id="futuro" class="section future">
+<section id="futuro" class="section future reveal">
 <h2>Soluções e futuro</h2>
 <div class="cards">
-<article class="card">
+<article class="card glass">
 <h3>Agricultura regenerativa</h3>
-<p>Recupera o solo, aumenta matéria orgânica e melhora a biodiversidade.</p>
+<p>Recupera o solo e fortalece a biodiversidade.</p>
 </article>
-<article class="card">
-<h3>Tecnologia limpa</h3>
-<p>Integra dados, sensores, drones, energia limpa e automação rural.</p>
+<article class="card glass">
+<h3>IA no campo</h3>
+<p>Ajuda a prever pragas, clima, produtividade e desperdícios.</p>
 </article>
-<article class="card">
-<h3>Produção responsável</h3>
-<p>Combina produtividade, rastreabilidade, conservação e educação ambiental.</p>
+<article class="card glass">
+<h3>Rastreabilidade</h3>
+<p>Permite acompanhar a origem e o impacto da produção.</p>
 </article>
 </div>
 </section>
 
-<section class="section tools">
-<h2>Calculadora de impacto ambiental</h2>
-<p>Estime a economia mensal de água com irrigação inteligente.</p>
-<input type="number" id="agua" placeholder="Litros usados por mês" />
-<button onclick="calcularImpacto()">Calcular</button>
+<section id="interativo" class="section tools reveal">
+<h2>Área interativa</h2>
+
+<div class="interactive-grid">
+<div class="panel">
+<h3>Calculadora de impacto</h3>
+<p>Informe o consumo mensal de água.</p>
+<input type="number" id="agua" placeholder="Ex: 10000 litros" />
+<button onclick="calcularImpacto()">Calcular economia</button>
+<div class="progress">
+<div id="bar"></div>
+</div>
 <p id="resultado"></p>
-</section>
+</div>
 
-<section class="section quiz">
-<h2>Quiz sobre sustentabilidade</h2>
-<p>Qual prática ajuda a conservar o solo?</p>
-<button onclick="responderQuiz(true)">Rotação de culturas</button>
-<button onclick="responderQuiz(false)">Queimada frequente</button>
+<div class="panel">
+<h3>Quiz sustentável</h3>
+<p id="perguntaQuiz"></p>
+<div id="opcoesQuiz"></div>
 <p id="quizResultado"></p>
+</div>
+</div>
 </section>
 
-<section class="section gallery">
+<section class="section gallery reveal">
 <h2>Galeria interativa</h2>
 <div class="gallery-grid">
-<div>🌱 Plantações</div>
-<div>🚁 Drones</div>
-<div>☀️ Energia solar</div>
-<div>🌍 Solo fértil</div>
+<div onclick="abrirModal('🌱 Plantações inteligentes')">🌱 Plantações</div>
+<div onclick="abrirModal('🚁 Drones monitorando lavouras')">🚁 Drones</div>
+<div onclick="abrirModal('☀️ Energia solar no campo')">☀️ Solar</div>
+<div onclick="abrirModal('🌍 Solo fértil e preservado')">🌍 Solo</div>
 </div>
 </section>
 
-<section id="contato" class="section contact">
-<h2>Contato e conscientização</h2>
+<section id="contato" class="section contact reveal">
+<h2>Mensagem final</h2>
 <form onsubmit="enviarFormulario(event)">
 <input type="text" placeholder="Seu nome" required />
 <input type="email" placeholder="Seu e-mail" required />
-<textarea placeholder="Sua mensagem" required></textarea>
-<button type="submit">Enviar</button>
+<textarea placeholder="Escreva uma ideia para um agro mais sustentável" required></textarea>
+<button type="submit">Enviar ideia</button>
 </form>
 <p id="formMsg"></p>
 </section>
 </main>
 
+<div id="modal" class="modal" onclick="fecharModal()">
+<div class="modal-box">
+<h3 id="modalText"></h3>
+<p>Clique fora para fechar.</p>
+</div>
+</div>
+
 <footer>
-<p>Projeto educativo: Agronegócio, tecnologia e sustentabilidade.</p>
+<p>AgroFuturo — tecnologia para produzir, preservar e regenerar.</p>
 </footer>
 
 <script>
@@ -162,31 +176,133 @@ function toggleMenu() {
 document.getElementById("menu").classList.toggle("active");
 }
 
+function abrirAba(tipo) {
+const textos = {
+solo: "Plantio direto, rotação de culturas e cobertura vegetal protegem a fertilidade do solo.",
+agua: "Irrigação inteligente usa sensores para aplicar água apenas quando necessário.",
+energia: "Energia solar, biomassa e biogás diminuem custos e reduzem emissões."
+};
+document.getElementById("tabContent").textContent = textos[tipo];
+}
+
 function calcularImpacto() {
 const agua = Number(document.getElementById("agua").value);
 const resultado = document.getElementById("resultado");
+const bar = document.getElementById("bar");
 
 if (!agua || agua <= 0) {
 resultado.textContent = "Digite um valor válido.";
+bar.style.width = "0%";
 return;
 }
 
 const economia = agua * 0.3;
-resultado.textContent = `Com irrigação inteligente, a economia estimada pode chegar a ${economia.toFixed(0)} litros por mês.`;
+resultado.textContent = `Economia estimada: ${economia.toFixed(0)} litros por mês.`;
+bar.style.width = "70%";
 }
 
-function responderQuiz(correto) {
-document.getElementById("quizResultado").textContent = correto
-? "Correto. A rotação de culturas ajuda a proteger o solo."
-: "Incorreto. Queimadas frequentes prejudicam o solo e a biodiversidade.";
+const perguntas = [
+{
+q: "Qual tecnologia ajuda a monitorar lavouras pelo alto?",
+opcoes: ["Drones", "Queimadas", "Desmatamento"],
+correta: 0
+},
+{
+q: "Qual prática protege o solo?",
+opcoes: ["Rotação de culturas", "Erosão", "Uso excessivo de água"],
+correta: 0
+},
+{
+q: "Qual energia é renovável?",
+opcoes: ["Carvão mineral", "Solar", "Diesel"],
+correta: 1
+}
+];
+
+let atual = 0;
+let pontos = 0;
+
+function carregarQuiz() {
+const pergunta = perguntas[atual];
+document.getElementById("perguntaQuiz").textContent = pergunta.q;
+document.getElementById("opcoesQuiz").innerHTML = "";
+
+pergunta.opcoes.forEach((opcao, index) => {
+const btn = document.createElement("button");
+btn.textContent = opcao;
+btn.onclick = () => responderQuiz(index);
+document.getElementById("opcoesQuiz").appendChild(btn);
+});
+}
+
+function responderQuiz(index) {
+if (index === perguntas[atual].correta) pontos++;
+
+atual++;
+
+if (atual < perguntas.length) {
+carregarQuiz();
+} else {
+document.getElementById("perguntaQuiz").textContent = "Quiz finalizado!";
+document.getElementById("opcoesQuiz").innerHTML = "";
+document.getElementById("quizResultado").textContent =
+`Você fez ${pontos} de ${perguntas.length} pontos.`;
+}
+}
+
+function abrirModal(texto) {
+document.getElementById("modalText").textContent = texto;
+document.getElementById("modal").style.display = "flex";
+}
+
+function fecharModal() {
+document.getElementById("modal").style.display = "none";
 }
 
 function enviarFormulario(event) {
 event.preventDefault();
 document.getElementById("formMsg").textContent =
-"Mensagem enviada com sucesso. Obrigado por participar!";
+"Ideia enviada. O futuro do agro também depende de consciência coletiva.";
 event.target.reset();
 }
+
+const reveals = document.querySelectorAll(".reveal");
+
+function mostrarAoRolar() {
+reveals.forEach((el) => {
+const topo = el.getBoundingClientRect().top;
+if (topo < window.innerHeight - 100) {
+el.classList.add("show");
+}
+});
+}
+
+const counters = document.querySelectorAll("[data-target]");
+let contadorAtivado = false;
+
+function animarContadores() {
+if (contadorAtivado) return;
+
+counters.forEach((counter) => {
+const target = Number(counter.dataset.target);
+let valor = 0;
+const intervalo = setInterval(() => {
+valor++;
+counter.textContent = valor;
+if (valor >= target) clearInterval(intervalo);
+}, 35);
+});
+
+contadorAtivado = true;
+}
+
+window.addEventListener("scroll", () => {
+mostrarAoRolar();
+if (window.scrollY > 250) animarContadores();
+});
+
+carregarQuiz();
+mostrarAoRolar();
 </script>
 </body>
 </html>
