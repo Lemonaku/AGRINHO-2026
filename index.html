@@ -1,9 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sustentabilidade no Agronegócio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agro Sustentável</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<header class="header">
+<nav class="navbar">
+<h1 class="logo">Agro Sustentável</h1>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<ul id="menu">
+<li><a href="#inicio">Início</a></li>
+<li><a href="#producao">Produção</a></li>
+<li><a href="#sustentabilidade">Sustentabilidade</a></li>
+<li><a href="#desafios">Desafios</a></li>
+<li><a href="#futuro">Futuro</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="inicio" class="hero">
+<div class="hero-content">
+<h2>Produzir hoje sem destruir o amanhã</h2>
+<p>
+O agronegócio pode crescer com tecnologia, responsabilidade ambiental
+e preservação dos recursos naturais.
+</p>
+<a href="#producao" class="btn">Explorar projeto</a>
+</div>
+</section>
+
+<main>
+<section class="intro">
+<h2>Pergunta norteadora</h2>
+<p>
+Como o agronegócio pode crescer economicamente sem comprometer os
+recursos naturais das futuras gerações?
+</p>
+</section>
+
+<section id="producao" class="section">
+<h2>Produção agrícola</h2>
+<div class="cards">
+<article class="card">
+<h3>Importância econômica</h3>
+<p>
+O agro movimenta cadeias de produção, exportação, tecnologia,
+transporte, indústria e geração de empregos.
+</p>
+</article>
+<article class="card">
+<h3>Agricultura de precisão</h3>
+<p>
+Sensores, GPS, dados e softwares ajudam a aplicar água, fertilizantes
+e defensivos na quantidade correta.
+</p>
+</article>
+<article class="card">
+<h3>Drones agrícolas</h3>
+<p>
+Drones auxiliam no monitoramento da lavoura, identificação de pragas,
+mapeamento e pulverização localizada.
+</p>
+</article>
+</div>
+</section>
+
+<section id="sustentabilidade" class="section green">
+<h2>Sustentabilidade no campo</h2>
+<div class="grid">
+<div>
+<h3>Conservação do solo</h3>
+<p>Plantio direto, rotação de culturas e cobertura vegetal reduzem erosão.</p>
+</div>
+<div>
+<h3>Irrigação inteligente</h3>
+<p>Sistemas automatizados evitam desperdício e melhoram o uso da água.</p>
+</div>
+<div>
+<h3>Energia renovável</h3>
+<p>Energia solar, biomassa e biogás reduzem custos e emissões.</p>
+</div>
+</div>
+</section>
+
+<section id="desafios" class="section">
+<h2>Desafios ambientais</h2>
+<ul class="list">
+<li><strong>Desmatamento:</strong> perda de biodiversidade e alteração do clima.</li>
+<li><strong>Uso da água:</strong> risco de desperdício e pressão sobre rios e aquíferos.</li>
+<li><strong>Emissão de carbono:</strong> impacto sobre o aquecimento global.</li>
+<li><strong>Degradação do solo:</strong> perda de fertilidade e produtividade futura.</li>
+</ul>
+</section>
+
+<section id="futuro" class="section future">
+<h2>Soluções e futuro</h2>
+<div class="cards">
+<article class="card">
+<h3>Agricultura regenerativa</h3>
+<p>Recupera o solo, aumenta matéria orgânica e melhora a biodiversidade.</p>
+</article>
+<article class="card">
+<h3>Tecnologia limpa</h3>
+<p>Integra dados, sensores, drones, energia limpa e automação rural.</p>
+</article>
+<article class="card">
+<h3>Produção responsável</h3>
+<p>Combina produtividade, rastreabilidade, conservação e educação ambiental.</p>
+</article>
+</div>
+</section>
+
+<section class="section tools">
+<h2>Calculadora de impacto ambiental</h2>
+<p>Estime a economia mensal de água com irrigação inteligente.</p>
+<input type="number" id="agua" placeholder="Litros usados por mês" />
+<button onclick="calcularImpacto()">Calcular</button>
+<p id="resultado"></p>
+</section>
+
+<section class="section quiz">
+<h2>Quiz sobre sustentabilidade</h2>
+<p>Qual prática ajuda a conservar o solo?</p>
+<button onclick="responderQuiz(true)">Rotação de culturas</button>
+<button onclick="responderQuiz(false)">Queimada frequente</button>
+<p id="quizResultado"></p>
+</section>
+
+<section class="section gallery">
+<h2>Galeria interativa</h2>
+<div class="gallery-grid">
+<div>🌱 Plantações</div>
+<div>🚁 Drones</div>
+<div>☀️ Energia solar</div>
+<div>🌍 Solo fértil</div>
+</div>
+</section>
+
+<section id="contato" class="section contact">
+<h2>Contato e conscientização</h2>
+<form onsubmit="enviarFormulario(event)">
+<input type="text" placeholder="Seu nome" required />
+<input type="email" placeholder="Seu e-mail" required />
+<textarea placeholder="Sua mensagem" required></textarea>
+<button type="submit">Enviar</button>
+</form>
+<p id="formMsg"></p>
+</section>
+</main>
+
+<footer>
+<p>Projeto educativo: Agronegócio, tecnologia e sustentabilidade.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+document.getElementById("menu").classList.toggle("active");
+}
+
+function calcularImpacto() {
+const agua = Number(document.getElementById("agua").value);
+const resultado = document.getElementById("resultado");
+
+if (!agua || agua <= 0) {
+resultado.textContent = "Digite um valor válido.";
+return;
+}
+
+const economia = agua * 0.3;
+resultado.textContent = `Com irrigação inteligente, a economia estimada pode chegar a ${economia.toFixed(0)} litros por mês.`;
+}
+
+function responderQuiz(correto) {
+document.getElementById("quizResultado").textContent = correto
+? "Correto. A rotação de culturas ajuda a proteger o solo."
+: "Incorreto. Queimadas frequentes prejudicam o solo e a biodiversidade.";
+}
+
+function enviarFormulario(event) {
+event.preventDefault();
+document.getElementById("formMsg").textContent =
+"Mensagem enviada com sucesso. Obrigado por participar!";
+event.target.reset();
+}
+</script>
+</body>
+</html>
