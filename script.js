@@ -4,7 +4,6 @@ const menu = document.getElementById("menu");
 menuBtn.addEventListener("click", () => {
 menu.classList.toggle("open");
 });
-
 function mostrarImpacto(texto) {
 document.getElementById("impactoTexto").textContent = texto;
 }
