@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AgroPulse 2026 — Agro forte, futuro sustentável</title>
+<title>AgroPulse — Tecnologia, Campo e Futuro</title>
 
 <meta
   name="description"
-  content="AgroPulse 2026: tecnologia, produtividade, sustentabilidade e impacto social conectando o agronegócio ao futuro."
+  content="AgroPulse: tecnologia, sustentabilidade e inovação transformando o futuro da agricultura."
 >
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,1618 +21,2708 @@
 
 <style>
 
-:root{
-  --bg:#07100c;
-  --bg2:#0b1711;
-  --green:#8dff6a;
-  --green2:#43e77c;
-  --lime:#c7ff74;
-  --text:#f4f7f4;
-  --muted:#9dad9f;
-  --border:rgba(255,255,255,.1);
-  --border-green:rgba(141,255,106,.27);
-  --card:rgba(16,34,24,.72);
-  --max:1220px;
+/* =========================================================
+   RESET / ROOT
+========================================================= */
+
+:root {
+  --bg: #07100c;
+  --bg-soft: #0b1711;
+  --bg-card: rgba(16, 34, 24, 0.72);
+
+  --green: #8dff6a;
+  --green-2: #43e77c;
+  --green-dark: #1c9c50;
+
+  --lime: #c7ff74;
+  --yellow: #f2ff87;
+
+  --text: #f3f7f3;
+  --muted: #9bad9f;
+
+  --border: rgba(255,255,255,.10);
+  --border-green: rgba(141,255,106,.25);
+
+  --shadow:
+    0 30px 80px rgba(0,0,0,.35);
+
+  --radius: 28px;
+  --radius-sm: 18px;
+
+  --max: 1220px;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-  font-family:"DM Sans",sans-serif;
+body {
   background:
-    radial-gradient(circle at 10% 10%,rgba(141,255,106,.08),transparent 30%),
-    radial-gradient(circle at 90% 50%,rgba(67,231,124,.06),transparent 30%),
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(57,255,124,.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(154,255,98,.06),
+      transparent 32%
+    ),
     var(--bg);
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
+
+  color: var(--text);
+
+  font-family: "DM Sans", sans-serif;
+
+  line-height: 1.6;
+
+  overflow-x: hidden;
 }
 
-body.modal-open{
-  overflow:hidden;
+body.menu-lock {
+  overflow: hidden;
 }
 
-img{
-  width:100%;
-  display:block;
+::selection {
+  background: var(--green);
+  color: #041008;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 button,
-input{
-  font:inherit;
+input {
+  font: inherit;
 }
 
-button{
-  cursor:pointer;
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.noise {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .055;
+
+  z-index: 999;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
 
-::selection{
-  color:#07100c;
-  background:var(--green);
+.bg-orb {
+  position: fixed;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+
+  opacity: .08;
+
+  z-index: -1;
 }
 
-.noise{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  pointer-events:none;
-  opacity:.045;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+.orb-one {
+  background: #7dff58;
+
+  left: -250px;
+  top: 20%;
 }
 
-.cursor-light{
-  position:fixed;
-  width:340px;
-  height:340px;
-  left:0;
-  top:0;
-  z-index:-1;
-  pointer-events:none;
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-  background:radial-gradient(circle,rgba(141,255,106,.07),transparent 67%);
+.orb-two {
+  background: #1ee889;
+
+  right: -260px;
+  top: 55%;
 }
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 .container,
-.section{
-  width:min(calc(100% - 44px),var(--max));
-  margin-inline:auto;
+.section {
+  width: min(calc(100% - 44px), var(--max));
+  margin-inline: auto;
 }
 
-.section{
-  padding:110px 0;
+.section {
+  padding: 115px 0;
 }
 
-h1,h2,h3{
-  font-family:"Manrope",sans-serif;
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+
+  margin-bottom: 50px;
 }
 
-h2{
-  font-size:clamp(2.3rem,5vw,4.5rem);
-  line-height:1.04;
-  letter-spacing:-.05em;
+.section-head > div {
+  max-width: 720px;
 }
 
-.highlight{
-  color:var(--green);
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--green);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  margin-bottom: 17px;
 }
 
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  color:var(--green);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  margin-bottom:16px;
+.eyebrow::before {
+  content: "";
+
+  width: 22px;
+  height: 1px;
+
+  background: var(--green);
 }
 
-.eyebrow::before{
-  content:"";
-  width:22px;
-  height:1px;
-  background:var(--green);
+h1,
+h2,
+h3 {
+  font-family: "Manrope", sans-serif;
 }
 
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:45px;
-  margin-bottom:48px;
+h2 {
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  line-height: 1.05;
+
+  letter-spacing: -.045em;
 }
 
-.section-head > div{
-  max-width:780px;
+.section-subtitle {
+  max-width: 590px;
+
+  color: var(--muted);
+
+  font-size: 17px;
 }
 
-.section-subtitle{
-  max-width:520px;
-  color:var(--muted);
-  font-size:16px;
+.highlight {
+  color: var(--green);
 }
 
-.reveal{
-  opacity:0;
-  transform:translateY(25px);
-  transition:opacity .75s ease,transform .75s ease;
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
 }
 
-.reveal.visible{
-  opacity:1;
-  transform:translateY(0);
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* HEADER */
+/* =========================================================
+   TOPBAR
+========================================================= */
 
-.topbar{
-  position:fixed;
-  z-index:1000;
-  top:18px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(calc(100% - 40px),1320px);
-  height:70px;
-  padding:0 24px;
-  display:flex;
-  align-items:center;
-  border:1px solid var(--border);
-  border-radius:22px;
-  background:rgba(5,15,9,.72);
-  backdrop-filter:blur(20px);
-  transition:.3s;
+.topbar {
+  width: min(calc(100% - 40px), 1320px);
+
+  position: fixed;
+
+  left: 50%;
+  top: 18px;
+
+  transform: translateX(-50%);
+
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 24px;
+
+  border: 1px solid rgba(255,255,255,.09);
+
+  background: rgba(6,17,11,.68);
+
+  backdrop-filter: blur(20px);
+
+  border-radius: 22px;
+
+  z-index: 100;
+
+  transition:
+    background .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
 }
 
-.topbar.scrolled{
-  background:rgba(5,15,9,.94);
-  box-shadow:0 20px 60px rgba(0,0,0,.3);
+.topbar.scrolled {
+  background: rgba(5,14,9,.9);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.28);
 }
 
-.brand{
-  margin-right:auto;
-  font-family:"Manrope",sans-serif;
-  font-size:22px;
-  font-weight:800;
-  letter-spacing:-.04em;
+.brand {
+  font-family: "Manrope", sans-serif;
+
+  font-size: 22px;
+  font-weight: 800;
+
+  letter-spacing: -.04em;
+
+  margin-right: auto;
 }
 
-.brand span{
-  color:var(--green);
+.brand span {
+  color: var(--green);
 }
 
-.brand-dot{
-  display:inline-block;
-  width:7px;
-  height:7px;
-  margin-left:5px;
-  border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 12px var(--green);
+.brand-dot {
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  margin-left: 4px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 12px var(--green);
 }
 
-nav{
-  display:flex;
-  gap:7px;
+nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-nav a{
-  padding:9px 12px;
-  border-radius:11px;
-  color:#c5d0c8;
-  font-size:13px;
-  transition:.2s;
+nav a {
+  padding: 10px 13px;
+
+  border-radius: 12px;
+
+  color: #c7d0ca;
+
+  font-size: 14px;
+
+  transition:
+    color .25s ease,
+    background .25s ease;
 }
 
 nav a:hover,
-nav a.active{
-  color:white;
-  background:rgba(255,255,255,.07);
+nav a.active {
+  color: #fff;
+  background: rgba(255,255,255,.07);
 }
 
-.menu-btn{
-  display:none;
-  border:0;
-  background:transparent;
-  color:white;
-  font-size:25px;
+.menu-btn {
+  display: none;
+
+  color: white;
+  background: transparent;
+  border: 0;
+
+  font-size: 24px;
+
+  cursor: pointer;
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
-.hero{
-  width:min(calc(100% - 44px),1320px);
-  min-height:100vh;
-  margin:auto;
-  padding:145px 0 80px;
-  display:grid;
-  grid-template-columns:.9fr 1.1fr;
-  gap:55px;
-  align-items:center;
+.hero {
+  min-height: 100vh;
+
+  width: min(calc(100% - 44px), 1320px);
+
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: .94fr 1.06fr;
+
+  align-items: center;
+
+  gap: 55px;
+
+  padding:
+    150px 0
+    90px;
 }
 
-.hero-tag{
-  width:max-content;
-  padding:9px 14px;
-  margin-bottom:24px;
-  color:var(--green);
-  border:1px solid var(--border-green);
-  border-radius:999px;
-  background:rgba(141,255,106,.06);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.13em;
+.hero-text {
+  position: relative;
+
+  z-index: 2;
 }
 
-.hero h1{
-  max-width:700px;
-  margin-bottom:28px;
-  font-size:clamp(3.8rem,7vw,7rem);
-  line-height:.93;
-  letter-spacing:-.07em;
+.hero .tag {
+  width: fit-content;
+
+  margin-bottom: 26px;
+
+  padding: 9px 14px;
+
+  border: 1px solid var(--border-green);
+
+  border-radius: 999px;
+
+  background: rgba(141,255,106,.07);
+
+  color: var(--green);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: .14em;
 }
 
-.hero h1 span{
-  display:block;
+.hero h1 {
+  max-width: 660px;
+
+  font-size: clamp(3.7rem, 7vw, 7.2rem);
+
+  line-height: .93;
+
+  letter-spacing: -.065em;
+
+  margin-bottom: 30px;
 }
 
-.hero-copy{
-  max-width:600px;
-  margin-bottom:30px;
-  color:var(--muted);
-  font-size:18px;
+.hero h1 .line {
+  display: block;
 }
 
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+.hero h1 em {
+  color: var(--green);
+
+  font-style: normal;
+}
+
+.hero-text > p:not(.tag) {
+  max-width: 590px;
+
+  color: var(--muted);
+
+  font-size: 18px;
+
+  margin-bottom: 32px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .primary,
-.secondary{
-  min-height:52px;
-  padding:0 22px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:15px;
-  font-size:14px;
-  font-weight:700;
-  transition:.25s;
+.secondary {
+  min-height: 52px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 22px;
+
+  border-radius: 15px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
 }
 
-.primary{
-  color:#07100c;
-  background:var(--green);
+.primary {
+  color: #061008;
+  background: var(--green);
+
+  box-shadow:
+    0 16px 40px rgba(117,255,85,.13);
 }
 
-.primary:hover,
-.secondary:hover{
-  transform:translateY(-3px);
+.primary:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 18px 50px rgba(117,255,85,.24);
 }
 
-.secondary{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.04);
+.secondary {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
 }
 
-.visual-panel{
-  min-height:680px;
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
-  border-radius:38px;
+.secondary:hover {
+  background: rgba(255,255,255,.08);
+
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.visual-panel {
+  min-height: 680px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  border-radius: 38px;
+
   background:
-    linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.68)),
-    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85") center/cover;
-  box-shadow:0 30px 90px rgba(0,0,0,.34);
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.03),
+      rgba(0,0,0,.65)
+    ),
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85")
+    center/cover;
+
+  box-shadow:
+    var(--shadow);
 }
 
-.visual-top{
-  position:absolute;
-  z-index:5;
-  top:22px;
-  left:22px;
-  right:22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+.visual-panel::after {
+  content: "";
 
-.live-pill{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 12px;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:999px;
-  background:rgba(7,18,11,.65);
-  backdrop-filter:blur(10px);
-  font-size:11px;
-}
+  position: absolute;
+  inset: 0;
 
-.live-dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 12px var(--green);
-  animation:pulse 1.7s infinite;
-}
-
-.coordinates{
-  font-family:monospace;
-  font-size:11px;
-  color:#d5ded7;
-}
-
-.scan-line{
-  position:absolute;
-  z-index:3;
-  left:0;
-  right:0;
-  height:2px;
-  background:linear-gradient(90deg,transparent,var(--green),transparent);
-  opacity:.5;
-  box-shadow:0 0 20px var(--green);
-  animation:scanner 5s linear infinite;
-}
-
-.floating-label{
-  position:absolute;
-  z-index:4;
-  padding:10px 13px;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:13px;
-  background:rgba(7,18,11,.65);
-  backdrop-filter:blur(15px);
-  font-size:11px;
-  animation:float 5s ease-in-out infinite;
-}
-
-.floating-label::before{
-  content:"";
-  display:inline-block;
-  width:6px;
-  height:6px;
-  margin-right:7px;
-  border-radius:50%;
-  background:var(--green);
-}
-
-.label-a{left:8%;top:31%;}
-.label-b{right:7%;top:43%;animation-delay:-2s;}
-.label-c{left:35%;top:19%;animation-delay:-1s;}
-
-.crop-interface{
-  position:absolute;
-  z-index:5;
-  left:28px;
-  right:28px;
-  bottom:28px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:11px;
-}
-
-.data-card{
-  padding:17px;
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:17px;
-  background:rgba(6,18,11,.64);
-  backdrop-filter:blur(18px);
-}
-
-.data-card span{
-  display:block;
-  margin-bottom:5px;
-  color:#aab9ad;
-  font-size:9px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-
-.data-card strong{
-  font-family:"Manrope",sans-serif;
-  font-size:23px;
-}
-
-.data-card small{
-  color:var(--green);
-  font-size:10px;
-}
-
-/* MARQUEE */
-
-.marquee{
-  overflow:hidden;
-  border-block:1px solid var(--border);
-}
-
-.marquee-track{
-  width:max-content;
-  display:flex;
-  animation:marquee 25s linear infinite;
-}
-
-.marquee-item{
-  padding:18px 25px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  color:#b9c6bc;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-
-.marquee-item::after{
-  content:"✦";
-  color:var(--green);
-}
-
-/* RUBRICA */
-
-.rubric-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-
-.rubric-card{
-  min-height:260px;
-  padding:25px;
-  display:flex;
-  flex-direction:column;
-  border:1px solid var(--border);
-  border-radius:23px;
   background:
-    linear-gradient(145deg,rgba(141,255,106,.035),transparent);
-  transition:.3s;
+    linear-gradient(
+      90deg,
+      rgba(7,16,12,.3),
+      transparent 30%
+    );
 }
 
-.rubric-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--border-green);
+.visual-top {
+  position: absolute;
+
+  top: 22px;
+  left: 22px;
+  right: 22px;
+
+  z-index: 4;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.rubric-status{
-  width:max-content;
-  margin-bottom:auto;
-  padding:6px 10px;
-  border-radius:999px;
-  color:#07100c;
-  background:var(--green);
-  font-size:10px;
-  font-weight:800;
+.live-pill {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 9px 13px;
+
+  border: 1px solid rgba(255,255,255,.13);
+
+  border-radius: 999px;
+
+  background: rgba(9,20,13,.62);
+
+  backdrop-filter: blur(12px);
+
+  font-size: 12px;
 }
 
-.rubric-card h3{
-  margin:25px 0 8px;
-  font-size:21px;
+.live-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 12px var(--green);
+
+  animation:
+    pulse 1.8s infinite;
 }
 
-.rubric-card p{
-  color:var(--muted);
-  font-size:13px;
+.coordinates {
+  color: rgba(255,255,255,.7);
+
+  font-family: monospace;
+
+  font-size: 11px;
 }
 
-/* THEME */
+.scan-line {
+  position: absolute;
 
-.theme-banner{
-  min-height:560px;
-  position:relative;
-  overflow:hidden;
-  padding:65px;
-  display:flex;
-  align-items:flex-end;
-  border:1px solid var(--border);
-  border-radius:35px;
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
   background:
-    linear-gradient(180deg,rgba(5,15,8,.05),rgba(5,15,8,.9)),
-    url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1800&q=85") center/cover;
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--green),
+      transparent
+    );
+
+  box-shadow:
+    0 0 20px rgba(141,255,106,.7);
+
+  opacity: .45;
+
+  animation:
+    scanner 5s linear infinite;
+
+  z-index: 3;
 }
 
-.theme-copy{
-  max-width:870px;
+.crop-interface {
+  position: absolute;
+
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+
+  z-index: 5;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
 }
 
-.theme-copy p{
-  max-width:650px;
-  margin-top:20px;
-  color:#c3cdc6;
-  font-size:16px;
+.data-card {
+  padding: 17px;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  background: rgba(6,18,11,.63);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 18px;
 }
 
-/* PILLARS */
+.data-card span {
+  display: block;
 
-.pillars{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  color: rgba(255,255,255,.56);
+
+  font-size: 10px;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 5px;
 }
 
-.pillar{
-  min-height:310px;
-  padding:26px;
-  display:flex;
-  flex-direction:column;
-  border:1px solid var(--border);
-  border-radius:24px;
-  background:rgba(255,255,255,.018);
+.data-card strong {
+  font-family: "Manrope", sans-serif;
+
+  font-size: 22px;
 }
 
-.pillar-icon{
-  font-size:35px;
-  margin-bottom:auto;
+.data-card strong small {
+  color: var(--green);
+
+  font-size: 11px;
 }
 
-.pillar h3{
-  font-size:24px;
-  margin-bottom:10px;
+.floating-label {
+  position: absolute;
+
+  z-index: 6;
+
+  padding: 11px 14px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  background: rgba(6,20,12,.65);
+
+  backdrop-filter: blur(15px);
+
+  font-size: 12px;
+
+  box-shadow:
+    0 15px 50px rgba(0,0,0,.3);
+
+  animation:
+    float 5s ease-in-out infinite;
 }
 
-.pillar p{
-  color:var(--muted);
-  font-size:14px;
+.floating-label::before {
+  content: "";
+
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  margin-right: 8px;
+
+  border-radius: 50%;
+
+  background: var(--green);
 }
 
-/* TECHNOLOGY */
-
-.tech-grid{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:17px;
+.label-a {
+  left: 8%;
+  top: 31%;
 }
 
-.tech-card{
-  min-height:430px;
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
-  border-radius:27px;
-  background:var(--bg2);
-  transition:.35s;
+.label-b {
+  right: 7%;
+  top: 44%;
+
+  animation-delay: -2s;
+}
+
+.label-c {
+  left: 35%;
+  top: 19%;
+
+  animation-delay: -1s;
+}
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee {
+  overflow: hidden;
+
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  background: rgba(255,255,255,.018);
+}
+
+.marquee-track {
+  width: max-content;
+
+  display: flex;
+
+  animation:
+    marquee 26s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  padding: 19px 26px;
+
+  color: #bcc8c0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: .13em;
+
+  text-transform: uppercase;
+}
+
+.marquee-item::after {
+  content: "✦";
+
+  color: var(--green);
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.intro-number {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--green);
+
+  font-family: monospace;
+}
+
+.intro-number::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--border);
+}
+
+.intro-copy h2 {
+  font-size: clamp(2.6rem, 5vw, 5.4rem);
+
+  margin-bottom: 30px;
+}
+
+.intro-copy p {
+  max-width: 770px;
+
+  color: var(--muted);
+
+  font-size: 18px;
+}
+
+.intro-copy p + p {
+  margin-top: 20px;
+}
+
+/* =========================================================
+   BIG QUESTION
+========================================================= */
+
+.big-question {
+  width: min(calc(100% - 44px), 1320px);
+
+  min-height: 620px;
+
+  position: relative;
+
+  margin: 70px auto;
+
+  padding: 70px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border-radius: 38px;
+
+  border: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6,16,10,.05),
+      rgba(6,16,10,.88)
+    ),
+    url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.big-question::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(138,255,105,.15),
+      transparent 30%
+    );
+
+  pointer-events: none;
+}
+
+.big-question-content {
+  max-width: 860px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.big-question .eyebrow {
+  margin-bottom: 18px;
+}
+
+.big-question h2 {
+  margin-bottom: 22px;
+}
+
+.big-question p {
+  max-width: 640px;
+
+  color: #c6d0c9;
+}
+
+/* =========================================================
+   TECHNOLOGY CARDS
+========================================================= */
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: 18px;
+}
+
+.tech-card {
+  min-height: 430px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: var(--radius);
+
+  border: 1px solid var(--border);
+
+  background: var(--bg-soft);
+
+  cursor: pointer;
+
+  transition:
+    transform .35s ease,
+    border .35s ease;
 }
 
 .tech-card:nth-child(1),
-.tech-card:nth-child(4){
-  grid-column:span 7;
+.tech-card:nth-child(4) {
+  grid-column: span 7;
 }
 
 .tech-card:nth-child(2),
-.tech-card:nth-child(3){
-  grid-column:span 5;
+.tech-card:nth-child(3) {
+  grid-column: span 5;
 }
 
-.tech-card:hover{
-  transform:translateY(-7px);
-  border-color:var(--border-green);
+.tech-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(141,255,106,.3);
 }
 
-.tech-image{
-  position:absolute;
-  inset:0;
-  transition:.7s;
+.tech-card-image {
+  position: absolute;
+  inset: 0;
+
+  transition:
+    transform .8s cubic-bezier(.2,.8,.2,1);
 }
 
-.tech-card:hover .tech-image{
-  transform:scale(1.05);
+.tech-card:hover .tech-card-image {
+  transform: scale(1.06);
 }
 
-.tech-image img{
-  height:100%;
-  object-fit:cover;
+.tech-card-image img {
+  height: 100%;
+  object-fit: cover;
 }
 
-.tech-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,rgba(5,15,9,.05),rgba(5,15,9,.93));
-}
+.tech-card-image::after {
+  content: "";
 
-.tech-info{
-  position:absolute;
-  z-index:2;
-  left:25px;
-  right:25px;
-  bottom:24px;
-}
+  position: absolute;
+  inset: 0;
 
-.tech-number{
-  display:block;
-  margin-bottom:12px;
-  color:var(--green);
-  font-family:monospace;
-  font-size:11px;
-}
-
-.tech-info h3{
-  margin-bottom:8px;
-  font-size:25px;
-}
-
-.tech-info p{
-  max-width:500px;
-  color:#bcc7bf;
-  font-size:13px;
-}
-
-.tech-icon{
-  position:absolute;
-  z-index:5;
-  top:20px;
-  right:20px;
-  width:46px;
-  height:46px;
-  display:grid;
-  place-items:center;
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:50%;
-  color:white;
-  background:rgba(5,16,9,.7);
-  backdrop-filter:blur(12px);
-  font-size:18px;
-  transition:.3s;
-}
-
-.tech-icon:hover{
-  color:#07100c;
-  background:var(--green);
-  transform:rotate(45deg) scale(1.06);
-}
-
-/* MODAL */
-
-.tech-modal{
-  position:fixed;
-  z-index:9998;
-  inset:0;
-  padding:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  visibility:hidden;
-  opacity:0;
-  transition:.3s;
-}
-
-.tech-modal.open{
-  visibility:visible;
-  opacity:1;
-}
-
-.tech-modal-backdrop{
-  position:absolute;
-  inset:0;
-  background:rgba(1,7,4,.82);
-  backdrop-filter:blur(13px);
-}
-
-.tech-modal-content{
-  position:relative;
-  z-index:2;
-  width:min(100%,740px);
-  max-height:88vh;
-  overflow:auto;
-  padding:44px;
-  border:1px solid var(--border-green);
-  border-radius:29px;
   background:
-    radial-gradient(circle at 90% 10%,rgba(141,255,106,.1),transparent 35%),
-    #0a1710;
-  box-shadow:0 40px 130px rgba(0,0,0,.6);
-  transform:translateY(25px) scale(.96);
-  transition:.3s;
+    linear-gradient(
+      180deg,
+      rgba(5,14,8,.05),
+      rgba(5,14,8,.92)
+    );
 }
 
-.tech-modal.open .tech-modal-content{
-  transform:none;
+.tech-info {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 26px;
+  right: 26px;
+  bottom: 25px;
 }
 
-.modal-close{
-  position:absolute;
-  top:18px;
-  right:18px;
-  width:42px;
-  height:42px;
-  border:1px solid var(--border);
-  border-radius:50%;
-  color:white;
-  background:rgba(255,255,255,.04);
-  font-size:23px;
-  transition:.25s;
+.tech-number {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  color: var(--green);
+
+  font-family: monospace;
+
+  font-size: 12px;
 }
 
-.modal-close:hover{
-  color:#07100c;
-  background:var(--green);
-  transform:rotate(90deg);
+.tech-card h3 {
+  font-size: 26px;
+
+  margin-bottom: 9px;
 }
 
-.tech-modal-content h2{
-  max-width:600px;
-  margin-bottom:18px;
+.tech-card p {
+  max-width: 500px;
+
+  color: #b9c4bc;
+
+  font-size: 14px;
 }
 
-#modalDescription{
-  color:var(--muted);
-  font-size:15px;
+.tech-icon {
+  width: 42px;
+  height: 42px;
+
+  position: absolute;
+
+  top: 22px;
+  right: 22px;
+
+  z-index: 3;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(8,20,12,.64);
+
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,.1);
+
+  transition:
+    transform .3s ease,
+    background .3s ease;
 }
 
-.modal-features{
-  margin-top:28px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+.tech-card:hover .tech-icon {
+  transform: rotate(45deg);
+
+  color: #051008;
+
+  background: var(--green);
 }
 
-.modal-feature{
-  padding:15px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  color:#c8d2cb;
-  background:rgba(255,255,255,.025);
-  font-size:12px;
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-wrap {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.modal-feature::before{
-  content:"✓";
-  margin-right:8px;
-  color:var(--green);
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.modal-impact{
-  margin-top:25px;
-  padding:18px;
-  border:1px solid var(--border-green);
-  border-radius:16px;
-  background:rgba(141,255,106,.04);
+.stat {
+  padding: 55px 30px;
+
+  border-right: 1px solid var(--border);
 }
 
-.modal-impact span{
-  display:block;
-  color:var(--muted);
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.12em;
+.stat:last-child {
+  border-right: 0;
 }
 
-.modal-impact strong{
-  display:block;
-  margin-top:4px;
-  color:var(--green);
-  font-size:19px;
+.stat-value {
+  display: flex;
+  align-items: baseline;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(3rem, 6vw, 5.3rem);
+
+  font-weight: 700;
+
+  letter-spacing: -.06em;
+
+  color: var(--green);
 }
 
-/* STATS */
+.stat-value small {
+  margin-left: 4px;
 
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border-block:1px solid var(--border);
+  font-size: .35em;
 }
 
-.stat{
-  padding:45px 28px;
-  border-right:1px solid var(--border);
+.stat h3 {
+  margin: 7px 0 10px;
+
+  font-size: 18px;
 }
 
-.stat:last-child{
-  border:0;
+.stat p {
+  color: var(--muted);
+
+  font-size: 13px;
 }
 
-.stat-number{
-  color:var(--green);
-  font-family:"Manrope",sans-serif;
-  font-size:clamp(3.2rem,6vw,5rem);
-  font-weight:800;
-  line-height:1;
-  letter-spacing:-.06em;
+/* =========================================================
+   IMPACTS
+========================================================= */
+
+.impact-layout {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+
+  gap: 70px;
+
+  align-items: start;
 }
 
-.stat h3{
-  margin:12px 0 8px;
-  font-size:17px;
+.impact-copy {
+  position: sticky;
+
+  top: 125px;
 }
 
-.stat p{
-  color:var(--muted);
-  font-size:12px;
+.impact-copy p {
+  margin-top: 24px;
+
+  color: var(--muted);
+
+  max-width: 440px;
 }
 
-/* IMPACT */
+.impact-list {
+  display: flex;
+  flex-direction: column;
 
-.impact-layout{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:65px;
+  border-top: 1px solid var(--border);
 }
 
-.impact-copy{
-  position:sticky;
-  top:120px;
-}
+.impact-item {
+  display: grid;
+  grid-template-columns: 55px 1fr auto;
 
-.impact-copy p{
-  max-width:450px;
-  margin-top:20px;
-  color:var(--muted);
-}
+  align-items: center;
 
-.impact-list{
-  border-top:1px solid var(--border);
-}
+  gap: 15px;
 
-.impact-item{
-  padding:26px 7px;
-  display:grid;
-  grid-template-columns:45px 1fr auto;
-  align-items:center;
-  border-bottom:1px solid var(--border);
-  transition:.25s;
-  cursor:pointer;
+  padding: 28px 8px;
+
+  border-bottom: 1px solid var(--border);
+
+  cursor: pointer;
+
+  transition:
+    padding .25s ease,
+    color .25s ease;
 }
 
 .impact-item:hover,
-.impact-item.active{
-  padding-left:16px;
-  color:var(--green);
+.impact-item.active {
+  padding-left: 18px;
+
+  color: var(--green);
 }
 
-.impact-num{
-  color:#718176;
-  font-family:monospace;
-  font-size:11px;
+.impact-item .num {
+  color: #6f8174;
+
+  font-family: monospace;
+
+  font-size: 12px;
 }
 
-.impact-item h3{
-  font-size:21px;
+.impact-item h3 {
+  font-size: 23px;
 }
 
-.impact-arrow{
-  width:35px;
-  height:35px;
-  display:grid;
-  place-items:center;
-  border:1px solid var(--border);
-  border-radius:50%;
+.impact-item .arrow {
+  width: 37px;
+  height: 37px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  transition:
+    background .25s ease,
+    transform .25s ease;
 }
 
-.impact-item.active .impact-arrow,
-.impact-item:hover .impact-arrow{
-  color:#07100c;
-  background:var(--green);
+.impact-item:hover .arrow,
+.impact-item.active .arrow {
+  color: #051008;
+
+  background: var(--green);
+
+  transform: rotate(45deg);
 }
 
-.impact-output{
-  margin-top:22px;
-  padding:22px;
-  min-height:115px;
-  color:#c8d2cb;
-  border:1px solid var(--border-green);
-  border-radius:17px;
-  background:rgba(141,255,106,.04);
+.impact-output {
+  grid-column: 2;
+
+  margin-top: -25px;
+
+  min-height: 125px;
+
+  padding: 23px;
+
+  border-radius: 18px;
+
+  border: 1px solid var(--border-green);
+
+  background: rgba(141,255,106,.045);
+
+  color: #c9d4cc;
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease;
 }
 
-/* SOCIAL IMPACT */
+/* =========================================================
+   TIMELINE
+========================================================= */
 
-.social-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
+.timeline-track {
+  position: relative;
+
+  margin-top: 50px;
 }
 
-.social-card{
-  min-height:250px;
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  border:1px solid var(--border);
-  border-radius:22px;
-  background:rgba(255,255,255,.018);
-  transition:.3s;
+.timeline-track::before {
+  content: "";
+
+  position: absolute;
+
+  top: 28px;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--green),
+      rgba(255,255,255,.1)
+    );
 }
 
-.social-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--border-green);
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
 }
 
-.social-icon{
-  margin-bottom:auto;
-  font-size:31px;
+.timeline-item {
+  position: relative;
+
+  padding-top: 75px;
 }
 
-.social-card h3{
-  margin:25px 0 7px;
-  font-size:19px;
+.timeline-dot {
+  width: 13px;
+  height: 13px;
+
+  position: absolute;
+
+  top: 22px;
+  left: 0;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 0 7px rgba(141,255,106,.09),
+    0 0 25px rgba(141,255,106,.3);
 }
 
-.social-card p{
-  color:var(--muted);
-  font-size:13px;
+.timeline-year {
+  color: var(--green);
+
+  font-family: monospace;
+
+  margin-bottom: 12px;
 }
 
-/* PROCESS */
+.timeline-item h3 {
+  font-size: 19px;
 
-.process-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
+  margin-bottom: 8px;
 }
 
-.process-card{
-  min-height:280px;
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  border:1px solid var(--border);
-  border-radius:22px;
-  background:linear-gradient(145deg,rgba(141,255,106,.03),transparent);
+.timeline-item p {
+  color: var(--muted);
+
+  font-size: 14px;
 }
 
-.process-step{
-  margin-left:auto;
-  color:#748278;
-  font-size:10px;
+/* =========================================================
+   SOLUTION WHEEL
+========================================================= */
+
+.solution-board {
+  min-height: 600px;
+
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  border-radius: 36px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(141,255,106,.09),
+      transparent 35%
+    ),
+    rgba(255,255,255,.015);
 }
 
-.process-icon{
-  margin-top:auto;
-  margin-bottom:18px;
-  font-size:38px;
+.solution-board::before,
+.solution-board::after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 50%;
 }
 
-.process-card h3{
-  font-size:20px;
-  margin-bottom:7px;
+.solution-board::before {
+  width: 430px;
+  height: 430px;
 }
 
-.process-card p{
-  color:var(--muted);
-  font-size:12px;
+.solution-board::after {
+  width: 285px;
+  height: 285px;
 }
 
-/* GALLERY */
+.solution-center {
+  width: 160px;
+  height: 160px;
 
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  grid-auto-rows:210px;
-  gap:13px;
+  display: grid;
+  place-items: center;
+
+  position: relative;
+
+  z-index: 3;
+
+  text-align: center;
+
+  padding: 20px;
+
+  border-radius: 50%;
+
+  color: #07100b;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 90px rgba(141,255,106,.15);
+
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
 }
 
-.gallery-item{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--border);
-  border-radius:21px;
+.solution-node {
+  position: absolute;
+
+  z-index: 4;
+
+  padding: 12px 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  background: rgba(9,21,13,.85);
+
+  backdrop-filter: blur(12px);
+
+  font-size: 13px;
+
+  transition:
+    transform .3s ease,
+    border .3s ease;
 }
 
-.gallery-item:nth-child(1){
-  grid-column:span 7;
-  grid-row:span 2;
+.solution-node:hover {
+  transform: scale(1.08);
+
+  border-color: var(--green);
 }
 
-.gallery-item:nth-child(2),
-.gallery-item:nth-child(3){
-  grid-column:span 5;
+.node-1 { transform: translate(-210px,-140px); }
+.node-2 { transform: translate(200px,-130px); }
+.node-3 { transform: translate(-255px,80px); }
+.node-4 { transform: translate(245px,85px); }
+.node-5 { transform: translate(0,220px); }
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+}
+
+.process-card {
+  min-height: 285px;
+
+  position: relative;
+
+  padding: 27px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      160deg,
+      rgba(141,255,106,.035),
+      transparent
+    );
+
+  transition:
+    transform .3s ease,
+    border .3s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(141,255,106,.28);
+}
+
+.process-step {
+  position: absolute;
+
+  top: 22px;
+  right: 22px;
+
+  color: rgba(255,255,255,.25);
+
+  font-size: 11px;
+}
+
+.process-icon {
+  font-size: 42px;
+
+  margin-bottom: auto;
+
+  filter: grayscale(.15);
+}
+
+.process-card h3 {
+  margin-bottom: 10px;
+
+  font-size: 21px;
+}
+
+.process-card p {
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 220px;
+
+  gap: 14px;
+}
+
+.gallery-item {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  border: 1px solid var(--border);
+}
+
+.gallery-item:nth-child(1) {
+  grid-column: span 7;
+  grid-row: span 2;
+}
+
+.gallery-item:nth-child(2) {
+  grid-column: span 5;
+}
+
+.gallery-item:nth-child(3) {
+  grid-column: span 5;
 }
 
 .gallery-item:nth-child(4),
 .gallery-item:nth-child(5),
-.gallery-item:nth-child(6){
-  grid-column:span 4;
+.gallery-item:nth-child(6) {
+  grid-column: span 4;
 }
 
-.gallery-item img{
-  height:100%;
-  object-fit:cover;
-  transition:.65s;
+.gallery-item img {
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform .7s ease;
 }
 
-.gallery-item:hover img{
-  transform:scale(1.06);
+.gallery-item:hover img {
+  transform: scale(1.06);
 }
 
-.gallery-item::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,transparent 40%,rgba(3,12,7,.85));
+.gallery-item::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 45%,
+      rgba(3,12,7,.82)
+    );
 }
 
-.gallery-caption{
-  position:absolute;
-  z-index:2;
-  left:18px;
-  bottom:15px;
+.gallery-caption {
+  position: absolute;
+
+  left: 20px;
+  bottom: 17px;
+
+  z-index: 2;
 }
 
-.gallery-caption small{
-  color:var(--green);
-  font-size:9px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
+.gallery-caption small {
+  color: var(--green);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .13em;
 }
 
-.gallery-caption h3{
-  font-size:16px;
+.gallery-caption h3 {
+  margin-top: 2px;
+
+  font-size: 17px;
 }
 
-/* LAB */
+/* =========================================================
+   COMPARISON
+========================================================= */
 
-.lab-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 17px;
 }
 
-.module{
-  min-height:430px;
-  padding:32px;
-  border:1px solid var(--border);
-  border-radius:26px;
-  background:linear-gradient(145deg,rgba(141,255,106,.04),rgba(255,255,255,.01));
+.compare-card {
+  position: relative;
+
+  min-height: 430px;
+
+  padding: 34px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border: 1px solid var(--border);
+
+  border-radius: 28px;
 }
 
-.module-head{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
+.compare-card.traditional {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,14,9,.15),
+      rgba(5,14,9,.9)
+    ),
+    url("https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=1200&q=80")
+    center/cover;
 }
 
-.module h3{
-  max-width:330px;
-  font-size:24px;
-  line-height:1.15;
+.compare-card.smart {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,14,9,.08),
+      rgba(5,14,9,.9)
+    ),
+    url("https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=80")
+    center/cover;
 }
 
-.module-index{
-  color:var(--green);
-  font-family:monospace;
-  font-size:10px;
+.compare-label {
+  width: fit-content;
+
+  margin-bottom: auto;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(255,255,255,.14);
+
+  border-radius: 999px;
+
+  background: rgba(0,0,0,.3);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 11px;
 }
 
-.module-copy{
-  margin-top:7px;
-  color:var(--muted);
-  font-size:12px;
+.compare-card h3 {
+  font-size: 29px;
+
+  margin-bottom: 8px;
 }
 
-.input-wrap{
-  margin:28px 0 22px;
-  display:flex;
-  gap:9px;
+.compare-card p {
+  max-width: 450px;
+
+  color: #bac6bd;
+
+  font-size: 14px;
 }
 
-.input-wrap input{
-  flex:1;
-  min-width:0;
-  padding:14px 15px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  outline:0;
-  color:white;
-  background:rgba(255,255,255,.04);
+/* =========================================================
+   LAB
+========================================================= */
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
 }
 
-.input-wrap input:focus{
-  border-color:var(--green);
+.module {
+  min-height: 420px;
+
+  padding: 34px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(141,255,106,.04),
+      rgba(255,255,255,.012)
+    );
+}
+
+.module-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  margin-bottom: 35px;
+}
+
+.module-index {
+  color: var(--green);
+
+  font-family: monospace;
+
+  font-size: 11px;
+}
+
+.module h3 {
+  max-width: 320px;
+
+  font-size: 25px;
+
+  line-height: 1.15;
+}
+
+.module-copy {
+  color: var(--muted);
+
+  font-size: 13px;
+
+  margin-top: 7px;
+}
+
+.input-wrap {
+  display: flex;
+  gap: 10px;
+
+  margin: 30px 0 24px;
+}
+
+.input-wrap input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 15px 17px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  outline: none;
+
+  color: white;
+
+  background: rgba(255,255,255,.04);
+
+  transition:
+    border .25s ease;
+}
+
+.input-wrap input:focus {
+  border-color: var(--green);
 }
 
 .input-wrap button,
-.restart-btn{
-  padding:13px 16px;
-  border:0;
-  border-radius:13px;
-  color:#07100c;
-  background:var(--green);
-  font-weight:700;
+.quiz-answer,
+.restart-btn {
+  border: 0;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  color: #061008;
+  background: var(--green);
+
+  font-weight: 700;
+
+  padding: 13px 17px;
+
+  transition:
+    transform .2s ease,
+    opacity .2s ease;
 }
 
-.meter{
-  height:10px;
-  overflow:hidden;
-  margin-bottom:13px;
-  border-radius:99px;
-  background:rgba(255,255,255,.06);
+.input-wrap button:hover,
+.restart-btn:hover {
+  transform: translateY(-2px);
 }
 
-#meterFill{
-  width:0;
-  height:100%;
-  border-radius:inherit;
-  background:linear-gradient(90deg,#269d52,var(--green),var(--lime));
-  transition:width .8s;
+.meter {
+  height: 11px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.06);
+
+  margin-bottom: 14px;
 }
 
-#resultado{
-  color:#c7d1ca;
-  font-size:13px;
-}
+#meterFill {
+  width: 0%;
+  height: 100%;
 
-.water-highlight{
-  display:none;
-  margin-top:20px;
-  padding:17px;
-  border:1px solid var(--border-green);
-  border-radius:15px;
-  background:rgba(141,255,106,.04);
-}
-
-.water-highlight strong{
-  display:block;
-  color:var(--green);
-  font-size:26px;
-}
-
-.quiz-progress{
-  display:flex;
-  gap:7px;
-  margin:27px 0 22px;
-}
-
-.quiz-progress span{
-  flex:1;
-  height:4px;
-  border-radius:99px;
-  background:rgba(255,255,255,.08);
-}
-
-.quiz-progress span.done{
-  background:var(--green);
-}
-
-#pergunta{
-  margin-bottom:17px;
-  font-family:"Manrope",sans-serif;
-  font-size:19px;
-  font-weight:700;
-}
-
-#respostas{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.quiz-answer{
-  width:100%;
-  padding:13px 15px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  color:#c8d1ca;
-  background:rgba(255,255,255,.03);
-  text-align:left;
-  transition:.2s;
-}
-
-.quiz-answer:hover{
-  transform:translateX(4px);
-  border-color:var(--border-green);
-}
-
-.quiz-answer.correct{
-  color:var(--green);
-  border-color:rgba(141,255,106,.5);
-  background:rgba(141,255,106,.08);
-}
-
-.quiz-answer.wrong{
-  color:#ff9d9d;
-  border-color:rgba(255,100,100,.4);
-  background:rgba(255,100,100,.07);
-}
-
-#pontuacao{
-  margin-top:16px;
-  color:var(--green);
-}
-
-/* COMMITMENT */
-
-.commitment{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-.commitment-panel{
-  min-height:340px;
-  padding:30px;
-  border:1px solid var(--border);
-  border-radius:26px;
-  background:rgba(255,255,255,.018);
-}
-
-.commitment-panel h3{
-  margin-bottom:22px;
-  font-size:25px;
-}
-
-.commitment-list{
-  display:flex;
-  flex-direction:column;
-  gap:11px;
-}
-
-.commitment-item{
-  display:flex;
-  gap:12px;
-  padding:13px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  color:#c7d0c9;
-  font-size:13px;
-}
-
-.check{
-  color:var(--green);
-  font-weight:800;
-}
-
-/* FAQ */
-
-.faq-wrap{
-  max-width:900px;
-}
-
-details{
-  border-bottom:1px solid var(--border);
-}
-
-details:first-of-type{
-  border-top:1px solid var(--border);
-}
-
-summary{
-  position:relative;
-  padding:23px 50px 23px 0;
-  list-style:none;
-  cursor:pointer;
-  font-family:"Manrope",sans-serif;
-  font-size:18px;
-  font-weight:600;
-}
-
-summary::-webkit-details-marker{
-  display:none;
-}
-
-summary::after{
-  content:"+";
-  position:absolute;
-  right:5px;
-  top:19px;
-  color:var(--green);
-  font-size:26px;
-  transition:.25s;
-}
-
-details[open] summary::after{
-  transform:rotate(45deg);
-}
-
-details p{
-  max-width:750px;
-  padding-bottom:24px;
-  color:var(--muted);
-}
-
-/* CTA */
-
-.final-cta{
-  width:min(calc(100% - 44px),1320px);
-  min-height:570px;
-  margin:70px auto 25px;
-  padding:50px;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  border-radius:38px;
   background:
-    linear-gradient(rgba(5,15,8,.35),rgba(5,15,8,.82)),
-    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=85") center/cover;
+    linear-gradient(
+      90deg,
+      var(--green-dark),
+      var(--green),
+      var(--yellow)
+    );
+
+  border-radius: inherit;
+
+  transition:
+    width 1s cubic-bezier(.2,.8,.2,1);
 }
 
-.final-cta-content{
-  max-width:850px;
+#resultado {
+  min-height: 28px;
+
+  color: #c9d3cb;
+
+  font-size: 14px;
 }
 
-.final-cta h2{
-  margin-bottom:19px;
-  font-size:clamp(3rem,7vw,6rem);
+.water-highlight {
+  display: none;
+
+  margin-top: 27px;
+
+  padding: 18px;
+
+  border: 1px solid var(--border-green);
+
+  border-radius: 16px;
+
+  background: rgba(141,255,106,.045);
 }
 
-.final-cta p{
-  max-width:620px;
-  margin:0 auto 27px;
-  color:#c5cfc8;
+.water-highlight strong {
+  display: block;
+
+  color: var(--green);
+
+  font-size: 28px;
 }
 
-/* FOOTER */
+/* quiz */
 
-footer{
-  width:min(calc(100% - 44px),1320px);
-  margin:auto;
-  padding:60px 0 35px;
+.quiz-progress {
+  display: flex;
+
+  gap: 7px;
+
+  margin-bottom: 25px;
 }
 
-.footer-top{
-  padding-bottom:40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:30px;
-  border-bottom:1px solid var(--border);
+.quiz-progress span {
+  flex: 1;
+
+  height: 4px;
+
+  border-radius: 99px;
+
+  background: rgba(255,255,255,.08);
 }
 
-.footer-logo{
-  font-family:"Manrope",sans-serif;
-  font-size:clamp(2.5rem,7vw,5.5rem);
-  font-weight:800;
-  letter-spacing:-.06em;
+.quiz-progress span.done {
+  background: var(--green);
 }
 
-.footer-logo span{
-  color:var(--green);
+#pergunta {
+  font-family: "Manrope", sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
 }
 
-.footer-copy{
-  max-width:350px;
-  color:var(--muted);
-  font-size:13px;
+#respostas {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
 }
 
-.footer-bottom{
-  padding-top:20px;
-  display:flex;
-  justify-content:space-between;
-  color:#718076;
-  font-size:10px;
-  letter-spacing:.09em;
+.quiz-answer {
+  width: 100%;
+
+  color: #c7d1ca;
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid var(--border);
+
+  text-align: left;
+
+  font-weight: 500;
+
+  transition:
+    background .2s ease,
+    border .2s ease,
+    color .2s ease,
+    transform .2s ease;
 }
 
-/* ANIMATIONS */
+.quiz-answer:hover {
+  color: #fff;
 
-@keyframes scanner{
-  0%,100%{top:10%}
-  50%{top:88%}
+  border-color: rgba(141,255,106,.3);
+
+  background: rgba(141,255,106,.06);
+
+  transform: translateX(4px);
 }
 
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+.quiz-answer.correct {
+  border-color: rgba(141,255,106,.5);
+
+  background: rgba(141,255,106,.1);
+
+  color: var(--green);
 }
 
-@keyframes pulse{
-  0%,100%{opacity:1}
-  50%{opacity:.35}
+.quiz-answer.wrong {
+  border-color: rgba(255,92,92,.4);
+
+  background: rgba(255,92,92,.08);
+
+  color: #ff9999;
 }
 
-@keyframes marquee{
-  to{transform:translateX(-50%)}
+#pontuacao {
+  margin-top: 20px;
+
+  color: var(--green);
 }
 
-/* RESPONSIVE */
+/* =========================================================
+   FACTS
+========================================================= */
 
-@media(max-width:1000px){
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
-  .hero{
-    grid-template-columns:1fr;
-  }
-
-  .visual-panel{
-    min-height:600px;
-  }
-
-  .rubric-grid,
-  .pillars{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .tech-card{
-    grid-column:span 6 !important;
-  }
-
-  .stats-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .stat:nth-child(2){
-    border-right:0;
-  }
-
-  .impact-layout{
-    grid-template-columns:1fr;
-  }
-
-  .impact-copy{
-    position:static;
-  }
-
-  .social-grid,
-  .process-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
+  gap: 13px;
 }
 
-@media(max-width:760px){
+.fact {
+  min-height: 210px;
 
-  .section{
-    width:min(calc(100% - 30px),var(--max));
-    padding:80px 0;
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid var(--border);
+
+  border-radius: 22px;
+
+  background: rgba(255,255,255,.018);
+
+  transition:
+    transform .3s ease,
+    background .3s ease;
+}
+
+.fact:hover {
+  transform: translateY(-7px);
+
+  background: rgba(141,255,106,.035);
+}
+
+.fact-icon {
+  font-size: 31px;
+}
+
+.fact p {
+  color: #c0cbc3;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.map-board {
+  min-height: 570px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  border-radius: 34px;
+
+  background:
+    linear-gradient(
+      rgba(8,20,12,.5),
+      rgba(8,20,12,.6)
+    ),
+    url("https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1800&q=80")
+    center/cover;
+}
+
+.map-board::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  opacity: .25;
+
+  background-image:
+    linear-gradient(
+      rgba(141,255,106,.22) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(141,255,106,.22) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+}
+
+.map-pin {
+  position: absolute;
+
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.18);
+
+  border-radius: 50%;
+
+  background: rgba(7,17,11,.75);
+
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+
+  z-index: 2;
+
+  box-shadow:
+    0 0 0 0 rgba(141,255,106,.25);
+
+  animation:
+    mapPulse 3s infinite;
+}
+
+.map-pin:hover .map-tooltip {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -10px);
+}
+
+.map-tooltip {
+  width: max-content;
+
+  position: absolute;
+
+  bottom: 56px;
+  left: 50%;
+
+  transform:
+    translate(-50%, 0);
+
+  padding: 8px 11px;
+
+  border-radius: 10px;
+
+  color: #07100b;
+  background: var(--green);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+.map-pin:nth-child(1) {
+  left: 18%;
+  top: 32%;
+}
+
+.map-pin:nth-child(2) {
+  left: 45%;
+  top: 55%;
+
+  animation-delay: -1s;
+}
+
+.map-pin:nth-child(3) {
+  right: 19%;
+  top: 27%;
+
+  animation-delay: -2s;
+}
+
+.map-pin:nth-child(4) {
+  right: 30%;
+  bottom: 17%;
+
+  animation-delay: -1.4s;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq-wrap {
+  max-width: 900px;
+}
+
+details {
+  border-bottom: 1px solid var(--border);
+}
+
+details:first-of-type {
+  border-top: 1px solid var(--border);
+}
+
+summary {
+  position: relative;
+
+  list-style: none;
+
+  padding: 25px 50px 25px 0;
+
+  cursor: pointer;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 19px;
+  font-weight: 600;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+
+  position: absolute;
+
+  right: 6px;
+  top: 21px;
+
+  color: var(--green);
+
+  font-size: 26px;
+
+  transition:
+    transform .3s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+details p {
+  max-width: 730px;
+
+  padding: 0 0 27px;
+
+  color: var(--muted);
+}
+
+/* =========================================================
+   QUOTE / FINAL CTA
+========================================================= */
+
+.final-cta {
+  width: min(calc(100% - 44px), 1320px);
+
+  min-height: 600px;
+
+  margin: 80px auto 30px;
+
+  display: grid;
+  place-items: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  padding: 65px;
+
+  border-radius: 40px;
+
+  background:
+    linear-gradient(
+      rgba(5,14,8,.35),
+      rgba(5,14,8,.8)
+    ),
+    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.final-cta-content {
+  max-width: 850px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.final-cta h2 {
+  margin-bottom: 20px;
+
+  font-size: clamp(3rem, 7vw, 6rem);
+}
+
+.final-cta p {
+  max-width: 620px;
+
+  margin: 0 auto 28px;
+
+  color: #c4cec7;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  width: min(calc(100% - 44px), 1320px);
+
+  margin-inline: auto;
+
+  padding: 65px 0 36px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+
+  gap: 30px;
+
+  padding-bottom: 45px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-logo {
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(2.4rem, 7vw, 6rem);
+
+  font-weight: 800;
+
+  letter-spacing: -.065em;
+}
+
+.footer-logo span {
+  color: var(--green);
+}
+
+.footer-copy {
+  max-width: 350px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 24px;
+
+  color: #68776c;
+
+  font-size: 11px;
+
+  letter-spacing: .08em;
+}
+
+/* =========================================================
+   CURSOR LIGHT
+========================================================= */
+
+.cursor-light {
+  width: 340px;
+  height: 340px;
+
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(141,255,106,.07),
+      transparent 67%
+    );
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes scanner {
+  0% {
+    top: 10%;
   }
 
-  .topbar{
-    top:10px;
-    width:calc(100% - 24px);
-    height:64px;
-    padding:0 16px;
+  50% {
+    top: 88%;
   }
 
-  .menu-btn{
-    display:block;
+  100% {
+    top: 10%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
 
-  nav{
-    display:none;
-    position:fixed;
-    top:76px;
-    left:12px;
-    right:12px;
-    padding:13px;
-    flex-direction:column;
-    border:1px solid var(--border);
-    border-radius:17px;
-    background:rgba(5,15,9,.97);
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
   }
 
-  nav.open{
-    display:flex;
+  50% {
+    opacity: .35;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes mapPulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(141,255,106,.26);
   }
 
-  nav a{
-    padding:13px;
+  70% {
+    box-shadow:
+      0 0 0 17px rgba(141,255,106,0);
   }
 
-  .hero{
-    width:calc(100% - 30px);
-    padding-top:115px;
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(141,255,106,0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    padding-top: 145px;
   }
 
-  .hero h1{
-    font-size:clamp(3.4rem,16vw,5.3rem);
+  .hero h1 {
+    max-width: 850px;
   }
 
-  .visual-panel{
-    min-height:520px;
-    border-radius:27px;
+  .visual-panel {
+    min-height: 600px;
   }
 
-  .crop-interface{
-    left:13px;
-    right:13px;
-    bottom:13px;
-    grid-template-columns:1fr 1fr;
+  .intro {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
   }
 
-  .crop-interface .data-card:last-child{
-    display:none;
+  .tech-card {
+    grid-column: span 6 !important;
   }
 
-  .section-head{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:17px;
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .rubric-grid,
-  .pillars,
-  .social-grid,
+  .stat:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stat:nth-child(-n+2) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .impact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-copy {
+    position: static;
+  }
+
+  .impact-output {
+    grid-column: 1;
+  }
+
   .process-grid,
-  .lab-grid,
-  .commitment{
-    grid-template-columns:1fr;
+  .facts {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .theme-banner{
-    min-height:520px;
-    padding:34px;
+}
+
+@media (max-width: 760px) {
+
+  .section {
+    width: min(calc(100% - 30px), var(--max));
+
+    padding: 82px 0;
   }
 
-  .tech-grid{
-    display:block;
+  .topbar {
+    width: calc(100% - 24px);
+
+    top: 10px;
+
+    height: 65px;
+
+    padding: 0 17px;
   }
 
-  .tech-card{
-    margin-bottom:13px;
+  .menu-btn {
+    display: block;
   }
 
-  .stats-grid{
-    grid-template-columns:1fr;
+  nav {
+    position: fixed;
+
+    top: 78px;
+    left: 12px;
+    right: 12px;
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 14px;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(5,15,9,.96);
+
+    backdrop-filter: blur(20px);
   }
 
-  .stat{
-    border-right:0;
-    border-bottom:1px solid var(--border);
+  nav.open {
+    display: flex;
   }
 
-  .gallery-grid{
-    display:block;
+  nav a {
+    padding: 14px;
   }
 
-  .gallery-item{
-    height:290px;
-    margin-bottom:13px;
+  .hero {
+    width: calc(100% - 30px);
+
+    gap: 35px;
+
+    padding-top: 120px;
   }
 
-  .modal-features{
-    grid-template-columns:1fr;
+  .hero h1 {
+    font-size: clamp(3.4rem, 16vw, 5.5rem);
   }
 
-  .tech-modal-content{
-    padding:37px 22px 24px;
+  .visual-panel {
+    min-height: 530px;
+
+    border-radius: 27px;
   }
 
-  .final-cta{
-    width:calc(100% - 30px);
-    padding:35px;
-    border-radius:27px;
+  .crop-interface {
+    grid-template-columns: 1fr 1fr;
+
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .crop-interface .data-card:last-child {
+    display: none;
+  }
+
+  .floating-label {
+    font-size: 10px;
+  }
+
+  .label-c {
+    display: none;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: start;
+
+    gap: 18px;
+  }
+
+  .big-question {
+    width: calc(100% - 30px);
+
+    min-height: 540px;
+
+    padding: 35px;
+
+    border-radius: 27px;
+  }
+
+  .tech-grid {
+    display: block;
+  }
+
+  .tech-card {
+    min-height: 420px;
+
+    margin-bottom: 14px;
+  }
+
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-track::before {
+    width: 1px;
+    height: auto;
+
+    top: 10px;
+    bottom: 0;
+    left: 6px;
+  }
+
+  .timeline-item {
+    padding: 0 0 35px 38px;
+  }
+
+  .timeline-dot {
+    top: 7px;
+  }
+
+  .solution-board {
+    min-height: 490px;
+  }
+
+  .solution-board::before {
+    width: 340px;
+    height: 340px;
+  }
+
+  .solution-board::after {
+    width: 220px;
+    height: 220px;
+  }
+
+  .solution-center {
+    width: 125px;
+    height: 125px;
+
+    font-size: 13px;
+  }
+
+  .node-1 {
+    transform: translate(-120px,-130px);
+  }
+
+  .node-2 {
+    transform: translate(115px,-115px);
+  }
+
+  .node-3 {
+    transform: translate(-140px,100px);
+  }
+
+  .node-4 {
+    transform: translate(125px,90px);
+  }
+
+  .node-5 {
+    transform: translate(0,175px);
+  }
+
+  .solution-node {
+    font-size: 10px;
+  }
+
+  .process-grid,
+  .facts,
+  .comparison,
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    display: block;
+  }
+
+  .gallery-item {
+    height: 290px;
+
+    margin-bottom: 14px;
+  }
+
+  .final-cta {
+    width: calc(100% - 30px);
+
+    min-height: 540px;
+
+    padding: 35px;
+
+    border-radius: 27px;
   }
 
   .footer-top,
-  .footer-bottom{
-    flex-direction:column;
-    align-items:flex-start;
+  .footer-bottom {
+    flex-direction: column;
+    align-items: start;
   }
 
 }
 
-@media(max-width:520px){
+@media (max-width: 520px) {
 
-  .input-wrap{
-    flex-direction:column;
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 
-  .cursor-light{
-    display:none;
+  .stat {
+    border-right: 0;
+
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat:last-child {
+    border-bottom: 0;
+  }
+
+  .impact-item h3 {
+    font-size: 18px;
+  }
+
+  .impact-item {
+    grid-template-columns: 35px 1fr auto;
+  }
+
+  .input-wrap {
+    flex-direction: column;
+  }
+
+  .cursor-light {
+    display: none;
   }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="noise"></div>
+<div class="bg-orb orb-one"></div>
+<div class="bg-orb orb-two"></div>
 <div class="cursor-light" id="cursorLight"></div>
+
+<!-- =====================================================
+     NAV
+===================================================== -->
 
 <header class="topbar" id="topbar">
 
-  <a class="brand" href="#home">
+  <a href="#home" class="brand">
     Agro<span>Pulse</span><i class="brand-dot"></i>
   </a>
 
@@ -1649,44 +2738,46 @@ footer{
 
   <nav id="menu">
     <a href="#home">Início</a>
-    <a href="#tema">Tema</a>
     <a href="#tech">Tecnologias</a>
     <a href="#impacto">Impactos</a>
-    <a href="#social">Impacto social</a>
-    <a href="#laboratorio">Interativo</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="#laboratorio">Laboratório</a>
   </nav>
 
 </header>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section id="home" class="hero">
 
-  <div class="reveal">
+  <div class="hero-text reveal">
 
-    <div class="hero-tag">
-      AGRINHO 2026 • AGRO FORTE • FUTURO SUSTENTÁVEL
-    </div>
+    <p class="tag">
+      AGRO • DADOS • SUSTENTABILIDADE
+    </p>
 
     <h1>
-      <span>O agro</span>
-      <span>forte constrói</span>
-      <span class="highlight">o amanhã.</span>
+      <span class="line">O campo</span>
+      <span class="line">conectado ao</span>
+      <span class="line"><em>futuro.</em></span>
     </h1>
 
-    <p class="hero-copy">
-      O AgroPulse mostra como tecnologia, produtividade,
-      responsabilidade ambiental e impacto social podem caminhar
-      juntos para construir um campo mais eficiente e um futuro
-      verdadeiramente sustentável.
+    <p>
+      Tecnologia, dados e inteligência ambiental trabalhando juntos
+      para produzir mais, desperdiçar menos e preservar o que sustenta
+      toda a nossa produção.
     </p>
 
     <div class="actions">
 
-      <a href="#tema" class="primary">
+      <a class="primary" href="#laboratorio">
         Explorar projeto ↗
       </a>
 
-      <a href="#laboratorio" class="secondary">
-        Área interativa
+      <a class="secondary" href="#tech">
+        Ver tecnologias
       </a>
 
     </div>
@@ -1703,7 +2794,7 @@ footer{
       </div>
 
       <span class="coordinates">
-        AGRO_2026 // ONLINE
+        AGP // FIELD_026
       </span>
 
     </div>
@@ -1711,32 +2802,41 @@ footer{
     <div class="scan-line"></div>
 
     <div class="floating-label label-a">
-      Solo monitorado
+      Solo saudável
     </div>
 
     <div class="floating-label label-b">
-      Água otimizada
+      Irrigação otimizada
     </div>
 
     <div class="floating-label label-c">
-      Dados em tempo real
+      Drone conectado
     </div>
 
     <div class="crop-interface">
 
       <div class="data-card">
         <span>Umidade do solo</span>
-        <strong>68 <small>% ideal</small></strong>
+        <strong>
+          68
+          <small>% ideal</small>
+        </strong>
       </div>
 
       <div class="data-card">
-        <span>Eficiência</span>
-        <strong>+32 <small>%</small></strong>
+        <span>Eficiência hídrica</span>
+        <strong>
+          +32
+          <small>%</small>
+        </strong>
       </div>
 
       <div class="data-card">
-        <span>Monitoramento</span>
-        <strong>24 <small>h</small></strong>
+        <span>Área analisada</span>
+        <strong>
+          148
+          <small>ha</small>
+        </strong>
       </div>
 
     </div>
@@ -1745,23 +2845,27 @@ footer{
 
 </section>
 
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
+
 <div class="marquee">
 
   <div class="marquee-track">
 
-    <div class="marquee-item">Agro forte</div>
-    <div class="marquee-item">Futuro sustentável</div>
     <div class="marquee-item">Agricultura de precisão</div>
-    <div class="marquee-item">Impacto social</div>
-    <div class="marquee-item">Tecnologia</div>
-    <div class="marquee-item">Sustentabilidade</div>
+    <div class="marquee-item">Drones agrícolas</div>
+    <div class="marquee-item">Inteligência artificial</div>
+    <div class="marquee-item">Energia renovável</div>
+    <div class="marquee-item">Solo vivo</div>
+    <div class="marquee-item">Gestão hídrica</div>
 
-    <div class="marquee-item">Agro forte</div>
-    <div class="marquee-item">Futuro sustentável</div>
     <div class="marquee-item">Agricultura de precisão</div>
-    <div class="marquee-item">Impacto social</div>
-    <div class="marquee-item">Tecnologia</div>
-    <div class="marquee-item">Sustentabilidade</div>
+    <div class="marquee-item">Drones agrícolas</div>
+    <div class="marquee-item">Inteligência artificial</div>
+    <div class="marquee-item">Energia renovável</div>
+    <div class="marquee-item">Solo vivo</div>
+    <div class="marquee-item">Gestão hídrica</div>
 
   </div>
 
@@ -1769,247 +2873,76 @@ footer{
 
 <main>
 
-<!-- REQUISITOS -->
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
-<section class="section">
+<section class="section intro reveal">
 
-  <div class="section-head reveal">
+  <div class="intro-number">
+    001
+  </div>
 
-    <div>
+  <div class="intro-copy">
 
-      <span class="eyebrow">
-        Critérios do projeto
-      </span>
+    <span class="eyebrow">
+      Projeto AgroPulse
+    </span>
 
-      <h2>
-        Requisitos
-        <span class="highlight">contemplados.</span>
-      </h2>
+    <h2>
+      Produzir melhor é
+      <span class="highlight">entender melhor.</span>
+    </h2>
 
-    </div>
+    <p>
+      O AgroPulse apresenta uma visão sobre como sensores, inteligência
+      artificial, drones, satélites e fontes renováveis podem transformar
+      a forma como produzimos alimentos.
+    </p>
 
-    <p class="section-subtitle">
-      O projeto foi estruturado para apresentar de forma objetiva
-      todos os aspectos avaliados.
+    <p>
+      O futuro do campo não depende apenas de produzir mais. Depende de
+      tomar decisões melhores, reduzir desperdícios, proteger o solo,
+      utilizar água de forma eficiente e conciliar produtividade com
+      responsabilidade ambiental.
     </p>
 
   </div>
 
-  <div class="rubric-grid">
+</section>
 
-    <article class="rubric-card reveal">
+<!-- =====================================================
+     BIG QUESTION
+===================================================== -->
 
-      <span class="rubric-status">
-        ✓ SIM
+<section class="big-question reveal">
+
+  <div class="big-question-content">
+
+    <span class="eyebrow">
+      O desafio
+    </span>
+
+    <h2>
+      Como produzir mais sem
+      <span class="highlight">
+        esgotar o planeta?
       </span>
+    </h2>
 
-      <h3>
-        Engajamento e responsabilidade
-      </h3>
-
-      <p>
-        Participação, organização, compromisso com as atividades,
-        cumprimento das orientações e desenvolvimento consciente
-        do projeto.
-      </p>
-
-    </article>
-
-    <article class="rubric-card reveal">
-
-      <span class="rubric-status">
-        ✓ SIM
-      </span>
-
-      <h3>
-        Estrutura do projeto
-      </h3>
-
-      <p>
-        Menu organizado, seções identificadas, navegação intuitiva,
-        estrutura lógica e acesso rápido aos principais conteúdos.
-      </p>
-
-    </article>
-
-    <article class="rubric-card reveal">
-
-      <span class="rubric-status">
-        ✓ SIM
-      </span>
-
-      <h3>
-        Qualidade visual e design
-      </h3>
-
-      <p>
-        Interface responsiva, imagens, animações, hierarquia visual,
-        identidade própria, microinterações e experiência de usuário.
-      </p>
-
-    </article>
-
-    <article class="rubric-card reveal">
-
-      <span class="rubric-status">
-        ✓ SIM
-      </span>
-
-      <h3>
-        Conteúdo temático
-      </h3>
-
-      <p>
-        Conteúdo diretamente relacionado ao tema
-        “Agro forte, futuro sustentável”, com tecnologia,
-        produtividade e preservação ambiental.
-      </p>
-
-    </article>
-
-    <article class="rubric-card reveal">
-
-      <span class="rubric-status">
-        ✓ SIM
-      </span>
-
-      <h3>
-        Uso de tecnologias web
-      </h3>
-
-      <p>
-        HTML, CSS e JavaScript integrados a animações,
-        calculadora, quiz, modais, navegação e componentes interativos.
-      </p>
-
-    </article>
-
-    <article class="rubric-card reveal">
-
-      <span class="rubric-status">
-        ✓ SIM
-      </span>
-
-      <h3>
-        Inovação e impacto social
-      </h3>
-
-      <p>
-        Soluções tecnológicas, uso consciente dos recursos,
-        segurança alimentar, sustentabilidade e conscientização social.
-      </p>
-
-    </article>
+    <p>
+      A resposta passa por inovação, regeneração do solo,
+      planejamento, eficiência hídrica, energia limpa e,
+      principalmente, decisões orientadas por dados.
+    </p>
 
   </div>
 
 </section>
 
-<!-- TEMA -->
-
-<section id="tema" class="section">
-
-  <div class="theme-banner reveal">
-
-    <div class="theme-copy">
-
-      <span class="eyebrow">
-        Tema central
-      </span>
-
-      <h2>
-        Agro forte,
-        <span class="highlight">
-          futuro sustentável.
-        </span>
-      </h2>
-
-      <p>
-        Um agronegócio realmente forte não é apenas aquele que produz
-        muito. É aquele capaz de produzir com eficiência, valorizar
-        quem vive no campo, preservar os recursos naturais, reduzir
-        desperdícios e utilizar conhecimento e tecnologia para garantir
-        produção também para as próximas gerações.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- PILARES -->
-
-<section class="section">
-
-  <div class="section-head reveal">
-
-    <div>
-
-      <span class="eyebrow">
-        Três pilares
-      </span>
-
-      <h2>
-        Força econômica,
-        ambiental e
-        <span class="highlight">
-          social.
-        </span>
-      </h2>
-
-    </div>
-
-  </div>
-
-  <div class="pillars">
-
-    <article class="pillar reveal">
-
-      <span class="pillar-icon">📈</span>
-
-      <h3>Produtividade</h3>
-
-      <p>
-        Tecnologia e planejamento ajudam produtores a reduzir
-        perdas, controlar custos e utilizar melhor os recursos
-        disponíveis.
-      </p>
-
-    </article>
-
-    <article class="pillar reveal">
-
-      <span class="pillar-icon">🌱</span>
-
-      <h3>Sustentabilidade</h3>
-
-      <p>
-        Solo, água, biodiversidade e energia precisam ser
-        administrados de forma responsável para garantir
-        continuidade da produção.
-      </p>
-
-    </article>
-
-    <article class="pillar reveal">
-
-      <span class="pillar-icon">🤝</span>
-
-      <h3>Sociedade</h3>
-
-      <p>
-        Um campo fortalecido gera alimentos, renda, empregos,
-        desenvolvimento regional e maior segurança alimentar.
-      </p>
-
-    </article>
-
-  </div>
-
-</section>
-
-<!-- TECHNOLOGY -->
+<!-- =====================================================
+     TECHNOLOGIES
+===================================================== -->
 
 <section id="tech" class="section">
 
@@ -2018,21 +2951,19 @@ footer{
     <div>
 
       <span class="eyebrow">
-        Tecnologias sustentáveis
+        Tecnologias
       </span>
 
       <h2>
         Inteligência aplicada
-        <span class="highlight">
-          à terra.
-        </span>
+        <span class="highlight">à terra.</span>
       </h2>
 
     </div>
 
     <p class="section-subtitle">
-      Clique nas setas para descobrir como cada tecnologia
-      funciona e qual impacto pode gerar.
+      Ferramentas que transformam informações do campo em decisões
+      mais precisas, econômicas e sustentáveis.
     </p>
 
   </div>
@@ -2041,37 +2972,24 @@ footer{
 
     <article class="tech-card reveal">
 
-      <div class="tech-image">
-
+      <div class="tech-card-image">
         <img
           src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1200&q=80"
           alt="Agricultura de precisão"
         >
-
       </div>
 
-      <button
-        class="tech-icon"
-        type="button"
-        onclick="abrirTecnologia('precisao')"
-        aria-label="Abrir informações sobre agricultura de precisão"
-      >
-        ↗
-      </button>
+      <span class="tech-icon">↗</span>
 
       <div class="tech-info">
 
-        <span class="tech-number">
-          01 / PRECISÃO
-        </span>
+        <span class="tech-number">01 / PRECISÃO</span>
 
-        <h3>
-          Agricultura de precisão
-        </h3>
+        <h3>Agricultura de precisão</h3>
 
         <p>
-          Sensores, GPS, mapas e dados permitem utilizar
-          recursos apenas onde são realmente necessários.
+          Sensores, GPS e mapas digitais identificam variações na lavoura
+          e ajudam o produtor a utilizar cada recurso somente onde ele é necessário.
         </p>
 
       </div>
@@ -2080,37 +2998,24 @@ footer{
 
     <article class="tech-card reveal">
 
-      <div class="tech-image">
-
+      <div class="tech-card-image">
         <img
-          src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1100&q=80"
+          src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000&q=80"
           alt="Irrigação"
         >
-
       </div>
 
-      <button
-        class="tech-icon"
-        type="button"
-        onclick="abrirTecnologia('irrigacao')"
-        aria-label="Abrir informações sobre irrigação inteligente"
-      >
-        ↗
-      </button>
+      <span class="tech-icon">↗</span>
 
       <div class="tech-info">
 
-        <span class="tech-number">
-          02 / ÁGUA
-        </span>
+        <span class="tech-number">02 / ÁGUA</span>
 
-        <h3>
-          Irrigação inteligente
-        </h3>
+        <h3>Irrigação inteligente</h3>
 
         <p>
-          Sensores de umidade e automação ajudam a utilizar
-          água na quantidade e no momento adequados.
+          Sensores de umidade e sistemas automatizados evitam desperdícios
+          e distribuem água na quantidade correta.
         </p>
 
       </div>
@@ -2119,37 +3024,24 @@ footer{
 
     <article class="tech-card reveal">
 
-      <div class="tech-image">
-
+      <div class="tech-card-image">
         <img
-          src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1100&q=80"
-          alt="Drone agrícola"
+          src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=80"
+          alt="Drone"
         >
-
       </div>
 
-      <button
-        class="tech-icon"
-        type="button"
-        onclick="abrirTecnologia('drones')"
-        aria-label="Abrir informações sobre drones agrícolas"
-      >
-        ↗
-      </button>
+      <span class="tech-icon">↗</span>
 
       <div class="tech-info">
 
-        <span class="tech-number">
-          03 / VISÃO
-        </span>
+        <span class="tech-number">03 / VISÃO</span>
 
-        <h3>
-          Drones agrícolas
-        </h3>
+        <h3>Drones agrícolas</h3>
 
         <p>
-          Imagens aéreas permitem localizar falhas,
-          alterações e problemas em grandes áreas.
+          Imagens aéreas permitem localizar pragas, falhas de plantio,
+          doenças e alterações na lavoura antes que se tornem problemas maiores.
         </p>
 
       </div>
@@ -2158,37 +3050,24 @@ footer{
 
     <article class="tech-card reveal">
 
-      <div class="tech-image">
-
+      <div class="tech-card-image">
         <img
           src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80"
           alt="Energia solar"
         >
-
       </div>
 
-      <button
-        class="tech-icon"
-        type="button"
-        onclick="abrirTecnologia('energia')"
-        aria-label="Abrir informações sobre energia renovável"
-      >
-        ↗
-      </button>
+      <span class="tech-icon">↗</span>
 
       <div class="tech-info">
 
-        <span class="tech-number">
-          04 / ENERGIA
-        </span>
+        <span class="tech-number">04 / ENERGIA</span>
 
-        <h3>
-          Energia renovável
-        </h3>
+        <h3>Energia renovável</h3>
 
         <p>
-          Energia solar, biogás e biomassa podem reduzir
-          custos e diminuir impactos ambientais.
+          Fontes solares, biogás e biomassa reduzem custos,
+          ampliam a autonomia da propriedade e diminuem emissões.
         </p>
 
       </div>
@@ -2199,168 +3078,124 @@ footer{
 
 </section>
 
-<!-- MODAL TECHNOLOGY -->
+<!-- =====================================================
+     STATS
+===================================================== -->
 
-<div
-  class="tech-modal"
-  id="techModal"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="modalTitle"
->
+<section class="stats-wrap">
 
-  <div
-    class="tech-modal-backdrop"
-    onclick="fecharTecnologia()"
-  ></div>
+  <div class="section">
 
-  <div class="tech-modal-content">
+    <div class="section-head reveal">
 
-    <button
-      class="modal-close"
-      onclick="fecharTecnologia()"
-      aria-label="Fechar"
-    >
-      ×
-    </button>
+      <div>
+        <span class="eyebrow">
+          Agro em números
+        </span>
 
-    <span
-      class="eyebrow"
-      id="modalTag"
-    >
-      Tecnologia
-    </span>
-
-    <h2 id="modalTitle"></h2>
-
-    <p id="modalDescription"></p>
-
-    <div
-      class="modal-features"
-      id="modalFeatures"
-    ></div>
-
-    <div class="modal-impact">
-
-      <span>
-        Impacto positivo
-      </span>
-
-      <strong id="modalImpact"></strong>
+        <h2>
+          Dados que mostram
+          <span class="highlight">a escala.</span>
+        </h2>
+      </div>
 
     </div>
 
-  </div>
+    <div class="stats-grid">
 
-</div>
+      <article class="stat reveal">
 
-<!-- NUMBERS -->
+        <div class="stat-value">
+          <span
+            class="counter"
+            data-target="70"
+          >
+            0
+          </span>
+          <small>%</small>
+        </div>
 
-<section class="section">
+        <h3>Uso da água</h3>
 
-  <div class="section-head reveal">
+        <p>
+          Parcela aproximada das retiradas globais de água doce
+          associada à agricultura.
+        </p>
 
-    <div>
+      </article>
 
-      <span class="eyebrow">
-        Agro em números
-      </span>
+      <article class="stat reveal">
 
-      <h2>
-        Informação ajuda
-        a tomar
-        <span class="highlight">
-          decisões melhores.
-        </span>
-      </h2>
+        <div class="stat-value">
+          <span
+            class="counter"
+            data-target="30"
+          >
+            0
+          </span>
+          <small>%</small>
+        </div>
+
+        <h3>Economia potencial</h3>
+
+        <p>
+          Sistemas inteligentes podem reduzir perdas relacionadas
+          ao uso ineficiente da água.
+        </p>
+
+      </article>
+
+      <article class="stat reveal">
+
+        <div class="stat-value">
+          <span
+            class="counter"
+            data-target="24"
+          >
+            0
+          </span>
+          <small>h</small>
+        </div>
+
+        <h3>Monitoramento</h3>
+
+        <p>
+          Sensores conectados podem acompanhar variáveis agrícolas
+          continuamente.
+        </p>
+
+      </article>
+
+      <article class="stat reveal">
+
+        <div class="stat-value">
+          <span
+            class="counter"
+            data-target="360"
+          >
+            0
+          </span>
+          <small>°</small>
+        </div>
+
+        <h3>Visão do campo</h3>
+
+        <p>
+          Dados combinados permitem interpretar a propriedade
+          como um ecossistema completo.
+        </p>
+
+      </article>
 
     </div>
-
-  </div>
-
-  <div class="stats-grid">
-
-    <article class="stat reveal">
-
-      <div class="stat-number">
-        <span class="counter" data-target="70">
-          0
-        </span>%
-      </div>
-
-      <h3>
-        Água
-      </h3>
-
-      <p>
-        A agricultura representa parcela significativa
-        das retiradas globais de água doce.
-      </p>
-
-    </article>
-
-    <article class="stat reveal">
-
-      <div class="stat-number">
-        <span class="counter" data-target="30">
-          0
-        </span>%
-      </div>
-
-      <h3>
-        Economia simulada
-      </h3>
-
-      <p>
-        Percentual utilizado no simulador para demonstrar
-        o potencial de eficiência hídrica.
-      </p>
-
-    </article>
-
-    <article class="stat reveal">
-
-      <div class="stat-number">
-        <span class="counter" data-target="24">
-          0
-        </span>h
-      </div>
-
-      <h3>
-        Monitoramento
-      </h3>
-
-      <p>
-        Sistemas digitais podem coletar informações
-        continuamente.
-      </p>
-
-    </article>
-
-    <article class="stat reveal">
-
-      <div class="stat-number">
-        <span class="counter" data-target="4">
-          0
-        </span>
-      </div>
-
-      <h3>
-        Tecnologias
-      </h3>
-
-      <p>
-        Quatro exemplos diferentes de inovação
-        apresentados no projeto.
-      </p>
-
-    </article>
 
   </div>
 
 </section>
 
-<!-- IMPACT -->
+<!-- =====================================================
+     IMPACTS
+===================================================== -->
 
 <section id="impacto" class="section">
 
@@ -2369,21 +3204,18 @@ footer{
     <div class="impact-copy reveal">
 
       <span class="eyebrow">
-        Responsabilidade ambiental
+        Impactos ambientais
       </span>
 
       <h2>
-        Produzir mais
-        exige
-        <span class="highlight">
-          equilíbrio.
-        </span>
+        Crescimento também
+        exige <span class="highlight">equilíbrio.</span>
       </h2>
 
       <p>
-        Clique nos desafios ao lado para compreender
-        como decisões produtivas também podem gerar
-        impactos ambientais.
+        Produzir sem planejamento pode aumentar a pressão sobre
+        ecossistemas, recursos hídricos e o clima. Clique nos itens
+        para explorar os principais desafios.
       </p>
 
     </div>
@@ -2394,77 +3226,53 @@ footer{
 
         <div
           class="impact-item active"
-          onclick="mostrarImpacto(this,'A retirada de vegetação nativa reduz habitats, altera ecossistemas e pode prejudicar o equilíbrio hídrico e climático.')"
+          onclick="mostrarImpacto(this, 'A retirada da vegetação nativa reduz habitats, fragiliza ecossistemas e pode alterar o equilíbrio hídrico e climático de uma região.')"
         >
 
-          <span class="impact-num">
-            01
-          </span>
+          <span class="num">01</span>
 
-          <h3>
-            Desmatamento
-          </h3>
+          <h3>Desmatamento</h3>
 
-          <span class="impact-arrow">
-            ↗
-          </span>
+          <span class="arrow">↗</span>
 
         </div>
 
         <div
           class="impact-item"
-          onclick="mostrarImpacto(this,'O uso excessivo da água pode pressionar rios, nascentes e aquíferos. Sensores ajudam a aplicar apenas a quantidade necessária.')"
+          onclick="mostrarImpacto(this, 'Irrigação sem controle pode pressionar rios, nascentes e aquíferos. Sensores e automação permitem utilizar água conforme a necessidade real da cultura.')"
         >
 
-          <span class="impact-num">
-            02
-          </span>
+          <span class="num">02</span>
 
-          <h3>
-            Uso da água
-          </h3>
+          <h3>Uso excessivo da água</h3>
 
-          <span class="impact-arrow">
-            ↗
-          </span>
+          <span class="arrow">↗</span>
 
         </div>
 
         <div
           class="impact-item"
-          onclick="mostrarImpacto(this,'Combustíveis fósseis e determinados processos produtivos podem aumentar emissões de gases de efeito estufa.')"
+          onclick="mostrarImpacto(this, 'Emissões associadas a combustíveis, manejo inadequado e mudanças no uso do solo contribuem para o aumento da concentração de gases de efeito estufa.')"
         >
 
-          <span class="impact-num">
-            03
-          </span>
+          <span class="num">03</span>
 
-          <h3>
-            Emissões
-          </h3>
+          <h3>Emissões de carbono</h3>
 
-          <span class="impact-arrow">
-            ↗
-          </span>
+          <span class="arrow">↗</span>
 
         </div>
 
         <div
           class="impact-item"
-          onclick="mostrarImpacto(this,'A ausência de manejo adequado favorece erosão, compactação e perda de matéria orgânica, reduzindo a capacidade produtiva do solo.')"
+          onclick="mostrarImpacto(this, 'Solo exposto ou submetido ao manejo inadequado pode sofrer erosão, compactação e perda de matéria orgânica, reduzindo sua capacidade produtiva.')"
         >
 
-          <span class="impact-num">
-            04
-          </span>
+          <span class="num">04</span>
 
-          <h3>
-            Degradação do solo
-          </h3>
+          <h3>Degradação do solo</h3>
 
-          <span class="impact-arrow">
-            ↗
-          </span>
+          <span class="arrow">↗</span>
 
         </div>
 
@@ -2474,9 +3282,9 @@ footer{
         class="impact-output reveal"
         id="impactoTexto"
       >
-        A retirada de vegetação nativa reduz habitats,
-        altera ecossistemas e pode prejudicar o equilíbrio
-        hídrico e climático.
+        A retirada da vegetação nativa reduz habitats,
+        fragiliza ecossistemas e pode alterar o equilíbrio
+        hídrico e climático de uma região.
       </div>
 
     </div>
@@ -2485,111 +3293,9 @@ footer{
 
 </section>
 
-<!-- SOCIAL -->
-
-<section id="social" class="section">
-
-  <div class="section-head reveal">
-
-    <div>
-
-      <span class="eyebrow">
-        Impacto social
-      </span>
-
-      <h2>
-        Agricultura também
-        transforma
-        <span class="highlight">
-          pessoas.
-        </span>
-      </h2>
-
-    </div>
-
-    <p class="section-subtitle">
-      Sustentabilidade não é apenas ambiental. Um agro forte
-      também precisa gerar benefícios para produtores,
-      comunidades e consumidores.
-    </p>
-
-  </div>
-
-  <div class="social-grid">
-
-    <article class="social-card reveal">
-
-      <span class="social-icon">
-        🍽️
-      </span>
-
-      <h3>
-        Segurança alimentar
-      </h3>
-
-      <p>
-        Melhor produtividade contribui para ampliar
-        a disponibilidade de alimentos.
-      </p>
-
-    </article>
-
-    <article class="social-card reveal">
-
-      <span class="social-icon">
-        👨‍🌾
-      </span>
-
-      <h3>
-        Valorização do produtor
-      </h3>
-
-      <p>
-        Ferramentas mais eficientes podem reduzir desperdícios
-        e melhorar a tomada de decisões.
-      </p>
-
-    </article>
-
-    <article class="social-card reveal">
-
-      <span class="social-icon">
-        🏘️
-      </span>
-
-      <h3>
-        Desenvolvimento regional
-      </h3>
-
-      <p>
-        A atividade agrícola movimenta serviços,
-        comércio, empregos e comunidades.
-      </p>
-
-    </article>
-
-    <article class="social-card reveal">
-
-      <span class="social-icon">
-        🎓
-      </span>
-
-      <h3>
-        Conhecimento
-      </h3>
-
-      <p>
-        Educação e acesso à tecnologia ajudam novas
-        gerações a criar soluções para o campo.
-      </p>
-
-    </article>
-
-  </div>
-
-</section>
-
-<!-- PROCESS -->
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
 
 <section class="section">
 
@@ -2598,14 +3304,165 @@ footer{
     <div>
 
       <span class="eyebrow">
-        Do campo à mesa
+        Evolução
       </span>
 
       <h2>
-        Uma cadeia
-        <span class="highlight">
-          conectada.
-        </span>
+        Do braço humano
+        <span class="highlight">ao algoritmo.</span>
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div class="timeline-track">
+
+    <div class="timeline-grid">
+
+      <div class="timeline-item reveal">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-year">1900</div>
+
+        <h3>Força manual</h3>
+
+        <p>
+          Produção dependente principalmente de trabalho humano
+          e tração animal.
+        </p>
+
+      </div>
+
+      <div class="timeline-item reveal">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-year">1950</div>
+
+        <h3>Mecanização</h3>
+
+        <p>
+          Máquinas agrícolas aumentam a escala e a velocidade
+          das operações.
+        </p>
+
+      </div>
+
+      <div class="timeline-item reveal">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-year">2000</div>
+
+        <h3>Precisão</h3>
+
+        <p>
+          GPS, mapas digitais e sistemas de gerenciamento
+          passam a orientar decisões.
+        </p>
+
+      </div>
+
+      <div class="timeline-item reveal">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-year">2026</div>
+
+        <h3>Campo conectado</h3>
+
+        <p>
+          IA, drones, sensores, satélites e Internet das Coisas
+          conectam máquinas, dados e produtores.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     SOLUTIONS
+===================================================== -->
+
+<section id="solucoes" class="section">
+
+  <div class="section-head reveal">
+
+    <div>
+
+      <span class="eyebrow">
+        Ecossistema
+      </span>
+
+      <h2>
+        As soluções precisam
+        <span class="highlight">trabalhar juntas.</span>
+      </h2>
+
+    </div>
+
+    <p class="section-subtitle">
+      Sustentabilidade não depende de uma tecnologia isolada.
+      Ela surge da integração entre natureza, conhecimento,
+      energia e informação.
+    </p>
+
+  </div>
+
+  <div class="solution-board reveal">
+
+    <div class="solution-center">
+      AGRICULTURA
+      DO FUTURO
+    </div>
+
+    <div class="solution-node node-1">
+      🌱 Solo vivo
+    </div>
+
+    <div class="solution-node node-2">
+      📡 Dados
+    </div>
+
+    <div class="solution-node node-3">
+      ☀️ Energia limpa
+    </div>
+
+    <div class="solution-node node-4">
+      🔍 Rastreabilidade
+    </div>
+
+    <div class="solution-node node-5">
+      ♻️ Regeneração
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-head reveal">
+
+    <div>
+
+      <span class="eyebrow">
+        Jornada do alimento
+      </span>
+
+      <h2>
+        Do campo
+        <span class="highlight">à mesa.</span>
       </h2>
 
     </div>
@@ -2616,80 +3473,56 @@ footer{
 
     <article class="process-card reveal">
 
-      <span class="process-step">
-        ETAPA 01
-      </span>
+      <span class="process-step">ETAPA 01</span>
 
-      <span class="process-icon">
-        🌱
-      </span>
+      <span class="process-icon">🌱</span>
 
-      <h3>
-        Plantio
-      </h3>
+      <h3>Plantio</h3>
 
       <p>
-        Análise do solo e planejamento das culturas.
+        Análise do solo, planejamento e seleção das sementes.
       </p>
 
     </article>
 
     <article class="process-card reveal">
 
-      <span class="process-step">
-        ETAPA 02
-      </span>
+      <span class="process-step">ETAPA 02</span>
 
-      <span class="process-icon">
-        💧
-      </span>
+      <span class="process-icon">💧</span>
 
-      <h3>
-        Manejo
-      </h3>
+      <h3>Manejo</h3>
 
       <p>
-        Uso racional de água e recursos.
+        Irrigação e aplicação de recursos conforme a necessidade.
       </p>
 
     </article>
 
     <article class="process-card reveal">
 
-      <span class="process-step">
-        ETAPA 03
-      </span>
+      <span class="process-step">ETAPA 03</span>
 
-      <span class="process-icon">
-        🚁
-      </span>
+      <span class="process-icon">🚁</span>
 
-      <h3>
-        Monitoramento
-      </h3>
+      <h3>Monitoramento</h3>
 
       <p>
-        Drones e sensores acompanham a lavoura.
+        Drones e sensores acompanham o desenvolvimento da lavoura.
       </p>
 
     </article>
 
     <article class="process-card reveal">
 
-      <span class="process-step">
-        ETAPA 04
-      </span>
+      <span class="process-step">ETAPA 04</span>
 
-      <span class="process-icon">
-        🌾
-      </span>
+      <span class="process-icon">🌾</span>
 
-      <h3>
-        Colheita
-      </h3>
+      <h3>Colheita</h3>
 
       <p>
-        Tecnologia reduz perdas e melhora a eficiência.
+        Máquinas modernas trabalham com maior precisão e menores perdas.
       </p>
 
     </article>
@@ -2698,7 +3531,9 @@ footer{
 
 </section>
 
-<!-- GALLERY -->
+<!-- =====================================================
+     COMPARISON
+===================================================== -->
 
 <section class="section">
 
@@ -2707,15 +3542,71 @@ footer{
     <div>
 
       <span class="eyebrow">
-        Galeria
+        Transformação
       </span>
 
       <h2>
-        Tecnologia,
-        natureza e
-        <span class="highlight">
-          produção.
-        </span>
+        Mesmo campo.
+        <span class="highlight">Novas decisões.</span>
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div class="comparison">
+
+    <article class="compare-card traditional reveal">
+
+      <span class="compare-label">
+        Modelo convencional
+      </span>
+
+      <h3>Decisão por estimativa</h3>
+
+      <p>
+        Manejo uniforme e menor quantidade de informações
+        podem levar à aplicação excessiva ou insuficiente de recursos.
+      </p>
+
+    </article>
+
+    <article class="compare-card smart reveal">
+
+      <span class="compare-label">
+        Agricultura inteligente
+      </span>
+
+      <h3>Decisão por dados</h3>
+
+      <p>
+        Sensores e análises permitem compreender diferentes áreas
+        da propriedade e agir de maneira específica.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-head reveal">
+
+    <div>
+
+      <span class="eyebrow">
+        Galeria tecnológica
+      </span>
+
+      <h2>
+        O futuro já está
+        <span class="highlight">no campo.</span>
       </h2>
 
     </div>
@@ -2728,19 +3619,12 @@ footer{
 
       <img
         src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=1400&q=85"
-        alt="Campo"
+        alt="Campo agrícola"
       >
 
       <div class="gallery-caption">
-
-        <small>
-          Monitoramento
-        </small>
-
-        <h3>
-          Visão da propriedade
-        </h3>
-
+        <small>Monitoramento</small>
+        <h3>Visão ampla da propriedade</h3>
       </div>
 
     </div>
@@ -2753,15 +3637,8 @@ footer{
       >
 
       <div class="gallery-caption">
-
-        <small>
-          Precisão
-        </small>
-
-        <h3>
-          Informação no campo
-        </h3>
-
+        <small>Precisão</small>
+        <h3>Informação em cada hectare</h3>
       </div>
 
     </div>
@@ -2774,15 +3651,8 @@ footer{
       >
 
       <div class="gallery-caption">
-
-        <small>
-          Solo
-        </small>
-
-        <h3>
-          Base da produção
-        </h3>
-
+        <small>Solo</small>
+        <h3>Produção começa na terra</h3>
       </div>
 
     </div>
@@ -2791,19 +3661,12 @@ footer{
 
       <img
         src="https://images.unsplash.com/photo-1531058240690-006c446962d8?auto=format&fit=crop&w=900&q=80"
-        alt="Natureza"
+        alt="Vegetação"
       >
 
       <div class="gallery-caption">
-
-        <small>
-          Natureza
-        </small>
-
-        <h3>
-          Preservação
-        </h3>
-
+        <small>Natureza</small>
+        <h3>Equilíbrio ambiental</h3>
       </div>
 
     </div>
@@ -2812,19 +3675,12 @@ footer{
 
       <img
         src="https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=900&q=80"
-        alt="Solo"
+        alt="Solo agrícola"
       >
 
       <div class="gallery-caption">
-
-        <small>
-          Regeneração
-        </small>
-
-        <h3>
-          Solo saudável
-        </h3>
-
+        <small>Regeneração</small>
+        <h3>Solo saudável</h3>
       </div>
 
     </div>
@@ -2837,15 +3693,8 @@ footer{
       >
 
       <div class="gallery-caption">
-
-        <small>
-          Futuro
-        </small>
-
-        <h3>
-          Crescimento sustentável
-        </h3>
-
+        <small>Produção</small>
+        <h3>Crescimento sustentável</h3>
       </div>
 
     </div>
@@ -2854,35 +3703,40 @@ footer{
 
 </section>
 
-<!-- LAB -->
+<!-- =====================================================
+     LAB
+===================================================== -->
 
-<section id="laboratorio" class="section">
+<section
+  id="laboratorio"
+  class="section"
+>
 
   <div class="section-head reveal">
 
     <div>
 
       <span class="eyebrow">
-        Tecnologia web
+        Laboratório AgroPulse
       </span>
 
       <h2>
-        Laboratório
-        <span class="highlight">
-          interativo.
-        </span>
+        Agora é sua vez de
+        <span class="highlight">interagir.</span>
       </h2>
 
     </div>
 
     <p class="section-subtitle">
-      JavaScript transforma o site em uma experiência
-      interativa e não apenas em uma página de leitura.
+      Teste conceitos do projeto através de pequenas experiências
+      interativas.
     </p>
 
   </div>
 
   <div class="lab-grid">
+
+    <!-- água -->
 
     <div class="module reveal">
 
@@ -2895,7 +3749,7 @@ footer{
           </h3>
 
           <p class="module-copy">
-            Simulação educativa com redução hipotética de 30%.
+            Simule uma redução hipotética de 30% no consumo.
           </p>
 
         </div>
@@ -2926,7 +3780,7 @@ footer{
       </div>
 
       <p id="resultado">
-        Digite um valor para iniciar.
+        Digite um valor para iniciar a simulação.
       </p>
 
       <div
@@ -2934,7 +3788,7 @@ footer{
         id="waterHighlight"
       >
 
-        Economia anual estimada
+        <span>Economia anual estimada</span>
 
         <strong id="economiaAnual">
           0 L
@@ -2944,6 +3798,8 @@ footer{
 
     </div>
 
+    <!-- quiz -->
+
     <div class="module reveal">
 
       <div class="module-head">
@@ -2951,11 +3807,11 @@ footer{
         <div>
 
           <h3>
-            Quiz sustentável
+            Teste seus conhecimentos
           </h3>
 
           <p class="module-copy">
-            Teste seus conhecimentos sobre o projeto.
+            Um quiz rápido sobre agricultura sustentável.
           </p>
 
         </div>
@@ -2983,7 +3839,9 @@ footer{
 
 </section>
 
-<!-- ENGAGEMENT -->
+<!-- =====================================================
+     FACTS
+===================================================== -->
 
 <section class="section">
 
@@ -2992,94 +3850,61 @@ footer{
     <div>
 
       <span class="eyebrow">
-        Engajamento e responsabilidade
+        Você sabia?
       </span>
 
       <h2>
-        Projeto construído
-        com
-        <span class="highlight">
-          propósito.
-        </span>
+        Pequenos fatos.
+        <span class="highlight">Grandes impactos.</span>
       </h2>
 
     </div>
 
   </div>
 
-  <div class="commitment">
+  <div class="facts">
 
-    <div class="commitment-panel reveal">
+    <div class="fact reveal">
 
-      <h3>
-        Compromissos do projeto
-      </h3>
+      <span class="fact-icon">🌎</span>
 
-      <div class="commitment-list">
-
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          Desenvolvimento contínuo das atividades.
-        </div>
-
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          Cumprimento das orientações propostas.
-        </div>
-
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          Pesquisa e aprofundamento do tema.
-        </div>
-
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          Organização do conteúdo e do código.
-        </div>
-
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          Aprimoramento contínuo da experiência do usuário.
-        </div>
-
-      </div>
+      <p>
+        Alguns tipos de solo podem levar centenas de anos
+        para formar poucos centímetros.
+      </p>
 
     </div>
 
-    <div class="commitment-panel reveal">
+    <div class="fact reveal">
 
-      <h3>
-        Tecnologias utilizadas
-      </h3>
+      <span class="fact-icon">🚁</span>
 
-      <div class="commitment-list">
+      <p>
+        Drones conseguem analisar grandes áreas agrícolas
+        muito mais rapidamente do que inspeções exclusivamente terrestres.
+      </p>
 
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          HTML para estrutura e conteúdo.
-        </div>
+    </div>
 
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          CSS para identidade visual e responsividade.
-        </div>
+    <div class="fact reveal">
 
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          JavaScript para interatividade.
-        </div>
+      <span class="fact-icon">☀️</span>
 
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          Design adaptado para computadores e celulares.
-        </div>
+      <p>
+        Propriedades rurais podem utilizar telhados e áreas
+        improdutivas para geração de energia solar.
+      </p>
 
-        <div class="commitment-item">
-          <span class="check">✓</span>
-          Experiência interativa com modais, quiz e simulador.
-        </div>
+    </div>
 
-      </div>
+    <div class="fact reveal">
+
+      <span class="fact-icon">🌱</span>
+
+      <p>
+        Rotação de culturas ajuda a melhorar características
+        físicas, químicas e biológicas do solo.
+      </p>
 
     </div>
 
@@ -3087,7 +3912,66 @@ footer{
 
 </section>
 
-<!-- FAQ -->
+<!-- =====================================================
+     MAP
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-head reveal">
+
+    <div>
+
+      <span class="eyebrow">
+        Campo conectado
+      </span>
+
+      <h2>
+        Uma propriedade.
+        <span class="highlight">Muitos dados.</span>
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div class="map-board reveal">
+
+    <div class="map-pin">
+      🌾
+      <div class="map-tooltip">
+        Talhão monitorado
+      </div>
+    </div>
+
+    <div class="map-pin">
+      💧
+      <div class="map-tooltip">
+        Irrigação inteligente
+      </div>
+    </div>
+
+    <div class="map-pin">
+      ☀️
+      <div class="map-tooltip">
+        Energia solar
+      </div>
+    </div>
+
+    <div class="map-pin">
+      🚁
+      <div class="map-tooltip">
+        Drone em operação
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
 
 <section class="section">
 
@@ -3102,10 +3986,8 @@ footer{
         </span>
 
         <h2>
-          Entenda o
-          <span class="highlight">
-            projeto.
-          </span>
+          Entenda os
+          <span class="highlight">conceitos.</span>
         </h2>
 
       </div>
@@ -3115,28 +3997,14 @@ footer{
     <details class="reveal">
 
       <summary>
-        O que significa “Agro forte, futuro sustentável”?
-      </summary>
-
-      <p>
-        Significa desenvolver uma agricultura produtiva,
-        economicamente viável e tecnologicamente moderna,
-        sem deixar de preservar recursos naturais e gerar
-        benefícios sociais.
-      </p>
-
-    </details>
-
-    <details class="reveal">
-
-      <summary>
         O que é agricultura de precisão?
       </summary>
 
       <p>
-        É o uso de dados, GPS, sensores, mapas e outras
-        tecnologias para tomar decisões específicas
-        dentro de uma propriedade rural.
+        É uma estratégia de manejo que utiliza dados, mapas,
+        sensores, GPS e outras tecnologias para compreender
+        as diferenças existentes dentro de uma propriedade
+        e tomar decisões mais específicas.
       </p>
 
     </details>
@@ -3144,13 +4012,14 @@ footer{
     <details class="reveal">
 
       <summary>
-        Como a tecnologia pode ajudar a sustentabilidade?
+        Por que economizar água na agricultura?
       </summary>
 
       <p>
-        Ela pode reduzir desperdícios, melhorar o uso da água,
-        monitorar a saúde das plantas, diminuir perdas e
-        fornecer informações para decisões mais eficientes.
+        A água é essencial para a produção de alimentos.
+        Reduzir desperdícios ajuda a preservar rios,
+        reservatórios e aquíferos e também pode diminuir
+        custos de produção.
       </p>
 
     </details>
@@ -3158,13 +4027,28 @@ footer{
     <details class="reveal">
 
       <summary>
-        Qual é o impacto social de um agro mais eficiente?
+        Como drones ajudam produtores?
       </summary>
 
       <p>
-        Maior eficiência pode fortalecer produtores,
-        gerar renda, ampliar a disponibilidade de alimentos,
-        movimentar comunidades e favorecer o desenvolvimento regional.
+        Eles podem capturar imagens aéreas, identificar
+        falhas de plantio, analisar o desenvolvimento da
+        vegetação e facilitar a inspeção de grandes áreas.
+      </p>
+
+    </details>
+
+    <details class="reveal">
+
+      <summary>
+        Tecnologia e sustentabilidade podem caminhar juntas?
+      </summary>
+
+      <p>
+        Sim. Quando usada de forma planejada, a tecnologia
+        permite melhorar a eficiência produtiva ao mesmo
+        tempo em que reduz desperdícios e oferece informações
+        para uma gestão ambiental mais responsável.
       </p>
 
     </details>
@@ -3175,6 +4059,10 @@ footer{
 
 </main>
 
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
 <section class="final-cta reveal">
 
   <div class="final-cta-content">
@@ -3184,25 +4072,32 @@ footer{
     </span>
 
     <h2>
-      Agro forte.
+      Tecnologia para
       <span class="highlight">
-        Futuro sustentável.
+        cultivar o amanhã.
       </span>
     </h2>
 
     <p>
-      Produzir melhor significa combinar conhecimento,
-      inovação, responsabilidade ambiental e compromisso
-      com as pessoas.
+      O futuro da agricultura será construído onde
+      conhecimento, natureza e inovação conseguirem
+      crescer juntos.
     </p>
 
-    <a href="#home" class="primary">
+    <a
+      class="primary"
+      href="#home"
+    >
       Voltar ao início ↑
     </a>
 
   </div>
 
 </section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -3213,8 +4108,9 @@ footer{
     </div>
 
     <p class="footer-copy">
-      Projeto Agrinho 2026 desenvolvido sobre tecnologia,
-      produtividade, sustentabilidade e impacto social.
+      Produção inteligente para um planeta vivo.
+      Tecnologia, sustentabilidade e conhecimento
+      conectando o campo ao futuro.
     </p>
 
   </div>
@@ -3222,11 +4118,11 @@ footer{
   <div class="footer-bottom">
 
     <span>
-      AGRO FORTE • FUTURO SUSTENTÁVEL
+      PROJETO AGRINHO • 2026
     </span>
 
     <span>
-      HTML • CSS • JAVASCRIPT
+      CAMPO • TECNOLOGIA • SUSTENTABILIDADE
     </span>
 
   </div>
@@ -3239,31 +4135,27 @@ footer{
    MENU
 ========================================================= */
 
-const menu =
-  document.getElementById("menu");
+const menu = document.getElementById("menu");
+const menuBtn = document.getElementById("menuBtn");
 
-const menuBtn =
-  document.getElementById("menuBtn");
+function toggleMenu() {
 
-function toggleMenu(){
-
-  const aberto =
-    menu.classList.toggle("open");
+  const open = menu.classList.toggle("open");
 
   menuBtn.setAttribute(
     "aria-expanded",
-    String(aberto)
+    String(open)
   );
 
 }
 
 menu
   .querySelectorAll("a")
-  .forEach(link=>{
+  .forEach(link => {
 
     link.addEventListener(
       "click",
-      ()=>{
+      () => {
 
         menu.classList.remove("open");
 
@@ -3281,12 +4173,11 @@ menu
    HEADER
 ========================================================= */
 
-const topbar =
-  document.getElementById("topbar");
+const topbar = document.getElementById("topbar");
 
 window.addEventListener(
   "scroll",
-  ()=>{
+  () => {
 
     topbar.classList.toggle(
       "scrolled",
@@ -3297,432 +4188,218 @@ window.addEventListener(
 );
 
 /* =========================================================
-   CURSOR
+   CURSOR LIGHT
 ========================================================= */
 
 const cursorLight =
-  document.getElementById(
-    "cursorLight"
-  );
+  document.getElementById("cursorLight");
 
 window.addEventListener(
   "mousemove",
-  e=>{
+  event => {
 
     cursorLight.style.left =
-      e.clientX + "px";
+      event.clientX + "px";
 
     cursorLight.style.top =
-      e.clientY + "px";
+      event.clientY + "px";
 
   }
 );
 
 /* =========================================================
-   REVEAL
+   SCROLL REVEAL
 ========================================================= */
 
 const revealObserver =
   new IntersectionObserver(
-    entries=>{
+    entries => {
 
-      entries.forEach(
-        entry=>{
+      entries.forEach(entry => {
 
-          if(
-            entry.isIntersecting
-          ){
+        if (entry.isIntersecting) {
 
+          entry.target.classList.add(
+            "visible"
+          );
+
+          revealObserver.unobserve(
             entry.target
-              .classList
-              .add("visible");
-
-            revealObserver
-              .unobserve(
-                entry.target
-              );
-
-          }
+          );
 
         }
-      );
+
+      });
 
     },
     {
-      threshold:.12
+      threshold: .12
     }
   );
 
 document
   .querySelectorAll(".reveal")
-  .forEach(
-    el=>revealObserver.observe(el)
-  );
+  .forEach(element => {
 
-/* =========================================================
-   TECHNOLOGY MODAL
-========================================================= */
+    revealObserver.observe(element);
 
-const tecnologias = {
-
-  precisao:{
-
-    tag:"01 / PRECISÃO",
-
-    titulo:
-      "Agricultura de precisão",
-
-    descricao:
-      "A agricultura de precisão utiliza GPS, sensores, mapas, imagens e dados para identificar diferenças dentro da própria lavoura. Com isso, o produtor consegue direcionar insumos e recursos para os locais que realmente precisam deles.",
-
-    recursos:[
-      "Sensores agrícolas",
-      "Mapeamento por GPS",
-      "Análise da produtividade",
-      "Aplicação localizada"
-    ],
-
-    impacto:
-      "Maior produtividade com menor desperdício de recursos."
-
-  },
-
-  irrigacao:{
-
-    tag:"02 / ÁGUA",
-
-    titulo:
-      "Irrigação inteligente",
-
-    descricao:
-      "Sensores de umidade e sistemas automatizados permitem identificar quando o solo realmente precisa receber água, evitando irrigação excessiva ou insuficiente.",
-
-    recursos:[
-      "Sensores de umidade",
-      "Controle automatizado",
-      "Dados climáticos",
-      "Gestão do consumo"
-    ],
-
-    impacto:
-      "Uso mais eficiente e consciente dos recursos hídricos."
-
-  },
-
-  drones:{
-
-    tag:"03 / VISÃO",
-
-    titulo:
-      "Drones agrícolas",
-
-    descricao:
-      "Drones equipados com câmeras e sensores conseguem observar grandes áreas, localizar falhas, alterações na vegetação e outros problemas de forma rápida.",
-
-    recursos:[
-      "Imagens aéreas",
-      "Mapeamento de áreas",
-      "Detecção de falhas",
-      "Monitoramento da lavoura"
-    ],
-
-    impacto:
-      "Problemas podem ser identificados antes de causar perdas maiores."
-
-  },
-
-  energia:{
-
-    tag:"04 / ENERGIA",
-
-    titulo:
-      "Energia renovável",
-
-    descricao:
-      "Fontes como energia solar, biomassa e biogás podem ser integradas às propriedades rurais, contribuindo para maior autonomia e redução da dependência de fontes convencionais.",
-
-    recursos:[
-      "Energia solar",
-      "Biogás",
-      "Biomassa",
-      "Autonomia energética"
-    ],
-
-    impacto:
-      "Menores custos energéticos e menor impacto ambiental."
-
-  }
-
-};
-
-function abrirTecnologia(tipo){
-
-  const tecnologia =
-    tecnologias[tipo];
-
-  if(!tecnologia){
-    return;
-  }
-
-  document
-    .getElementById(
-      "modalTag"
-    )
-    .textContent =
-      tecnologia.tag;
-
-  document
-    .getElementById(
-      "modalTitle"
-    )
-    .textContent =
-      tecnologia.titulo;
-
-  document
-    .getElementById(
-      "modalDescription"
-    )
-    .textContent =
-      tecnologia.descricao;
-
-  document
-    .getElementById(
-      "modalImpact"
-    )
-    .textContent =
-      tecnologia.impacto;
-
-  const features =
-    document.getElementById(
-      "modalFeatures"
-    );
-
-  features.innerHTML = "";
-
-  tecnologia
-    .recursos
-    .forEach(recurso=>{
-
-      const feature =
-        document.createElement(
-          "div"
-        );
-
-      feature.className =
-        "modal-feature";
-
-      feature.textContent =
-        recurso;
-
-      features.appendChild(
-        feature
-      );
-
-    });
-
-  document
-    .getElementById(
-      "techModal"
-    )
-    .classList
-    .add("open");
-
-  document.body
-    .classList
-    .add("modal-open");
-
-}
-
-function fecharTecnologia(){
-
-  document
-    .getElementById(
-      "techModal"
-    )
-    .classList
-    .remove("open");
-
-  document.body
-    .classList
-    .remove("modal-open");
-
-}
-
-document.addEventListener(
-  "keydown",
-  e=>{
-
-    if(e.key === "Escape"){
-      fecharTecnologia();
-    }
-
-  }
-);
-
-/* =========================================================
-   IMPACT
-========================================================= */
-
-function mostrarImpacto(
-  element,
-  texto
-){
-
-  document
-    .querySelectorAll(
-      ".impact-item"
-    )
-    .forEach(item=>
-      item.classList.remove(
-        "active"
-      )
-    );
-
-  element
-    .classList
-    .add("active");
-
-  const output =
-    document.getElementById(
-      "impactoTexto"
-    );
-
-  output.style.opacity =
-    "0";
-
-  setTimeout(
-    ()=>{
-
-      output.textContent =
-        texto;
-
-      output.style.opacity =
-        "1";
-
-    },
-    150
-  );
-
-}
+  });
 
 /* =========================================================
    COUNTERS
 ========================================================= */
 
 const counters =
-  document.querySelectorAll(
-    ".counter"
-  );
+  document.querySelectorAll(".counter");
 
-let countersStarted =
-  false;
+let countersStarted = false;
 
 const counterObserver =
   new IntersectionObserver(
-    entries=>{
+    entries => {
 
-      entries.forEach(
-        entry=>{
+      entries.forEach(entry => {
 
-          if(
-            entry.isIntersecting &&
-            !countersStarted
-          ){
+        if (
+          entry.isIntersecting &&
+          !countersStarted
+        ) {
 
-            countersStarted =
-              true;
+          countersStarted = true;
 
-            counters.forEach(
-              counter=>{
+          counters.forEach(counter => {
 
-                const target =
-                  Number(
-                    counter.dataset.target
-                  );
+            const target =
+              Number(counter.dataset.target);
 
-                const start =
-                  performance.now();
+            let value = 0;
 
-                const duration =
-                  1400;
+            const duration = 1500;
 
-                function animate(time){
+            const start =
+              performance.now();
 
-                  const progress =
-                    Math.min(
-                      (
-                        time-start
-                      )/
-                      duration,
-                      1
-                    );
+            function animate(time) {
 
-                  const eased =
-                    1 -
-                    Math.pow(
-                      1-progress,
-                      3
-                    );
+              const progress =
+                Math.min(
+                  (time - start) /
+                  duration,
+                  1
+                );
 
-                  counter.textContent =
-                    Math.floor(
-                      target*eased
-                    );
+              const eased =
+                1 -
+                Math.pow(
+                  1 - progress,
+                  3
+                );
 
-                  if(progress < 1){
+              value =
+                Math.floor(
+                  target * eased
+                );
 
-                    requestAnimationFrame(
-                      animate
-                    );
+              counter.textContent =
+                value;
 
-                  }
-
-                }
+              if (progress < 1) {
 
                 requestAnimationFrame(
                   animate
                 );
 
               }
+
+            }
+
+            requestAnimationFrame(
+              animate
             );
 
-          }
+          });
 
         }
-      );
+
+      });
 
     },
     {
-      threshold:.25
+      threshold: .3
     }
   );
 
 const stats =
-  document.querySelector(
-    ".stats-grid"
+  document.querySelector(".stats-wrap");
+
+if (stats) {
+  counterObserver.observe(stats);
+}
+
+/* =========================================================
+   IMPACTS
+========================================================= */
+
+function mostrarImpacto(
+  element,
+  texto
+) {
+
+  document
+    .querySelectorAll(".impact-item")
+    .forEach(item => {
+
+      item.classList.remove(
+        "active"
+      );
+
+    });
+
+  element.classList.add(
+    "active"
   );
 
-if(stats){
-  counterObserver.observe(stats);
+  const output =
+    document.getElementById(
+      "impactoTexto"
+    );
+
+  output.style.opacity = "0";
+
+  output.style.transform =
+    "translateY(5px)";
+
+  setTimeout(
+    () => {
+
+      output.textContent = texto;
+
+      output.style.opacity = "1";
+
+      output.style.transform =
+        "translateY(0)";
+
+    },
+    160
+  );
+
 }
 
 /* =========================================================
    WATER CALCULATOR
 ========================================================= */
 
-function calcular(){
+function calcular() {
 
   const input =
-    document.getElementById(
-      "agua"
-    );
+    document.getElementById("agua");
 
   const resultado =
     document.getElementById(
       "resultado"
     );
 
-  const fill =
+  const meter =
     document.getElementById(
       "meterFill"
     );
@@ -3740,15 +4417,15 @@ function calcular(){
   const agua =
     Number(input.value);
 
-  if(
+  if (
     !agua ||
     agua <= 0
-  ){
+  ) {
 
     resultado.textContent =
-      "Digite uma quantidade válida.";
+      "Digite uma quantidade válida de litros.";
 
-    fill.style.width =
+    meter.style.width =
       "0%";
 
     highlight.style.display =
@@ -3758,35 +4435,42 @@ function calcular(){
 
   }
 
-  const economia =
-    agua*.30;
+  const economiaMensal =
+    agua * .30;
 
-  const anual =
-    economia*12;
+  const economiaAnual =
+    economiaMensal * 12;
 
   resultado.innerHTML =
-    `Economia mensal estimada: <strong>${formatNumber(economia)} litros</strong>.`;
+    `Com otimização de 30%, o consumo poderia cair de <strong>${formatNumber(agua)} L</strong> para aproximadamente <strong>${formatNumber(agua - economiaMensal)} L/mês</strong>.`;
 
   annual.textContent =
-    formatNumber(anual)
-    +" L";
+    formatNumber(
+      economiaAnual
+    ) + " L";
 
   highlight.style.display =
     "block";
 
-  fill.style.width =
-    "30%";
+  requestAnimationFrame(
+    () => {
+
+      meter.style.width =
+        "30%";
+
+    }
+  );
 
 }
 
-function formatNumber(valor){
+function formatNumber(value) {
 
   return new Intl.NumberFormat(
     "pt-BR",
     {
-      maximumFractionDigits:0
+      maximumFractionDigits: 0
     }
-  ).format(valor);
+  ).format(value);
 
 }
 
@@ -3797,70 +4481,62 @@ function formatNumber(valor){
 const quiz = [
 
   {
-
     q:
-      "Qual tecnologia consegue mapear uma lavoura pelo ar?",
+      "Qual tecnologia pode mapear uma lavoura pelo ar?",
 
-    a:[
+    a: [
       "Drone agrícola",
       "Queimada",
       "Arado manual"
     ],
 
-    c:0
-
+    c: 0
   },
 
   {
-
     q:
-      "Qual prática contribui para conservar o solo?",
+      "Qual prática contribui para melhorar a saúde do solo?",
 
-    a:[
+    a: [
       "Rotação de culturas",
-      "Solo sempre exposto",
+      "Solo permanentemente exposto",
       "Desmatamento"
     ],
 
-    c:0
-
+    c: 0
   },
 
   {
-
     q:
-      "Qual destas é uma fonte renovável?",
+      "Qual destas é uma fonte de energia renovável?",
 
-    a:[
+    a: [
       "Diesel",
       "Carvão mineral",
       "Energia solar"
     ],
 
-    c:2
-
+    c: 2
   },
 
   {
-
     q:
       "Sensores de umidade ajudam principalmente a controlar:",
 
-    a:[
-      "Uso da água",
-      "Preço dos alimentos",
-      "Número de estradas"
+    a: [
+      "A quantidade de água utilizada",
+      "A velocidade do vento",
+      "O preço dos alimentos"
     ],
 
-    c:0
-
+    c: 0
   }
 
 ];
 
-let etapa=0;
-let score=0;
-let bloqueado=false;
+let etapa = 0;
+let score = 0;
+let bloqueado = false;
 
 const pergunta =
   document.getElementById(
@@ -3877,33 +4553,33 @@ const pontuacao =
     "pontuacao"
   );
 
-const quizProgress =
+const progress =
   document.getElementById(
     "quizProgress"
   );
 
-function criarProgresso(){
+function criarProgresso() {
 
-  quizProgress.innerHTML="";
+  progress.innerHTML = "";
 
   quiz.forEach(
-    (_,index)=>{
+    (_, index) => {
 
-      const item =
+      const step =
         document.createElement(
           "span"
         );
 
-      if(index < etapa){
+      if (index < etapa) {
 
-        item.classList.add(
+        step.classList.add(
           "done"
         );
 
       }
 
-      quizProgress.appendChild(
-        item
+      progress.appendChild(
+        step
       );
 
     }
@@ -3911,13 +4587,13 @@ function criarProgresso(){
 
 }
 
-function carregarPergunta(){
+function carregarPergunta() {
 
-  bloqueado=false;
+  bloqueado = false;
 
   criarProgresso();
 
-  pontuacao.textContent="";
+  pontuacao.textContent = "";
 
   const item =
     quiz[etapa];
@@ -3925,32 +4601,35 @@ function carregarPergunta(){
   pergunta.textContent =
     item.q;
 
-  respostas.innerHTML="";
+  respostas.innerHTML = "";
 
   item.a.forEach(
-    (texto,index)=>{
+    (texto, index) => {
 
-      const btn =
+      const button =
         document.createElement(
           "button"
         );
 
-      btn.type="button";
+      button.type =
+        "button";
 
-      btn.className=
+      button.className =
         "quiz-answer";
 
-      btn.textContent=
+      button.textContent =
         texto;
 
-      btn.onclick=
-        ()=>responder(
+      button.addEventListener(
+        "click",
+        () => responder(
           index,
-          btn
-        );
+          button
+        )
+      );
 
       respostas.appendChild(
-        btn
+        button
       );
 
     }
@@ -3960,122 +4639,146 @@ function carregarPergunta(){
 
 function responder(
   index,
-  selected
-){
+  selectedButton
+) {
 
-  if(bloqueado){
+  if (bloqueado) {
     return;
   }
 
-  bloqueado=true;
+  bloqueado = true;
 
-  const correto =
+  const correct =
     quiz[etapa].c;
 
-  const botoes =
+  const buttons =
     Array.from(
       respostas.children
     );
 
-  botoes.forEach(
-    (btn,i)=>{
+  buttons.forEach(
+    (button, buttonIndex) => {
 
-      btn.disabled=true;
+      button.disabled = true;
 
-      if(i===correto){
-        btn.classList.add(
+      if (
+        buttonIndex === correct
+      ) {
+
+        button.classList.add(
           "correct"
         );
+
       }
 
     }
   );
 
-  if(index===correto){
+  if (index === correct) {
 
     score++;
 
-  }else{
+  } else {
 
-    selected
+    selectedButton
       .classList
       .add("wrong");
 
   }
 
   setTimeout(
-    ()=>{
+    () => {
 
       etapa++;
 
-      if(
-        etapa <
-        quiz.length
-      ){
+      if (
+        etapa < quiz.length
+      ) {
 
         carregarPergunta();
 
-      }else{
+      } else {
 
         finalizarQuiz();
 
       }
 
     },
-    800
+    850
   );
 
 }
 
-function finalizarQuiz(){
+function finalizarQuiz() {
 
   criarProgresso();
 
-  Array
-    .from(
-      quizProgress.children
-    )
-    .forEach(
-      el=>el.classList.add(
-        "done"
-      )
+  Array.from(
+    progress.children
+  ).forEach(step => {
+
+    step.classList.add(
+      "done"
     );
+
+  });
 
   pergunta.textContent =
     "Quiz finalizado.";
 
-  respostas.innerHTML="";
+  respostas.innerHTML = "";
+
+  let message =
+    "Continue explorando o projeto.";
+
+  if (
+    score === quiz.length
+  ) {
+
+    message =
+      "Excelente! Você acertou todas.";
+
+  } else if (
+    score >= quiz.length / 2
+  ) {
+
+    message =
+      "Bom resultado!";
+
+  }
 
   pontuacao.innerHTML =
-    `Pontuação: <strong>${score}/${quiz.length}</strong>`;
+    `<strong>${score}/${quiz.length}</strong> — ${message}`;
 
-  const btn =
+  const restart =
     document.createElement(
       "button"
     );
 
-  btn.className=
+  restart.className =
     "restart-btn";
 
-  btn.textContent=
+  restart.textContent =
     "Refazer quiz";
 
-  btn.style.marginTop=
-    "15px";
+  restart.style.marginTop =
+    "16px";
 
-  btn.onclick=
-    reiniciarQuiz;
+  restart.addEventListener(
+    "click",
+    reiniciarQuiz
+  );
 
   respostas.appendChild(
-    btn
+    restart
   );
 
 }
 
-function reiniciarQuiz(){
+function reiniciarQuiz() {
 
-  etapa=0;
-  score=0;
+  etapa = 0;
+  score = 0;
 
   carregarPergunta();
 
@@ -4084,34 +4787,36 @@ function reiniciarQuiz(){
 carregarPergunta();
 
 /* =========================================================
-   ACTIVE MENU
+   ACTIVE NAV
 ========================================================= */
-
-const navLinks =
-  document.querySelectorAll(
-    "nav a"
-  );
 
 const sections =
   document.querySelectorAll(
     "section[id]"
   );
 
+const navLinks =
+  document.querySelectorAll(
+    "nav a"
+  );
+
 window.addEventListener(
   "scroll",
-  ()=>{
+  () => {
 
-    let atual="";
+    let current = "";
 
     sections.forEach(
-      section=>{
+      section => {
 
-        if(
-          window.scrollY >=
-          section.offsetTop-180
-        ){
+        const top =
+          section.offsetTop - 180;
 
-          atual=
+        if (
+          window.scrollY >= top
+        ) {
+
+          current =
             section.id;
 
         }
@@ -4120,24 +4825,28 @@ window.addEventListener(
     );
 
     navLinks.forEach(
-      link=>{
+      link => {
 
         link.classList.remove(
           "active"
         );
 
-        if(
+        if (
           link.getAttribute(
             "href"
-          )===
-          "#"+atual
-        ){
+          ) ===
+          "#" + current
+        ) {
+
           link.classList.add(
             "active"
           );
+
         }
+
       }
     );
+
   }
 );
 
