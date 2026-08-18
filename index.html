@@ -1,2728 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AgroPulse — Tecnologia, Campo e Futuro</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+  AgroPulse — Tecnologia, Campo e Futuro
+</title>
 
 <meta
   name="description"
-  content="AgroPulse: tecnologia, sustentabilidade e inovação transformando o futuro da agricultura."
+  content="AgroPulse: tecnologia, sustentabilidade, economia e inovação transformando o futuro da agricultura brasileira."
 >
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
 
 <link
   href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
   rel="stylesheet"
 >
 
-<style>
+<!-- CSS PRINCIPAL -->
+<link
+  rel="stylesheet"
+  href="style.css"
+>
+
+<!-- Biblioteca usada para os gráficos -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-/* =========================================================
-   RESET / ROOT
-========================================================= */
-
-:root {
-  --bg: #07100c;
-  --bg-soft: #0b1711;
-  --bg-card: rgba(16, 34, 24, 0.72);
-
-  --green: #8dff6a;
-  --green-2: #43e77c;
-  --green-dark: #1c9c50;
-
-  --lime: #c7ff74;
-  --yellow: #f2ff87;
-
-  --text: #f3f7f3;
-  --muted: #9bad9f;
-
-  --border: rgba(255,255,255,.10);
-  --border-green: rgba(141,255,106,.25);
-
-  --shadow:
-    0 30px 80px rgba(0,0,0,.35);
-
-  --radius: 28px;
-  --radius-sm: 18px;
-
-  --max: 1220px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background:
-    radial-gradient(
-      circle at 15% 10%,
-      rgba(57,255,124,.08),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 90% 30%,
-      rgba(154,255,98,.06),
-      transparent 32%
-    ),
-    var(--bg);
-
-  color: var(--text);
-
-  font-family: "DM Sans", sans-serif;
-
-  line-height: 1.6;
-
-  overflow-x: hidden;
-}
-
-body.menu-lock {
-  overflow: hidden;
-}
-
-::selection {
-  background: var(--green);
-  color: #041008;
-}
-
-img {
-  width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input {
-  font: inherit;
-}
-
-/* =========================================================
-   BACKGROUND DECORATION
-========================================================= */
-
-.noise {
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-
-  opacity: .055;
-
-  z-index: 999;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-}
-
-.bg-orb {
-  position: fixed;
-
-  width: 520px;
-  height: 520px;
-
-  border-radius: 50%;
-
-  filter: blur(100px);
-
-  pointer-events: none;
-
-  opacity: .08;
-
-  z-index: -1;
-}
-
-.orb-one {
-  background: #7dff58;
-
-  left: -250px;
-  top: 20%;
-}
-
-.orb-two {
-  background: #1ee889;
-
-  right: -260px;
-  top: 55%;
-}
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-.container,
-.section {
-  width: min(calc(100% - 44px), var(--max));
-  margin-inline: auto;
-}
-
-.section {
-  padding: 115px 0;
-}
-
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 40px;
-
-  margin-bottom: 50px;
-}
-
-.section-head > div {
-  max-width: 720px;
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-
-  color: var(--green);
-
-  font-size: 12px;
-  font-weight: 700;
-
-  letter-spacing: .14em;
-  text-transform: uppercase;
-
-  margin-bottom: 17px;
-}
-
-.eyebrow::before {
-  content: "";
-
-  width: 22px;
-  height: 1px;
-
-  background: var(--green);
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Manrope", sans-serif;
-}
-
-h2 {
-  font-size: clamp(2.2rem, 5vw, 4.4rem);
-  line-height: 1.05;
-
-  letter-spacing: -.045em;
-}
-
-.section-subtitle {
-  max-width: 590px;
-
-  color: var(--muted);
-
-  font-size: 17px;
-}
-
-.highlight {
-  color: var(--green);
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =========================================================
-   TOPBAR
-========================================================= */
-
-.topbar {
-  width: min(calc(100% - 40px), 1320px);
-
-  position: fixed;
-
-  left: 50%;
-  top: 18px;
-
-  transform: translateX(-50%);
-
-  height: 72px;
-
-  display: flex;
-  align-items: center;
-
-  padding: 0 24px;
-
-  border: 1px solid rgba(255,255,255,.09);
-
-  background: rgba(6,17,11,.68);
-
-  backdrop-filter: blur(20px);
-
-  border-radius: 22px;
-
-  z-index: 100;
-
-  transition:
-    background .3s ease,
-    box-shadow .3s ease,
-    transform .3s ease;
-}
-
-.topbar.scrolled {
-  background: rgba(5,14,9,.9);
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.28);
-}
-
-.brand {
-  font-family: "Manrope", sans-serif;
-
-  font-size: 22px;
-  font-weight: 800;
-
-  letter-spacing: -.04em;
-
-  margin-right: auto;
-}
-
-.brand span {
-  color: var(--green);
-}
-
-.brand-dot {
-  display: inline-block;
-
-  width: 7px;
-  height: 7px;
-
-  margin-left: 4px;
-
-  border-radius: 50%;
-
-  background: var(--green);
-
-  box-shadow:
-    0 0 12px var(--green);
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-nav a {
-  padding: 10px 13px;
-
-  border-radius: 12px;
-
-  color: #c7d0ca;
-
-  font-size: 14px;
-
-  transition:
-    color .25s ease,
-    background .25s ease;
-}
-
-nav a:hover,
-nav a.active {
-  color: #fff;
-  background: rgba(255,255,255,.07);
-}
-
-.menu-btn {
-  display: none;
-
-  color: white;
-  background: transparent;
-  border: 0;
-
-  font-size: 24px;
-
-  cursor: pointer;
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-  min-height: 100vh;
-
-  width: min(calc(100% - 44px), 1320px);
-
-  margin-inline: auto;
-
-  display: grid;
-  grid-template-columns: .94fr 1.06fr;
-
-  align-items: center;
-
-  gap: 55px;
-
-  padding:
-    150px 0
-    90px;
-}
-
-.hero-text {
-  position: relative;
-
-  z-index: 2;
-}
-
-.hero .tag {
-  width: fit-content;
-
-  margin-bottom: 26px;
-
-  padding: 9px 14px;
-
-  border: 1px solid var(--border-green);
-
-  border-radius: 999px;
-
-  background: rgba(141,255,106,.07);
-
-  color: var(--green);
-
-  font-size: 11px;
-  font-weight: 700;
-
-  letter-spacing: .14em;
-}
-
-.hero h1 {
-  max-width: 660px;
-
-  font-size: clamp(3.7rem, 7vw, 7.2rem);
-
-  line-height: .93;
-
-  letter-spacing: -.065em;
-
-  margin-bottom: 30px;
-}
-
-.hero h1 .line {
-  display: block;
-}
-
-.hero h1 em {
-  color: var(--green);
-
-  font-style: normal;
-}
-
-.hero-text > p:not(.tag) {
-  max-width: 590px;
-
-  color: var(--muted);
-
-  font-size: 18px;
-
-  margin-bottom: 32px;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.primary,
-.secondary {
-  min-height: 52px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 22px;
-
-  border-radius: 15px;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
-}
-
-.primary {
-  color: #061008;
-  background: var(--green);
-
-  box-shadow:
-    0 16px 40px rgba(117,255,85,.13);
-}
-
-.primary:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 18px 50px rgba(117,255,85,.24);
-}
-
-.secondary {
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.04);
-}
-
-.secondary:hover {
-  background: rgba(255,255,255,.08);
-
-  transform: translateY(-3px);
-}
-
-/* =========================================================
-   HERO VISUAL
-========================================================= */
-
-.visual-panel {
-  min-height: 680px;
-
-  position: relative;
-
-  overflow: hidden;
-
-  border: 1px solid var(--border);
-
-  border-radius: 38px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.03),
-      rgba(0,0,0,.65)
-    ),
-    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85")
-    center/cover;
-
-  box-shadow:
-    var(--shadow);
-}
-
-.visual-panel::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(7,16,12,.3),
-      transparent 30%
-    );
-}
-
-.visual-top {
-  position: absolute;
-
-  top: 22px;
-  left: 22px;
-  right: 22px;
-
-  z-index: 4;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.live-pill {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  padding: 9px 13px;
-
-  border: 1px solid rgba(255,255,255,.13);
-
-  border-radius: 999px;
-
-  background: rgba(9,20,13,.62);
-
-  backdrop-filter: blur(12px);
-
-  font-size: 12px;
-}
-
-.live-dot {
-  width: 7px;
-  height: 7px;
-
-  border-radius: 50%;
-
-  background: var(--green);
-
-  box-shadow:
-    0 0 12px var(--green);
-
-  animation:
-    pulse 1.8s infinite;
-}
-
-.coordinates {
-  color: rgba(255,255,255,.7);
-
-  font-family: monospace;
-
-  font-size: 11px;
-}
-
-.scan-line {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-
-  height: 2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--green),
-      transparent
-    );
-
-  box-shadow:
-    0 0 20px rgba(141,255,106,.7);
-
-  opacity: .45;
-
-  animation:
-    scanner 5s linear infinite;
-
-  z-index: 3;
-}
-
-.crop-interface {
-  position: absolute;
-
-  left: 28px;
-  right: 28px;
-  bottom: 28px;
-
-  z-index: 5;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 12px;
-}
-
-.data-card {
-  padding: 17px;
-
-  border: 1px solid rgba(255,255,255,.12);
-
-  background: rgba(6,18,11,.63);
-
-  backdrop-filter: blur(18px);
-
-  border-radius: 18px;
-}
-
-.data-card span {
-  display: block;
-
-  color: rgba(255,255,255,.56);
-
-  font-size: 10px;
-
-  letter-spacing: .12em;
-
-  text-transform: uppercase;
-
-  margin-bottom: 5px;
-}
-
-.data-card strong {
-  font-family: "Manrope", sans-serif;
-
-  font-size: 22px;
-}
-
-.data-card strong small {
-  color: var(--green);
-
-  font-size: 11px;
-}
-
-.floating-label {
-  position: absolute;
-
-  z-index: 6;
-
-  padding: 11px 14px;
-
-  border-radius: 14px;
-
-  border: 1px solid rgba(255,255,255,.12);
-
-  background: rgba(6,20,12,.65);
-
-  backdrop-filter: blur(15px);
-
-  font-size: 12px;
-
-  box-shadow:
-    0 15px 50px rgba(0,0,0,.3);
-
-  animation:
-    float 5s ease-in-out infinite;
-}
-
-.floating-label::before {
-  content: "";
-
-  display: inline-block;
-
-  width: 7px;
-  height: 7px;
-
-  margin-right: 8px;
-
-  border-radius: 50%;
-
-  background: var(--green);
-}
-
-.label-a {
-  left: 8%;
-  top: 31%;
-}
-
-.label-b {
-  right: 7%;
-  top: 44%;
-
-  animation-delay: -2s;
-}
-
-.label-c {
-  left: 35%;
-  top: 19%;
-
-  animation-delay: -1s;
-}
-
-/* =========================================================
-   MARQUEE
-========================================================= */
-
-.marquee {
-  overflow: hidden;
-
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-
-  background: rgba(255,255,255,.018);
-}
-
-.marquee-track {
-  width: max-content;
-
-  display: flex;
-
-  animation:
-    marquee 26s linear infinite;
-}
-
-.marquee-item {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-
-  padding: 19px 26px;
-
-  color: #bcc8c0;
-
-  font-size: 12px;
-  font-weight: 600;
-
-  letter-spacing: .13em;
-
-  text-transform: uppercase;
-}
-
-.marquee-item::after {
-  content: "✦";
-
-  color: var(--green);
-}
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.intro {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-
-  gap: 100px;
-
-  align-items: start;
-}
-
-.intro-number {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  color: var(--green);
-
-  font-family: monospace;
-}
-
-.intro-number::after {
-  content: "";
-
-  flex: 1;
-
-  height: 1px;
-
-  background: var(--border);
-}
-
-.intro-copy h2 {
-  font-size: clamp(2.6rem, 5vw, 5.4rem);
-
-  margin-bottom: 30px;
-}
-
-.intro-copy p {
-  max-width: 770px;
-
-  color: var(--muted);
-
-  font-size: 18px;
-}
-
-.intro-copy p + p {
-  margin-top: 20px;
-}
-
-/* =========================================================
-   BIG QUESTION
-========================================================= */
-
-.big-question {
-  width: min(calc(100% - 44px), 1320px);
-
-  min-height: 620px;
-
-  position: relative;
-
-  margin: 70px auto;
-
-  padding: 70px;
-
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  border-radius: 38px;
-
-  border: 1px solid var(--border);
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(6,16,10,.05),
-      rgba(6,16,10,.88)
-    ),
-    url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
-}
-
-.big-question::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    radial-gradient(
-      circle at 75% 20%,
-      rgba(138,255,105,.15),
-      transparent 30%
-    );
-
-  pointer-events: none;
-}
-
-.big-question-content {
-  max-width: 860px;
-
-  position: relative;
-
-  z-index: 2;
-}
-
-.big-question .eyebrow {
-  margin-bottom: 18px;
-}
-
-.big-question h2 {
-  margin-bottom: 22px;
-}
-
-.big-question p {
-  max-width: 640px;
-
-  color: #c6d0c9;
-}
-
-/* =========================================================
-   TECHNOLOGY CARDS
-========================================================= */
-
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-
-  gap: 18px;
-}
-
-.tech-card {
-  min-height: 430px;
-
-  position: relative;
-
-  overflow: hidden;
-
-  border-radius: var(--radius);
-
-  border: 1px solid var(--border);
-
-  background: var(--bg-soft);
-
-  cursor: pointer;
-
-  transition:
-    transform .35s ease,
-    border .35s ease;
-}
-
-.tech-card:nth-child(1),
-.tech-card:nth-child(4) {
-  grid-column: span 7;
-}
-
-.tech-card:nth-child(2),
-.tech-card:nth-child(3) {
-  grid-column: span 5;
-}
-
-.tech-card:hover {
-  transform: translateY(-8px);
-
-  border-color: rgba(141,255,106,.3);
-}
-
-.tech-card-image {
-  position: absolute;
-  inset: 0;
-
-  transition:
-    transform .8s cubic-bezier(.2,.8,.2,1);
-}
-
-.tech-card:hover .tech-card-image {
-  transform: scale(1.06);
-}
-
-.tech-card-image img {
-  height: 100%;
-  object-fit: cover;
-}
-
-.tech-card-image::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5,14,8,.05),
-      rgba(5,14,8,.92)
-    );
-}
-
-.tech-info {
-  position: absolute;
-
-  z-index: 2;
-
-  left: 26px;
-  right: 26px;
-  bottom: 25px;
-}
-
-.tech-number {
-  display: inline-block;
-
-  margin-bottom: 14px;
-
-  color: var(--green);
-
-  font-family: monospace;
-
-  font-size: 12px;
-}
-
-.tech-card h3 {
-  font-size: 26px;
-
-  margin-bottom: 9px;
-}
-
-.tech-card p {
-  max-width: 500px;
-
-  color: #b9c4bc;
-
-  font-size: 14px;
-}
-
-.tech-icon {
-  width: 42px;
-  height: 42px;
-
-  position: absolute;
-
-  top: 22px;
-  right: 22px;
-
-  z-index: 3;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  background: rgba(8,20,12,.64);
-
-  backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(255,255,255,.1);
-
-  transition:
-    transform .3s ease,
-    background .3s ease;
-}
-
-.tech-card:hover .tech-icon {
-  transform: rotate(45deg);
-
-  color: #051008;
-
-  background: var(--green);
-}
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.stats-wrap {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.stat {
-  padding: 55px 30px;
-
-  border-right: 1px solid var(--border);
-}
-
-.stat:last-child {
-  border-right: 0;
-}
-
-.stat-value {
-  display: flex;
-  align-items: baseline;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: clamp(3rem, 6vw, 5.3rem);
-
-  font-weight: 700;
-
-  letter-spacing: -.06em;
-
-  color: var(--green);
-}
-
-.stat-value small {
-  margin-left: 4px;
-
-  font-size: .35em;
-}
-
-.stat h3 {
-  margin: 7px 0 10px;
-
-  font-size: 18px;
-}
-
-.stat p {
-  color: var(--muted);
-
-  font-size: 13px;
-}
-
-/* =========================================================
-   IMPACTS
-========================================================= */
-
-.impact-layout {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-
-  gap: 70px;
-
-  align-items: start;
-}
-
-.impact-copy {
-  position: sticky;
-
-  top: 125px;
-}
-
-.impact-copy p {
-  margin-top: 24px;
-
-  color: var(--muted);
-
-  max-width: 440px;
-}
-
-.impact-list {
-  display: flex;
-  flex-direction: column;
-
-  border-top: 1px solid var(--border);
-}
-
-.impact-item {
-  display: grid;
-  grid-template-columns: 55px 1fr auto;
-
-  align-items: center;
-
-  gap: 15px;
-
-  padding: 28px 8px;
-
-  border-bottom: 1px solid var(--border);
-
-  cursor: pointer;
-
-  transition:
-    padding .25s ease,
-    color .25s ease;
-}
-
-.impact-item:hover,
-.impact-item.active {
-  padding-left: 18px;
-
-  color: var(--green);
-}
-
-.impact-item .num {
-  color: #6f8174;
-
-  font-family: monospace;
-
-  font-size: 12px;
-}
-
-.impact-item h3 {
-  font-size: 23px;
-}
-
-.impact-item .arrow {
-  width: 37px;
-  height: 37px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid var(--border);
-
-  border-radius: 50%;
-
-  transition:
-    background .25s ease,
-    transform .25s ease;
-}
-
-.impact-item:hover .arrow,
-.impact-item.active .arrow {
-  color: #051008;
-
-  background: var(--green);
-
-  transform: rotate(45deg);
-}
-
-.impact-output {
-  grid-column: 2;
-
-  margin-top: -25px;
-
-  min-height: 125px;
-
-  padding: 23px;
-
-  border-radius: 18px;
-
-  border: 1px solid var(--border-green);
-
-  background: rgba(141,255,106,.045);
-
-  color: #c9d4cc;
-
-  transition:
-    opacity .2s ease,
-    transform .2s ease;
-}
-
-/* =========================================================
-   TIMELINE
-========================================================= */
-
-.timeline-track {
-  position: relative;
-
-  margin-top: 50px;
-}
-
-.timeline-track::before {
-  content: "";
-
-  position: absolute;
-
-  top: 28px;
-  left: 0;
-  right: 0;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--green),
-      rgba(255,255,255,.1)
-    );
-}
-
-.timeline-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 24px;
-}
-
-.timeline-item {
-  position: relative;
-
-  padding-top: 75px;
-}
-
-.timeline-dot {
-  width: 13px;
-  height: 13px;
-
-  position: absolute;
-
-  top: 22px;
-  left: 0;
-
-  border-radius: 50%;
-
-  background: var(--green);
-
-  box-shadow:
-    0 0 0 7px rgba(141,255,106,.09),
-    0 0 25px rgba(141,255,106,.3);
-}
-
-.timeline-year {
-  color: var(--green);
-
-  font-family: monospace;
-
-  margin-bottom: 12px;
-}
-
-.timeline-item h3 {
-  font-size: 19px;
-
-  margin-bottom: 8px;
-}
-
-.timeline-item p {
-  color: var(--muted);
-
-  font-size: 14px;
-}
-
-/* =========================================================
-   SOLUTION WHEEL
-========================================================= */
-
-.solution-board {
-  min-height: 600px;
-
-  position: relative;
-
-  display: grid;
-  place-items: center;
-
-  overflow: hidden;
-
-  border: 1px solid var(--border);
-
-  border-radius: 36px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(141,255,106,.09),
-      transparent 35%
-    ),
-    rgba(255,255,255,.015);
-}
-
-.solution-board::before,
-.solution-board::after {
-  content: "";
-
-  position: absolute;
-
-  border: 1px solid rgba(255,255,255,.08);
-
-  border-radius: 50%;
-}
-
-.solution-board::before {
-  width: 430px;
-  height: 430px;
-}
-
-.solution-board::after {
-  width: 285px;
-  height: 285px;
-}
-
-.solution-center {
-  width: 160px;
-  height: 160px;
-
-  display: grid;
-  place-items: center;
-
-  position: relative;
-
-  z-index: 3;
-
-  text-align: center;
-
-  padding: 20px;
-
-  border-radius: 50%;
-
-  color: #07100b;
-
-  background: var(--green);
-
-  box-shadow:
-    0 0 90px rgba(141,255,106,.15);
-
-  font-family: "Manrope", sans-serif;
-  font-weight: 800;
-}
-
-.solution-node {
-  position: absolute;
-
-  z-index: 4;
-
-  padding: 12px 16px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 14px;
-
-  background: rgba(9,21,13,.85);
-
-  backdrop-filter: blur(12px);
-
-  font-size: 13px;
-
-  transition:
-    transform .3s ease,
-    border .3s ease;
-}
-
-.solution-node:hover {
-  transform: scale(1.08);
-
-  border-color: var(--green);
-}
-
-.node-1 { transform: translate(-210px,-140px); }
-.node-2 { transform: translate(200px,-130px); }
-.node-3 { transform: translate(-255px,80px); }
-.node-4 { transform: translate(245px,85px); }
-.node-5 { transform: translate(0,220px); }
-
-/* =========================================================
-   PROCESS
-========================================================= */
-
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 14px;
-}
-
-.process-card {
-  min-height: 285px;
-
-  position: relative;
-
-  padding: 27px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  overflow: hidden;
-
-  border: 1px solid var(--border);
-
-  border-radius: 24px;
-
-  background:
-    linear-gradient(
-      160deg,
-      rgba(141,255,106,.035),
-      transparent
-    );
-
-  transition:
-    transform .3s ease,
-    border .3s ease;
-}
-
-.process-card:hover {
-  transform: translateY(-8px);
-
-  border-color: rgba(141,255,106,.28);
-}
-
-.process-step {
-  position: absolute;
-
-  top: 22px;
-  right: 22px;
-
-  color: rgba(255,255,255,.25);
-
-  font-size: 11px;
-}
-
-.process-icon {
-  font-size: 42px;
-
-  margin-bottom: auto;
-
-  filter: grayscale(.15);
-}
-
-.process-card h3 {
-  margin-bottom: 10px;
-
-  font-size: 21px;
-}
-
-.process-card p {
-  color: var(--muted);
-
-  font-size: 13px;
-}
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 220px;
-
-  gap: 14px;
-}
-
-.gallery-item {
-  position: relative;
-
-  overflow: hidden;
-
-  border-radius: 22px;
-
-  border: 1px solid var(--border);
-}
-
-.gallery-item:nth-child(1) {
-  grid-column: span 7;
-  grid-row: span 2;
-}
-
-.gallery-item:nth-child(2) {
-  grid-column: span 5;
-}
-
-.gallery-item:nth-child(3) {
-  grid-column: span 5;
-}
-
-.gallery-item:nth-child(4),
-.gallery-item:nth-child(5),
-.gallery-item:nth-child(6) {
-  grid-column: span 4;
-}
-
-.gallery-item img {
-  height: 100%;
-
-  object-fit: cover;
-
-  transition:
-    transform .7s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.06);
-}
-
-.gallery-item::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 45%,
-      rgba(3,12,7,.82)
-    );
-}
-
-.gallery-caption {
-  position: absolute;
-
-  left: 20px;
-  bottom: 17px;
-
-  z-index: 2;
-}
-
-.gallery-caption small {
-  color: var(--green);
-
-  font-size: 10px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .13em;
-}
-
-.gallery-caption h3 {
-  margin-top: 2px;
-
-  font-size: 17px;
-}
-
-/* =========================================================
-   COMPARISON
-========================================================= */
-
-.comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  gap: 17px;
-}
-
-.compare-card {
-  position: relative;
-
-  min-height: 430px;
-
-  padding: 34px;
-
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  border: 1px solid var(--border);
-
-  border-radius: 28px;
-}
-
-.compare-card.traditional {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5,14,9,.15),
-      rgba(5,14,9,.9)
-    ),
-    url("https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=1200&q=80")
-    center/cover;
-}
-
-.compare-card.smart {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5,14,9,.08),
-      rgba(5,14,9,.9)
-    ),
-    url("https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1200&q=80")
-    center/cover;
-}
-
-.compare-label {
-  width: fit-content;
-
-  margin-bottom: auto;
-
-  padding: 8px 12px;
-
-  border: 1px solid rgba(255,255,255,.14);
-
-  border-radius: 999px;
-
-  background: rgba(0,0,0,.3);
-
-  backdrop-filter: blur(10px);
-
-  font-size: 11px;
-}
-
-.compare-card h3 {
-  font-size: 29px;
-
-  margin-bottom: 8px;
-}
-
-.compare-card p {
-  max-width: 450px;
-
-  color: #bac6bd;
-
-  font-size: 14px;
-}
-
-/* =========================================================
-   LAB
-========================================================= */
-
-.lab-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  gap: 18px;
-}
-
-.module {
-  min-height: 420px;
-
-  padding: 34px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 28px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(141,255,106,.04),
-      rgba(255,255,255,.012)
-    );
-}
-
-.module-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-
-  margin-bottom: 35px;
-}
-
-.module-index {
-  color: var(--green);
-
-  font-family: monospace;
-
-  font-size: 11px;
-}
-
-.module h3 {
-  max-width: 320px;
-
-  font-size: 25px;
-
-  line-height: 1.15;
-}
-
-.module-copy {
-  color: var(--muted);
-
-  font-size: 13px;
-
-  margin-top: 7px;
-}
-
-.input-wrap {
-  display: flex;
-  gap: 10px;
-
-  margin: 30px 0 24px;
-}
-
-.input-wrap input {
-  flex: 1;
-
-  min-width: 0;
-
-  padding: 15px 17px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 14px;
-
-  outline: none;
-
-  color: white;
-
-  background: rgba(255,255,255,.04);
-
-  transition:
-    border .25s ease;
-}
-
-.input-wrap input:focus {
-  border-color: var(--green);
-}
-
-.input-wrap button,
-.quiz-answer,
-.restart-btn {
-  border: 0;
-
-  border-radius: 14px;
-
-  cursor: pointer;
-
-  color: #061008;
-  background: var(--green);
-
-  font-weight: 700;
-
-  padding: 13px 17px;
-
-  transition:
-    transform .2s ease,
-    opacity .2s ease;
-}
-
-.input-wrap button:hover,
-.restart-btn:hover {
-  transform: translateY(-2px);
-}
-
-.meter {
-  height: 11px;
-
-  overflow: hidden;
-
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.06);
-
-  margin-bottom: 14px;
-}
-
-#meterFill {
-  width: 0%;
-  height: 100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--green-dark),
-      var(--green),
-      var(--yellow)
-    );
-
-  border-radius: inherit;
-
-  transition:
-    width 1s cubic-bezier(.2,.8,.2,1);
-}
-
-#resultado {
-  min-height: 28px;
-
-  color: #c9d3cb;
-
-  font-size: 14px;
-}
-
-.water-highlight {
-  display: none;
-
-  margin-top: 27px;
-
-  padding: 18px;
-
-  border: 1px solid var(--border-green);
-
-  border-radius: 16px;
-
-  background: rgba(141,255,106,.045);
-}
-
-.water-highlight strong {
-  display: block;
-
-  color: var(--green);
-
-  font-size: 28px;
-}
-
-/* quiz */
-
-.quiz-progress {
-  display: flex;
-
-  gap: 7px;
-
-  margin-bottom: 25px;
-}
-
-.quiz-progress span {
-  flex: 1;
-
-  height: 4px;
-
-  border-radius: 99px;
-
-  background: rgba(255,255,255,.08);
-}
-
-.quiz-progress span.done {
-  background: var(--green);
-}
-
-#pergunta {
-  font-family: "Manrope", sans-serif;
-
-  font-size: 20px;
-
-  font-weight: 700;
-
-  margin-bottom: 20px;
-}
-
-#respostas {
-  display: flex;
-  flex-direction: column;
-
-  gap: 9px;
-}
-
-.quiz-answer {
-  width: 100%;
-
-  color: #c7d1ca;
-  background: rgba(255,255,255,.04);
-
-  border: 1px solid var(--border);
-
-  text-align: left;
-
-  font-weight: 500;
-
-  transition:
-    background .2s ease,
-    border .2s ease,
-    color .2s ease,
-    transform .2s ease;
-}
-
-.quiz-answer:hover {
-  color: #fff;
-
-  border-color: rgba(141,255,106,.3);
-
-  background: rgba(141,255,106,.06);
-
-  transform: translateX(4px);
-}
-
-.quiz-answer.correct {
-  border-color: rgba(141,255,106,.5);
-
-  background: rgba(141,255,106,.1);
-
-  color: var(--green);
-}
-
-.quiz-answer.wrong {
-  border-color: rgba(255,92,92,.4);
-
-  background: rgba(255,92,92,.08);
-
-  color: #ff9999;
-}
-
-#pontuacao {
-  margin-top: 20px;
-
-  color: var(--green);
-}
-
-/* =========================================================
-   FACTS
-========================================================= */
-
-.facts {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 13px;
-}
-
-.fact {
-  min-height: 210px;
-
-  padding: 25px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  border: 1px solid var(--border);
-
-  border-radius: 22px;
-
-  background: rgba(255,255,255,.018);
-
-  transition:
-    transform .3s ease,
-    background .3s ease;
-}
-
-.fact:hover {
-  transform: translateY(-7px);
-
-  background: rgba(141,255,106,.035);
-}
-
-.fact-icon {
-  font-size: 31px;
-}
-
-.fact p {
-  color: #c0cbc3;
-
-  font-size: 14px;
-}
-
-/* =========================================================
-   MAP
-========================================================= */
-
-.map-board {
-  min-height: 570px;
-
-  position: relative;
-
-  overflow: hidden;
-
-  border: 1px solid var(--border);
-
-  border-radius: 34px;
-
-  background:
-    linear-gradient(
-      rgba(8,20,12,.5),
-      rgba(8,20,12,.6)
-    ),
-    url("https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1800&q=80")
-    center/cover;
-}
-
-.map-board::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  opacity: .25;
-
-  background-image:
-    linear-gradient(
-      rgba(141,255,106,.22) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(141,255,106,.22) 1px,
-      transparent 1px
-    );
-
-  background-size: 70px 70px;
-}
-
-.map-pin {
-  position: absolute;
-
-  width: 48px;
-  height: 48px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid rgba(255,255,255,.18);
-
-  border-radius: 50%;
-
-  background: rgba(7,17,11,.75);
-
-  backdrop-filter: blur(10px);
-
-  cursor: pointer;
-
-  z-index: 2;
-
-  box-shadow:
-    0 0 0 0 rgba(141,255,106,.25);
-
-  animation:
-    mapPulse 3s infinite;
-}
-
-.map-pin:hover .map-tooltip {
-  opacity: 1;
-
-  transform:
-    translate(-50%, -10px);
-}
-
-.map-tooltip {
-  width: max-content;
-
-  position: absolute;
-
-  bottom: 56px;
-  left: 50%;
-
-  transform:
-    translate(-50%, 0);
-
-  padding: 8px 11px;
-
-  border-radius: 10px;
-
-  color: #07100b;
-  background: var(--green);
-
-  font-size: 11px;
-  font-weight: 700;
-
-  pointer-events: none;
-
-  opacity: 0;
-
-  transition:
-    opacity .25s ease,
-    transform .25s ease;
-}
-
-.map-pin:nth-child(1) {
-  left: 18%;
-  top: 32%;
-}
-
-.map-pin:nth-child(2) {
-  left: 45%;
-  top: 55%;
-
-  animation-delay: -1s;
-}
-
-.map-pin:nth-child(3) {
-  right: 19%;
-  top: 27%;
-
-  animation-delay: -2s;
-}
-
-.map-pin:nth-child(4) {
-  right: 30%;
-  bottom: 17%;
-
-  animation-delay: -1.4s;
-}
-
-/* =========================================================
-   FAQ
-========================================================= */
-
-.faq-wrap {
-  max-width: 900px;
-}
-
-details {
-  border-bottom: 1px solid var(--border);
-}
-
-details:first-of-type {
-  border-top: 1px solid var(--border);
-}
-
-summary {
-  position: relative;
-
-  list-style: none;
-
-  padding: 25px 50px 25px 0;
-
-  cursor: pointer;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 19px;
-  font-weight: 600;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::after {
-  content: "+";
-
-  position: absolute;
-
-  right: 6px;
-  top: 21px;
-
-  color: var(--green);
-
-  font-size: 26px;
-
-  transition:
-    transform .3s ease;
-}
-
-details[open] summary::after {
-  transform: rotate(45deg);
-}
-
-details p {
-  max-width: 730px;
-
-  padding: 0 0 27px;
-
-  color: var(--muted);
-}
-
-/* =========================================================
-   QUOTE / FINAL CTA
-========================================================= */
-
-.final-cta {
-  width: min(calc(100% - 44px), 1320px);
-
-  min-height: 600px;
-
-  margin: 80px auto 30px;
-
-  display: grid;
-  place-items: center;
-
-  position: relative;
-
-  overflow: hidden;
-
-  text-align: center;
-
-  padding: 65px;
-
-  border-radius: 40px;
-
-  background:
-    linear-gradient(
-      rgba(5,14,8,.35),
-      rgba(5,14,8,.8)
-    ),
-    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
-}
-
-.final-cta-content {
-  max-width: 850px;
-
-  position: relative;
-
-  z-index: 2;
-}
-
-.final-cta h2 {
-  margin-bottom: 20px;
-
-  font-size: clamp(3rem, 7vw, 6rem);
-}
-
-.final-cta p {
-  max-width: 620px;
-
-  margin: 0 auto 28px;
-
-  color: #c4cec7;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-  width: min(calc(100% - 44px), 1320px);
-
-  margin-inline: auto;
-
-  padding: 65px 0 36px;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-
-  gap: 30px;
-
-  padding-bottom: 45px;
-
-  border-bottom: 1px solid var(--border);
-}
-
-.footer-logo {
-  font-family: "Manrope", sans-serif;
-
-  font-size: clamp(2.4rem, 7vw, 6rem);
-
-  font-weight: 800;
-
-  letter-spacing: -.065em;
-}
-
-.footer-logo span {
-  color: var(--green);
-}
-
-.footer-copy {
-  max-width: 350px;
-
-  color: var(--muted);
-
-  font-size: 14px;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-
-  gap: 20px;
-
-  padding-top: 24px;
-
-  color: #68776c;
-
-  font-size: 11px;
-
-  letter-spacing: .08em;
-}
-
-/* =========================================================
-   CURSOR LIGHT
-========================================================= */
-
-.cursor-light {
-  width: 340px;
-  height: 340px;
-
-  position: fixed;
-
-  left: 0;
-  top: 0;
-
-  transform:
-    translate(-50%, -50%);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(141,255,106,.07),
-      transparent 67%
-    );
-
-  pointer-events: none;
-
-  z-index: -1;
-}
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes scanner {
-  0% {
-    top: 10%;
-  }
-
-  50% {
-    top: 88%;
-  }
-
-  100% {
-    top: 10%;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: .35;
-  }
-}
-
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes mapPulse {
-  0% {
-    box-shadow:
-      0 0 0 0 rgba(141,255,106,.26);
-  }
-
-  70% {
-    box-shadow:
-      0 0 0 17px rgba(141,255,106,0);
-  }
-
-  100% {
-    box-shadow:
-      0 0 0 0 rgba(141,255,106,0);
-  }
-}
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 1000px) {
-
-  .hero {
-    grid-template-columns: 1fr;
-
-    padding-top: 145px;
-  }
-
-  .hero h1 {
-    max-width: 850px;
-  }
-
-  .visual-panel {
-    min-height: 600px;
-  }
-
-  .intro {
-    grid-template-columns: 1fr;
-
-    gap: 40px;
-  }
-
-  .tech-card {
-    grid-column: span 6 !important;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .stat:nth-child(2) {
-    border-right: 0;
-  }
-
-  .stat:nth-child(-n+2) {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .impact-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .impact-copy {
-    position: static;
-  }
-
-  .impact-output {
-    grid-column: 1;
-  }
-
-  .process-grid,
-  .facts {
-    grid-template-columns: 1fr 1fr;
-  }
-
-}
-
-@media (max-width: 760px) {
-
-  .section {
-    width: min(calc(100% - 30px), var(--max));
-
-    padding: 82px 0;
-  }
-
-  .topbar {
-    width: calc(100% - 24px);
-
-    top: 10px;
-
-    height: 65px;
-
-    padding: 0 17px;
-  }
-
-  .menu-btn {
-    display: block;
-  }
-
-  nav {
-    position: fixed;
-
-    top: 78px;
-    left: 12px;
-    right: 12px;
-
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-
-    padding: 14px;
-
-    border-radius: 18px;
-
-    border: 1px solid var(--border);
-
-    background: rgba(5,15,9,.96);
-
-    backdrop-filter: blur(20px);
-  }
-
-  nav.open {
-    display: flex;
-  }
-
-  nav a {
-    padding: 14px;
-  }
-
-  .hero {
-    width: calc(100% - 30px);
-
-    gap: 35px;
-
-    padding-top: 120px;
-  }
-
-  .hero h1 {
-    font-size: clamp(3.4rem, 16vw, 5.5rem);
-  }
-
-  .visual-panel {
-    min-height: 530px;
-
-    border-radius: 27px;
-  }
-
-  .crop-interface {
-    grid-template-columns: 1fr 1fr;
-
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-  }
-
-  .crop-interface .data-card:last-child {
-    display: none;
-  }
-
-  .floating-label {
-    font-size: 10px;
-  }
-
-  .label-c {
-    display: none;
-  }
-
-  .section-head {
-    flex-direction: column;
-    align-items: start;
-
-    gap: 18px;
-  }
-
-  .big-question {
-    width: calc(100% - 30px);
-
-    min-height: 540px;
-
-    padding: 35px;
-
-    border-radius: 27px;
-  }
-
-  .tech-grid {
-    display: block;
-  }
-
-  .tech-card {
-    min-height: 420px;
-
-    margin-bottom: 14px;
-  }
-
-  .timeline-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline-track::before {
-    width: 1px;
-    height: auto;
-
-    top: 10px;
-    bottom: 0;
-    left: 6px;
-  }
-
-  .timeline-item {
-    padding: 0 0 35px 38px;
-  }
-
-  .timeline-dot {
-    top: 7px;
-  }
-
-  .solution-board {
-    min-height: 490px;
-  }
-
-  .solution-board::before {
-    width: 340px;
-    height: 340px;
-  }
-
-  .solution-board::after {
-    width: 220px;
-    height: 220px;
-  }
-
-  .solution-center {
-    width: 125px;
-    height: 125px;
-
-    font-size: 13px;
-  }
-
-  .node-1 {
-    transform: translate(-120px,-130px);
-  }
-
-  .node-2 {
-    transform: translate(115px,-115px);
-  }
-
-  .node-3 {
-    transform: translate(-140px,100px);
-  }
-
-  .node-4 {
-    transform: translate(125px,90px);
-  }
-
-  .node-5 {
-    transform: translate(0,175px);
-  }
-
-  .solution-node {
-    font-size: 10px;
-  }
-
-  .process-grid,
-  .facts,
-  .comparison,
-  .lab-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-grid {
-    display: block;
-  }
-
-  .gallery-item {
-    height: 290px;
-
-    margin-bottom: 14px;
-  }
-
-  .final-cta {
-    width: calc(100% - 30px);
-
-    min-height: 540px;
-
-    padding: 35px;
-
-    border-radius: 27px;
-  }
-
-  .footer-top,
-  .footer-bottom {
-    flex-direction: column;
-    align-items: start;
-  }
-
-}
-
-@media (max-width: 520px) {
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stat {
-    border-right: 0;
-
-    border-bottom: 1px solid var(--border);
-  }
-
-  .stat:last-child {
-    border-bottom: 0;
-  }
-
-  .impact-item h3 {
-    font-size: 18px;
-  }
-
-  .impact-item {
-    grid-template-columns: 35px 1fr auto;
-  }
-
-  .input-wrap {
-    flex-direction: column;
-  }
-
-  .cursor-light {
-    display: none;
-  }
-
-}
-
-</style>
 </head>
 
 <body>
 
 <div class="noise"></div>
+
 <div class="bg-orb orb-one"></div>
 <div class="bg-orb orb-two"></div>
-<div class="cursor-light" id="cursorLight"></div>
+
+<div
+  class="cursor-light"
+  id="cursorLight"
+></div>
+
 
 <!-- =====================================================
-     NAV
+     NAVEGAÇÃO
 ===================================================== -->
 
-<header class="topbar" id="topbar">
+<header
+  class="topbar"
+  id="topbar"
+>
 
-  <a href="#home" class="brand">
+  <a
+    href="#home"
+    class="brand"
+  >
     Agro<span>Pulse</span><i class="brand-dot"></i>
   </a>
 
@@ -2737,20 +86,44 @@ footer {
   </button>
 
   <nav id="menu">
-    <a href="#home">Início</a>
-    <a href="#tech">Tecnologias</a>
-    <a href="#impacto">Impactos</a>
-    <a href="#solucoes">Soluções</a>
-    <a href="#laboratorio">Laboratório</a>
+
+    <a href="#home">
+      Início
+    </a>
+
+    <a href="#tech">
+      Tecnologias
+    </a>
+
+    <a href="#mercado">
+      Agro Agora
+    </a>
+
+    <a href="#impacto">
+      Impactos
+    </a>
+
+    <a href="#solucoes">
+      Soluções
+    </a>
+
+    <a href="#laboratorio">
+      Interativo
+    </a>
+
   </nav>
 
 </header>
+
 
 <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section id="home" class="hero">
+<section
+  id="home"
+  class="hero"
+>
 
   <div class="hero-text reveal">
 
@@ -2759,38 +132,58 @@ footer {
     </p>
 
     <h1>
-      <span class="line">O campo</span>
-      <span class="line">conectado ao</span>
-      <span class="line"><em>futuro.</em></span>
+
+      <span class="line">
+        O campo
+      </span>
+
+      <span class="line">
+        conectado ao
+      </span>
+
+      <span class="line">
+        <em>futuro.</em>
+      </span>
+
     </h1>
 
     <p>
-      Tecnologia, dados e inteligência ambiental trabalhando juntos
-      para produzir mais, desperdiçar menos e preservar o que sustenta
-      toda a nossa produção.
+      Tecnologia, dados e inteligência ambiental trabalhando
+      juntos para produzir mais, desperdiçar menos, movimentar
+      a economia e preservar os recursos que sustentam a produção.
     </p>
 
     <div class="actions">
 
-      <a class="primary" href="#laboratorio">
-        Explorar projeto ↗
+      <a
+        class="primary"
+        href="#mercado"
+      >
+        Ver Agro Agora ↗
       </a>
 
-      <a class="secondary" href="#tech">
-        Ver tecnologias
+      <a
+        class="secondary"
+        href="#tech"
+      >
+        Explorar tecnologias
       </a>
 
     </div>
 
   </div>
 
+
   <div class="visual-panel reveal">
 
     <div class="visual-top">
 
       <div class="live-pill">
+
         <span class="live-dot"></span>
+
         Monitoramento ativo
+
       </div>
 
       <span class="coordinates">
@@ -2816,27 +209,42 @@ footer {
     <div class="crop-interface">
 
       <div class="data-card">
-        <span>Umidade do solo</span>
+
+        <span>
+          Umidade do solo
+        </span>
+
         <strong>
           68
           <small>% ideal</small>
         </strong>
+
       </div>
 
       <div class="data-card">
-        <span>Eficiência hídrica</span>
+
+        <span>
+          Eficiência hídrica
+        </span>
+
         <strong>
           +32
           <small>%</small>
         </strong>
+
       </div>
 
       <div class="data-card">
-        <span>Área analisada</span>
+
+        <span>
+          Área analisada
+        </span>
+
         <strong>
           148
           <small>ha</small>
         </strong>
+
       </div>
 
     </div>
@@ -2844,6 +252,7 @@ footer {
   </div>
 
 </section>
+
 
 <!-- =====================================================
      MARQUEE
@@ -2853,25 +262,79 @@ footer {
 
   <div class="marquee-track">
 
-    <div class="marquee-item">Agricultura de precisão</div>
-    <div class="marquee-item">Drones agrícolas</div>
-    <div class="marquee-item">Inteligência artificial</div>
-    <div class="marquee-item">Energia renovável</div>
-    <div class="marquee-item">Solo vivo</div>
-    <div class="marquee-item">Gestão hídrica</div>
+    <div class="marquee-item">
+      Agricultura de precisão
+    </div>
 
-    <div class="marquee-item">Agricultura de precisão</div>
-    <div class="marquee-item">Drones agrícolas</div>
-    <div class="marquee-item">Inteligência artificial</div>
-    <div class="marquee-item">Energia renovável</div>
-    <div class="marquee-item">Solo vivo</div>
-    <div class="marquee-item">Gestão hídrica</div>
+    <div class="marquee-item">
+      Drones agrícolas
+    </div>
+
+    <div class="marquee-item">
+      Inteligência artificial
+    </div>
+
+    <div class="marquee-item">
+      Energia renovável
+    </div>
+
+    <div class="marquee-item">
+      Economia do agro
+    </div>
+
+    <div class="marquee-item">
+      Exportações brasileiras
+    </div>
+
+    <div class="marquee-item">
+      Solo vivo
+    </div>
+
+    <div class="marquee-item">
+      Gestão hídrica
+    </div>
+
+    <!-- repetição para animação contínua -->
+
+    <div class="marquee-item">
+      Agricultura de precisão
+    </div>
+
+    <div class="marquee-item">
+      Drones agrícolas
+    </div>
+
+    <div class="marquee-item">
+      Inteligência artificial
+    </div>
+
+    <div class="marquee-item">
+      Energia renovável
+    </div>
+
+    <div class="marquee-item">
+      Economia do agro
+    </div>
+
+    <div class="marquee-item">
+      Exportações brasileiras
+    </div>
+
+    <div class="marquee-item">
+      Solo vivo
+    </div>
+
+    <div class="marquee-item">
+      Gestão hídrica
+    </div>
 
   </div>
 
 </div>
 
+
 <main>
+
 
 <!-- =====================================================
      INTRO
@@ -2891,28 +354,31 @@ footer {
 
     <h2>
       Produzir melhor é
-      <span class="highlight">entender melhor.</span>
+      <span class="highlight">
+        entender melhor.
+      </span>
     </h2>
 
     <p>
-      O AgroPulse apresenta uma visão sobre como sensores, inteligência
-      artificial, drones, satélites e fontes renováveis podem transformar
-      a forma como produzimos alimentos.
+      O AgroPulse apresenta como sensores, inteligência artificial,
+      drones, satélites, fontes renováveis e análise de dados podem
+      transformar a maneira como produzimos alimentos.
     </p>
 
     <p>
-      O futuro do campo não depende apenas de produzir mais. Depende de
-      tomar decisões melhores, reduzir desperdícios, proteger o solo,
-      utilizar água de forma eficiente e conciliar produtividade com
-      responsabilidade ambiental.
+      O futuro do campo não depende apenas de produzir mais.
+      Depende de tomar decisões melhores, reduzir desperdícios,
+      proteger o solo, utilizar água de forma eficiente e conciliar
+      produtividade, desenvolvimento econômico e responsabilidade ambiental.
     </p>
 
   </div>
 
 </section>
 
+
 <!-- =====================================================
-     BIG QUESTION
+     GRANDE QUESTÃO
 ===================================================== -->
 
 <section class="big-question reveal">
@@ -2940,11 +406,15 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     TECHNOLOGIES
+     TECNOLOGIAS
 ===================================================== -->
 
-<section id="tech" class="section">
+<section
+  id="tech"
+  class="section"
+>
 
   <div class="section-head reveal">
 
@@ -2956,118 +426,190 @@ footer {
 
       <h2>
         Inteligência aplicada
-        <span class="highlight">à terra.</span>
+        <span class="highlight">
+          à terra.
+        </span>
       </h2>
 
     </div>
 
     <p class="section-subtitle">
-      Ferramentas que transformam informações do campo em decisões
-      mais precisas, econômicas e sustentáveis.
+      Ferramentas que transformam informações do campo
+      em decisões mais precisas, econômicas e sustentáveis.
+      Clique nas setas para saber mais.
     </p>
 
   </div>
 
+
   <div class="tech-grid">
+
+
+    <!-- PRECISÃO -->
 
     <article class="tech-card reveal">
 
       <div class="tech-card-image">
+
         <img
           src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1200&q=80"
           alt="Agricultura de precisão"
         >
+
       </div>
 
-      <span class="tech-icon">↗</span>
+      <button
+        class="tech-icon"
+        type="button"
+        onclick="abrirTecnologia('precisao')"
+        aria-label="Saiba mais sobre agricultura de precisão"
+      >
+        ↗
+      </button>
 
       <div class="tech-info">
 
-        <span class="tech-number">01 / PRECISÃO</span>
+        <span class="tech-number">
+          01 / PRECISÃO
+        </span>
 
-        <h3>Agricultura de precisão</h3>
+        <h3>
+          Agricultura de precisão
+        </h3>
 
         <p>
-          Sensores, GPS e mapas digitais identificam variações na lavoura
-          e ajudam o produtor a utilizar cada recurso somente onde ele é necessário.
+          Sensores, GPS e mapas digitais identificam
+          variações na lavoura e ajudam o produtor a
+          utilizar cada recurso somente onde necessário.
         </p>
 
       </div>
 
     </article>
 
+
+    <!-- IRRIGAÇÃO -->
+
     <article class="tech-card reveal">
 
       <div class="tech-card-image">
+
         <img
           src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000&q=80"
-          alt="Irrigação"
+          alt="Irrigação inteligente"
         >
+
       </div>
 
-      <span class="tech-icon">↗</span>
+      <button
+        class="tech-icon"
+        type="button"
+        onclick="abrirTecnologia('irrigacao')"
+        aria-label="Saiba mais sobre irrigação inteligente"
+      >
+        ↗
+      </button>
 
       <div class="tech-info">
 
-        <span class="tech-number">02 / ÁGUA</span>
+        <span class="tech-number">
+          02 / ÁGUA
+        </span>
 
-        <h3>Irrigação inteligente</h3>
+        <h3>
+          Irrigação inteligente
+        </h3>
 
         <p>
-          Sensores de umidade e sistemas automatizados evitam desperdícios
-          e distribuem água na quantidade correta.
+          Sensores de umidade e sistemas automatizados
+          evitam desperdícios e distribuem água na
+          quantidade correta.
         </p>
 
       </div>
 
     </article>
 
+
+    <!-- DRONES -->
+
     <article class="tech-card reveal">
 
       <div class="tech-card-image">
+
         <img
           src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1000&q=80"
-          alt="Drone"
+          alt="Drone agrícola"
         >
+
       </div>
 
-      <span class="tech-icon">↗</span>
+      <button
+        class="tech-icon"
+        type="button"
+        onclick="abrirTecnologia('drones')"
+        aria-label="Saiba mais sobre drones agrícolas"
+      >
+        ↗
+      </button>
 
       <div class="tech-info">
 
-        <span class="tech-number">03 / VISÃO</span>
+        <span class="tech-number">
+          03 / VISÃO
+        </span>
 
-        <h3>Drones agrícolas</h3>
+        <h3>
+          Drones agrícolas
+        </h3>
 
         <p>
-          Imagens aéreas permitem localizar pragas, falhas de plantio,
-          doenças e alterações na lavoura antes que se tornem problemas maiores.
+          Imagens aéreas permitem localizar pragas,
+          falhas de plantio, doenças e alterações na
+          lavoura antes que se tornem problemas maiores.
         </p>
 
       </div>
 
     </article>
 
+
+    <!-- ENERGIA -->
+
     <article class="tech-card reveal">
 
       <div class="tech-card-image">
+
         <img
           src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80"
           alt="Energia solar"
         >
+
       </div>
 
-      <span class="tech-icon">↗</span>
+      <button
+        class="tech-icon"
+        type="button"
+        onclick="abrirTecnologia('energia')"
+        aria-label="Saiba mais sobre energia renovável"
+      >
+        ↗
+      </button>
 
       <div class="tech-info">
 
-        <span class="tech-number">04 / ENERGIA</span>
+        <span class="tech-number">
+          04 / ENERGIA
+        </span>
 
-        <h3>Energia renovável</h3>
+        <h3>
+          Energia renovável
+        </h3>
 
         <p>
-          Fontes solares, biogás e biomassa reduzem custos,
-          ampliam a autonomia da propriedade e diminuem emissões.
+          Fontes solares, biogás e biomassa reduzem
+          custos, ampliam a autonomia da propriedade
+          e diminuem emissões.
         </p>
 
       </div>
@@ -3078,8 +620,73 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     STATS
+     MODAL DAS TECNOLOGIAS
+===================================================== -->
+
+<div
+  class="tech-modal"
+  id="techModal"
+  aria-hidden="true"
+>
+
+  <div
+    class="tech-modal-backdrop"
+    onclick="fecharTecnologia()"
+  ></div>
+
+  <div
+    class="tech-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+
+    <button
+      class="tech-modal-close"
+      type="button"
+      onclick="fecharTecnologia()"
+      aria-label="Fechar"
+    >
+      ×
+    </button>
+
+    <span
+      class="eyebrow"
+      id="modalTag"
+    >
+      Tecnologia
+    </span>
+
+    <h2 id="modalTitle">
+      Tecnologia
+    </h2>
+
+    <p id="modalDescription"></p>
+
+    <div
+      class="modal-features"
+      id="modalFeatures"
+    ></div>
+
+    <div class="modal-impact">
+
+      <span>
+        Impacto positivo
+      </span>
+
+      <strong id="modalImpact"></strong>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     AGRO EM NÚMEROS
 ===================================================== -->
 
 <section class="stats-wrap">
@@ -3089,100 +696,128 @@ footer {
     <div class="section-head reveal">
 
       <div>
+
         <span class="eyebrow">
           Agro em números
         </span>
 
         <h2>
           Dados que mostram
-          <span class="highlight">a escala.</span>
+          <span class="highlight">
+            a escala.
+          </span>
         </h2>
+
       </div>
 
     </div>
+
 
     <div class="stats-grid">
 
       <article class="stat reveal">
 
         <div class="stat-value">
+
           <span
             class="counter"
             data-target="70"
           >
             0
           </span>
+
           <small>%</small>
+
         </div>
 
-        <h3>Uso da água</h3>
+        <h3>
+          Uso da água
+        </h3>
 
         <p>
-          Parcela aproximada das retiradas globais de água doce
-          associada à agricultura.
+          Parcela aproximada das retiradas globais de água
+          doce associada à agricultura.
         </p>
 
       </article>
 
+
       <article class="stat reveal">
 
         <div class="stat-value">
+
           <span
             class="counter"
             data-target="30"
           >
             0
           </span>
+
           <small>%</small>
+
         </div>
 
-        <h3>Economia potencial</h3>
+        <h3>
+          Economia potencial
+        </h3>
 
         <p>
-          Sistemas inteligentes podem reduzir perdas relacionadas
-          ao uso ineficiente da água.
+          Valor utilizado no simulador educativo para
+          demonstrar ganhos de eficiência hídrica.
         </p>
 
       </article>
 
+
       <article class="stat reveal">
 
         <div class="stat-value">
+
           <span
             class="counter"
             data-target="24"
           >
             0
           </span>
+
           <small>h</small>
+
         </div>
 
-        <h3>Monitoramento</h3>
+        <h3>
+          Monitoramento
+        </h3>
 
         <p>
-          Sensores conectados podem acompanhar variáveis agrícolas
-          continuamente.
+          Sensores conectados podem acompanhar variáveis
+          agrícolas continuamente.
         </p>
 
       </article>
 
+
       <article class="stat reveal">
 
         <div class="stat-value">
+
           <span
             class="counter"
             data-target="360"
           >
             0
           </span>
+
           <small>°</small>
+
         </div>
 
-        <h3>Visão do campo</h3>
+        <h3>
+          Visão do campo
+        </h3>
 
         <p>
-          Dados combinados permitem interpretar a propriedade
-          como um ecossistema completo.
+          Dados combinados permitem interpretar a
+          propriedade como um ecossistema completo.
         </p>
 
       </article>
@@ -3193,11 +828,781 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     IMPACTS
+     NOVO — AGRO AGORA
 ===================================================== -->
 
-<section id="impacto" class="section">
+<section
+  id="mercado"
+  class="section market-section"
+>
+
+  <div class="section-head reveal">
+
+    <div>
+
+      <span class="eyebrow">
+        Agro Agora • Agosto de 2026
+      </span>
+
+      <h2>
+        O campo também
+        <span class="highlight">
+          movimenta bilhões.
+        </span>
+      </h2>
+
+    </div>
+
+    <div>
+
+      <div class="market-status">
+        Dados atualizados
+      </div>
+
+      <p class="section-subtitle">
+        Um panorama econômico do agronegócio brasileiro
+        com produção, exportações, crédito e perspectivas
+        para os próximos anos.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- INDICADORES -->
+
+  <div class="market-kpis">
+
+
+    <article class="market-kpi reveal">
+
+      <small>
+        Valor Bruto da Produção
+      </small>
+
+      <strong>
+        R$ 1,39 tri
+      </strong>
+
+      <p>
+        Estimativa do Valor Bruto da Produção Agropecuária
+        divulgada pelo MAPA em agosto de 2026.
+      </p>
+
+      <span class="data-date">
+        Atualização: 17/08/2026
+      </span>
+
+    </article>
+
+
+    <article class="market-kpi reveal">
+
+      <small>
+        Exportações • Julho
+      </small>
+
+      <strong>
+        US$ 16,34 bi
+      </strong>
+
+      <p>
+        Valor recorde para um mês de julho nas exportações
+        brasileiras do agronegócio.
+      </p>
+
+      <span class="data-date">
+        Julho de 2026
+      </span>
+
+    </article>
+
+
+    <article class="market-kpi reveal">
+
+      <small>
+        Exportações • Jan-Jul
+      </small>
+
+      <strong>
+        US$ 103,4 bi
+      </strong>
+
+      <p>
+        Recorde histórico para os sete primeiros meses
+        do ano.
+      </p>
+
+      <span class="data-date">
+        Janeiro–julho de 2026
+      </span>
+
+    </article>
+
+
+    <article class="market-kpi reveal">
+
+      <small>
+        Crédito rural empresarial
+      </small>
+
+      <strong>
+        R$ 28,2 bi
+      </strong>
+
+      <p>
+        Contratações realizadas no primeiro mês
+        da safra 2026/2027.
+      </p>
+
+      <span class="data-date">
+        Julho de 2026
+      </span>
+
+    </article>
+
+  </div>
+
+
+  <!-- ===================================================
+       NOTÍCIAS
+  =================================================== -->
+
+  <div class="market-block-head reveal">
+
+    <span class="eyebrow">
+      Últimas notícias
+    </span>
+
+    <h3>
+      O que está acontecendo
+      <span class="highlight">
+        no agro brasileiro.
+      </span>
+    </h3>
+
+  </div>
+
+
+  <div class="news-grid">
+
+
+    <!-- NOTÍCIA 1 -->
+
+    <article class="news-card featured reveal">
+
+      <div class="news-meta">
+
+        <span class="news-source">
+          MAPA
+        </span>
+
+        <span>
+          17 AGO 2026
+        </span>
+
+      </div>
+
+      <div class="news-card-content">
+
+        <span class="news-category">
+          ECONOMIA
+        </span>
+
+        <h3>
+          Valor da produção agropecuária
+          é estimado em R$ 1,39 trilhão
+        </h3>
+
+        <p>
+          O Valor Bruto da Produção Agropecuária oferece
+          uma dimensão econômica da produção rural e ajuda
+          a acompanhar a evolução das principais atividades
+          agrícolas e pecuárias do país.
+        </p>
+
+        <a
+          class="news-link"
+          href="https://www.gov.br/agricultura/pt-br"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Fonte oficial ↗
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- NOTÍCIA 2 -->
+
+    <article class="news-card reveal">
+
+      <div class="news-meta">
+
+        <span class="news-source">
+          CONAB
+        </span>
+
+        <span>
+          13 AGO 2026
+        </span>
+
+      </div>
+
+      <div class="news-card-content">
+
+        <span class="news-category">
+          SAFRA
+        </span>
+
+        <h3>
+          Safra 2025/26 é estimada
+          em 360,8 milhões de toneladas
+        </h3>
+
+        <p>
+          O 11º levantamento da Conab estima crescimento
+          de 2,4% na produção brasileira de grãos em
+          relação à safra anterior.
+        </p>
+
+        <a
+          class="news-link"
+          href="https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/safras/safra-de-graos"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Fonte oficial ↗
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- NOTÍCIA 3 -->
+
+    <article class="news-card reveal">
+
+      <div class="news-meta">
+
+        <span class="news-source">
+          MAPA
+        </span>
+
+        <span>
+          13 AGO 2026
+        </span>
+
+      </div>
+
+      <div class="news-card-content">
+
+        <span class="news-category">
+          EXPORTAÇÃO
+        </span>
+
+        <h3>
+          Agro alcança US$ 103,4 bilhões
+          em exportações até julho
+        </h3>
+
+        <p>
+          O resultado representa alta de 6% sobre igual
+          período de 2025 e estabelece um novo recorde
+          para janeiro a julho.
+        </p>
+
+        <a
+          class="news-link"
+          href="https://www.gov.br/agricultura/pt-br/assuntos/noticias"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Fonte oficial ↗
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <!-- NOTÍCIA 4 -->
+
+    <article class="news-card reveal">
+
+      <div class="news-meta">
+
+        <span class="news-source">
+          MAPA
+        </span>
+
+        <span>
+          10 AGO 2026
+        </span>
+
+      </div>
+
+      <div class="news-card-content">
+
+        <span class="news-category">
+          CRÉDITO
+        </span>
+
+        <h3>
+          Crédito rural empresarial soma
+          R$ 28,2 bilhões no início da safra
+        </h3>
+
+        <p>
+          O financiamento é uma das ferramentas utilizadas
+          para custeio, comercialização e investimentos
+          realizados pelo setor produtivo.
+        </p>
+
+        <a
+          class="news-link"
+          href="https://www.gov.br/agricultura/pt-br/assuntos/noticias"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Fonte oficial ↗
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <!-- ===================================================
+       ECONOMIA / EXPORTAÇÕES
+  =================================================== -->
+
+  <div class="market-block-head reveal">
+
+    <span class="eyebrow">
+      Mercado exterior
+    </span>
+
+    <h3>
+      A evolução das
+      <span class="highlight">
+        exportações.
+      </span>
+    </h3>
+
+    <p>
+      Valores em bilhões de dólares. Os anos de 2021 a
+      2025 representam anos completos. O dado de 2026
+      corresponde somente ao acumulado de janeiro a julho.
+    </p>
+
+  </div>
+
+
+  <div class="finance-layout">
+
+    <div class="chart-card reveal">
+
+      <div class="chart-header">
+
+        <div>
+
+          <span class="chart-label">
+            EXPORTAÇÕES DO AGRONEGÓCIO
+          </span>
+
+          <h3>
+            Bilhões de dólares
+          </h3>
+
+          <p>
+            Comparação histórica do valor exportado.
+          </p>
+
+        </div>
+
+        <span class="chart-badge">
+          US$ bilhões
+        </span>
+
+      </div>
+
+      <div class="chart-wrapper">
+
+        <canvas
+          id="exportChart"
+          aria-label="Gráfico das exportações do agronegócio brasileiro"
+        ></canvas>
+
+      </div>
+
+      <p class="chart-note">
+        * 2026 representa somente janeiro a julho e,
+        portanto, não deve ser comparado como ano fechado.
+      </p>
+
+    </div>
+
+
+    <aside class="finance-side reveal">
+
+      <span class="eyebrow">
+        Leitura dos dados
+      </span>
+
+      <h3>
+        Uma potência exportadora.
+      </h3>
+
+      <p>
+        As vendas internacionais ajudam a explicar
+        a relevância econômica do setor para o Brasil.
+      </p>
+
+
+      <div class="finance-highlight">
+
+        <small>
+          2021
+        </small>
+
+        <strong>
+          US$ 120,6 bi
+        </strong>
+
+      </div>
+
+
+      <div class="finance-highlight">
+
+        <small>
+          2022
+        </small>
+
+        <strong>
+          US$ 159,69 bi
+        </strong>
+
+      </div>
+
+
+      <div class="finance-highlight">
+
+        <small>
+          2023
+        </small>
+
+        <strong>
+          US$ 165,05 bi
+        </strong>
+
+      </div>
+
+
+      <div class="finance-highlight">
+
+        <small>
+          2024
+        </small>
+
+        <strong>
+          US$ 164,3 bi
+        </strong>
+
+      </div>
+
+
+      <div class="finance-highlight featured">
+
+        <small>
+          2025 • RECORDE
+        </small>
+
+        <strong>
+          US$ 169,2 bi
+        </strong>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <!-- ===================================================
+       PRODUÇÃO / FUTURO
+  =================================================== -->
+
+  <div class="market-block-head reveal">
+
+    <span class="eyebrow">
+      Produção e futuro
+    </span>
+
+    <h3>
+      Quanto o Brasil produz
+      <span class="highlight">
+        e onde pode chegar?
+      </span>
+    </h3>
+
+    <p>
+      O gráfico diferencia resultados de safra, estimativa
+      atual e projeção de longo prazo.
+    </p>
+
+  </div>
+
+
+  <div class="future-dashboard">
+
+
+    <div class="chart-card reveal">
+
+      <div class="chart-header">
+
+        <div>
+
+          <span class="chart-label">
+            PRODUÇÃO BRASILEIRA DE GRÃOS
+          </span>
+
+          <h3>
+            Milhões de toneladas
+          </h3>
+
+        </div>
+
+        <span class="chart-badge">
+          Histórico + projeção
+        </span>
+
+      </div>
+
+      <div class="chart-wrapper">
+
+        <canvas
+          id="grainChart"
+          aria-label="Gráfico da produção brasileira de grãos e projeção futura"
+        ></canvas>
+
+      </div>
+
+      <div class="chart-legend-text">
+
+        <span>
+          ● Realizado
+        </span>
+
+        <span>
+          ◉ Estimativa 2025/26
+        </span>
+
+        <span>
+          ◌ Projeção MAPA 2033/34
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="future-summary reveal">
+
+      <span class="eyebrow">
+        Horizonte 2033/34
+      </span>
+
+      <h3>
+        Crescer com produtividade.
+      </h3>
+
+      <p>
+        As projeções de longo prazo do Ministério da
+        Agricultura apontam produção de aproximadamente
+        378,9 milhões de toneladas de grãos em 2033/34.
+      </p>
+
+      <div class="future-number">
+
+        <strong>
+          378,9
+        </strong>
+
+        <span>
+          milhões de toneladas
+        </span>
+
+      </div>
+
+      <p>
+        O estudo também projeta que ganhos de produtividade
+        e tecnologia continuem desempenhando papel importante
+        no crescimento da agricultura brasileira.
+      </p>
+
+      <div class="projection-warning">
+
+        <strong>
+          IMPORTANTE
+        </strong>
+
+        <p>
+          Projeções não são garantias de resultado.
+          Clima, preços, tecnologia, comércio internacional
+          e políticas econômicas podem alterar o cenário.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CENÁRIOS -->
+
+  <div class="future-grid">
+
+    <article class="future-card reveal">
+
+      <span class="future-year">
+        2025/26
+      </span>
+
+      <h3>
+        360,8 milhões t
+      </h3>
+
+      <p>
+        Estimativa atual da Conab para a produção
+        brasileira de grãos.
+      </p>
+
+      <span class="future-type current">
+        ESTIMATIVA ATUAL
+      </span>
+
+    </article>
+
+
+    <article class="future-card reveal">
+
+      <span class="future-year">
+        2033/34
+      </span>
+
+      <h3>
+        378,9 milhões t
+      </h3>
+
+      <p>
+        Projeção oficial de longo prazo elaborada
+        pelo MAPA em cooperação com instituições
+        de pesquisa.
+      </p>
+
+      <span class="future-type projection">
+        PROJEÇÃO
+      </span>
+
+    </article>
+
+
+    <article class="future-card reveal">
+
+      <span class="future-year">
+        DESAFIO
+      </span>
+
+      <h3>
+        Produzir mais com menos impacto
+      </h3>
+
+      <p>
+        O crescimento sustentável depende de produtividade,
+        recuperação de áreas, tecnologia, pesquisa e
+        melhor utilização dos recursos naturais.
+      </p>
+
+      <span class="future-type sustainability">
+        SUSTENTABILIDADE
+      </span>
+
+    </article>
+
+  </div>
+
+
+  <!-- FONTES -->
+
+  <div class="sources-box reveal">
+
+    <span class="eyebrow">
+      Fontes dos dados
+    </span>
+
+    <p>
+      Dados consultados em agosto de 2026.
+    </p>
+
+    <div class="source-links">
+
+      <a
+        href="https://www.gov.br/agricultura/pt-br"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ministério da Agricultura e Pecuária ↗
+      </a>
+
+      <a
+        href="https://www.gov.br/conab/pt-br"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Companhia Nacional de Abastecimento ↗
+      </a>
+
+      <a
+        href="https://www.ipea.gov.br/cartadeconjuntura/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ipea — Carta de Conjuntura ↗
+      </a>
+
+      <a
+        href="https://www.ibge.gov.br/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        IBGE ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     IMPACTOS
+===================================================== -->
+
+<section
+  id="impacto"
+  class="section"
+>
 
   <div class="impact-layout">
 
@@ -3208,75 +1613,119 @@ footer {
       </span>
 
       <h2>
-        Crescimento também
-        exige <span class="highlight">equilíbrio.</span>
+        Crescimento também exige
+        <span class="highlight">
+          equilíbrio.
+        </span>
       </h2>
 
       <p>
-        Produzir sem planejamento pode aumentar a pressão sobre
-        ecossistemas, recursos hídricos e o clima. Clique nos itens
-        para explorar os principais desafios.
+        Produzir sem planejamento pode aumentar a pressão
+        sobre ecossistemas, recursos hídricos e o clima.
+        Clique nos itens para explorar os principais desafios.
       </p>
 
     </div>
+
 
     <div>
 
       <div class="impact-list reveal">
 
+
         <div
           class="impact-item active"
-          onclick="mostrarImpacto(this, 'A retirada da vegetação nativa reduz habitats, fragiliza ecossistemas e pode alterar o equilíbrio hídrico e climático de uma região.')"
+          onclick="mostrarImpacto(
+            this,
+            'A retirada da vegetação nativa reduz habitats, fragiliza ecossistemas e pode alterar o equilíbrio hídrico e climático de uma região.'
+          )"
         >
 
-          <span class="num">01</span>
+          <span class="num">
+            01
+          </span>
 
-          <h3>Desmatamento</h3>
+          <h3>
+            Desmatamento
+          </h3>
 
-          <span class="arrow">↗</span>
+          <span class="arrow">
+            ↗
+          </span>
 
         </div>
 
+
         <div
           class="impact-item"
-          onclick="mostrarImpacto(this, 'Irrigação sem controle pode pressionar rios, nascentes e aquíferos. Sensores e automação permitem utilizar água conforme a necessidade real da cultura.')"
+          onclick="mostrarImpacto(
+            this,
+            'Irrigação sem controle pode pressionar rios, nascentes e aquíferos. Sensores e automação permitem utilizar água conforme a necessidade real da cultura.'
+          )"
         >
 
-          <span class="num">02</span>
+          <span class="num">
+            02
+          </span>
 
-          <h3>Uso excessivo da água</h3>
+          <h3>
+            Uso excessivo da água
+          </h3>
 
-          <span class="arrow">↗</span>
+          <span class="arrow">
+            ↗
+          </span>
 
         </div>
 
+
         <div
           class="impact-item"
-          onclick="mostrarImpacto(this, 'Emissões associadas a combustíveis, manejo inadequado e mudanças no uso do solo contribuem para o aumento da concentração de gases de efeito estufa.')"
+          onclick="mostrarImpacto(
+            this,
+            'Emissões associadas a combustíveis, manejo inadequado e mudanças no uso do solo contribuem para o aumento da concentração de gases de efeito estufa.'
+          )"
         >
 
-          <span class="num">03</span>
+          <span class="num">
+            03
+          </span>
 
-          <h3>Emissões de carbono</h3>
+          <h3>
+            Emissões de carbono
+          </h3>
 
-          <span class="arrow">↗</span>
+          <span class="arrow">
+            ↗
+          </span>
 
         </div>
 
+
         <div
           class="impact-item"
-          onclick="mostrarImpacto(this, 'Solo exposto ou submetido ao manejo inadequado pode sofrer erosão, compactação e perda de matéria orgânica, reduzindo sua capacidade produtiva.')"
+          onclick="mostrarImpacto(
+            this,
+            'Solo exposto ou submetido ao manejo inadequado pode sofrer erosão, compactação e perda de matéria orgânica, reduzindo sua capacidade produtiva.'
+          )"
         >
 
-          <span class="num">04</span>
+          <span class="num">
+            04
+          </span>
 
-          <h3>Degradação do solo</h3>
+          <h3>
+            Degradação do solo
+          </h3>
 
-          <span class="arrow">↗</span>
+          <span class="arrow">
+            ↗
+          </span>
 
         </div>
 
       </div>
+
 
       <div
         class="impact-output reveal"
@@ -3293,8 +1742,9 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     TIMELINE
+     EVOLUÇÃO
 ===================================================== -->
 
 <section class="section">
@@ -3309,54 +1759,72 @@ footer {
 
       <h2>
         Do braço humano
-        <span class="highlight">ao algoritmo.</span>
+        <span class="highlight">
+          ao algoritmo.
+        </span>
       </h2>
 
     </div>
 
   </div>
 
+
   <div class="timeline-track">
 
     <div class="timeline-grid">
 
+
       <div class="timeline-item reveal">
 
         <span class="timeline-dot"></span>
 
-        <div class="timeline-year">1900</div>
+        <div class="timeline-year">
+          1900
+        </div>
 
-        <h3>Força manual</h3>
+        <h3>
+          Força manual
+        </h3>
 
         <p>
-          Produção dependente principalmente de trabalho humano
-          e tração animal.
+          Produção dependente principalmente do trabalho
+          humano e da tração animal.
         </p>
 
       </div>
 
+
       <div class="timeline-item reveal">
 
         <span class="timeline-dot"></span>
 
-        <div class="timeline-year">1950</div>
+        <div class="timeline-year">
+          1950
+        </div>
 
-        <h3>Mecanização</h3>
+        <h3>
+          Mecanização
+        </h3>
 
         <p>
-          Máquinas agrícolas aumentam a escala e a velocidade
-          das operações.
+          Máquinas agrícolas aumentam a escala
+          e a velocidade das operações.
         </p>
 
       </div>
 
+
       <div class="timeline-item reveal">
 
         <span class="timeline-dot"></span>
 
-        <div class="timeline-year">2000</div>
+        <div class="timeline-year">
+          2000
+        </div>
 
-        <h3>Precisão</h3>
+        <h3>
+          Precisão
+        </h3>
 
         <p>
           GPS, mapas digitais e sistemas de gerenciamento
@@ -3365,17 +1833,22 @@ footer {
 
       </div>
 
+
       <div class="timeline-item reveal">
 
         <span class="timeline-dot"></span>
 
-        <div class="timeline-year">2026</div>
+        <div class="timeline-year">
+          2026
+        </div>
 
-        <h3>Campo conectado</h3>
+        <h3>
+          Campo conectado
+        </h3>
 
         <p>
-          IA, drones, sensores, satélites e Internet das Coisas
-          conectam máquinas, dados e produtores.
+          IA, drones, sensores, satélites e Internet
+          das Coisas conectam máquinas, dados e produtores.
         </p>
 
       </div>
@@ -3386,11 +1859,15 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     SOLUTIONS
+     SOLUÇÕES
 ===================================================== -->
 
-<section id="solucoes" class="section">
+<section
+  id="solucoes"
+  class="section"
+>
 
   <div class="section-head reveal">
 
@@ -3402,18 +1879,21 @@ footer {
 
       <h2>
         As soluções precisam
-        <span class="highlight">trabalhar juntas.</span>
+        <span class="highlight">
+          trabalhar juntas.
+        </span>
       </h2>
 
     </div>
 
     <p class="section-subtitle">
-      Sustentabilidade não depende de uma tecnologia isolada.
-      Ela surge da integração entre natureza, conhecimento,
-      energia e informação.
+      Sustentabilidade não depende de uma tecnologia
+      isolada. Ela surge da integração entre natureza,
+      conhecimento, energia e informação.
     </p>
 
   </div>
+
 
   <div class="solution-board reveal">
 
@@ -3446,8 +1926,9 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     PROCESS
+     DO CAMPO À MESA
 ===================================================== -->
 
 <section class="section">
@@ -3462,67 +1943,102 @@ footer {
 
       <h2>
         Do campo
-        <span class="highlight">à mesa.</span>
+        <span class="highlight">
+          à mesa.
+        </span>
       </h2>
 
     </div>
 
   </div>
 
+
   <div class="process-grid">
 
+
     <article class="process-card reveal">
 
-      <span class="process-step">ETAPA 01</span>
+      <span class="process-step">
+        ETAPA 01
+      </span>
 
-      <span class="process-icon">🌱</span>
+      <span class="process-icon">
+        🌱
+      </span>
 
-      <h3>Plantio</h3>
+      <h3>
+        Plantio
+      </h3>
 
       <p>
-        Análise do solo, planejamento e seleção das sementes.
+        Análise do solo, planejamento e seleção
+        das sementes.
       </p>
 
     </article>
 
+
     <article class="process-card reveal">
 
-      <span class="process-step">ETAPA 02</span>
+      <span class="process-step">
+        ETAPA 02
+      </span>
 
-      <span class="process-icon">💧</span>
+      <span class="process-icon">
+        💧
+      </span>
 
-      <h3>Manejo</h3>
+      <h3>
+        Manejo
+      </h3>
 
       <p>
-        Irrigação e aplicação de recursos conforme a necessidade.
+        Irrigação e aplicação de recursos conforme
+        a necessidade.
       </p>
 
     </article>
 
+
     <article class="process-card reveal">
 
-      <span class="process-step">ETAPA 03</span>
+      <span class="process-step">
+        ETAPA 03
+      </span>
 
-      <span class="process-icon">🚁</span>
+      <span class="process-icon">
+        🚁
+      </span>
 
-      <h3>Monitoramento</h3>
+      <h3>
+        Monitoramento
+      </h3>
 
       <p>
-        Drones e sensores acompanham o desenvolvimento da lavoura.
+        Drones e sensores acompanham o desenvolvimento
+        da lavoura.
       </p>
 
     </article>
 
+
     <article class="process-card reveal">
 
-      <span class="process-step">ETAPA 04</span>
+      <span class="process-step">
+        ETAPA 04
+      </span>
 
-      <span class="process-icon">🌾</span>
+      <span class="process-icon">
+        🌾
+      </span>
 
-      <h3>Colheita</h3>
+      <h3>
+        Colheita
+      </h3>
 
       <p>
-        Máquinas modernas trabalham com maior precisão e menores perdas.
+        Máquinas modernas trabalham com maior precisão
+        e menores perdas.
       </p>
 
     </article>
@@ -3531,8 +2047,9 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     COMPARISON
+     COMPARAÇÃO
 ===================================================== -->
 
 <section class="section">
@@ -3547,14 +2064,18 @@ footer {
 
       <h2>
         Mesmo campo.
-        <span class="highlight">Novas decisões.</span>
+        <span class="highlight">
+          Novas decisões.
+        </span>
       </h2>
 
     </div>
 
   </div>
 
+
   <div class="comparison">
+
 
     <article class="compare-card traditional reveal">
 
@@ -3562,14 +2083,18 @@ footer {
         Modelo convencional
       </span>
 
-      <h3>Decisão por estimativa</h3>
+      <h3>
+        Decisão por estimativa
+      </h3>
 
       <p>
         Manejo uniforme e menor quantidade de informações
-        podem levar à aplicação excessiva ou insuficiente de recursos.
+        podem levar à aplicação excessiva ou insuficiente
+        de recursos.
       </p>
 
     </article>
+
 
     <article class="compare-card smart reveal">
 
@@ -3577,11 +2102,13 @@ footer {
         Agricultura inteligente
       </span>
 
-      <h3>Decisão por dados</h3>
+      <h3>
+        Decisão por dados
+      </h3>
 
       <p>
-        Sensores e análises permitem compreender diferentes áreas
-        da propriedade e agir de maneira específica.
+        Sensores e análises permitem compreender diferentes
+        áreas da propriedade e agir de maneira específica.
       </p>
 
     </article>
@@ -3590,8 +2117,9 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     GALLERY
+     GALERIA
 ===================================================== -->
 
 <section class="section">
@@ -3606,14 +2134,18 @@ footer {
 
       <h2>
         O futuro já está
-        <span class="highlight">no campo.</span>
+        <span class="highlight">
+          no campo.
+        </span>
       </h2>
 
     </div>
 
   </div>
 
+
   <div class="gallery-grid">
+
 
     <div class="gallery-item reveal">
 
@@ -3623,11 +2155,19 @@ footer {
       >
 
       <div class="gallery-caption">
-        <small>Monitoramento</small>
-        <h3>Visão ampla da propriedade</h3>
+
+        <small>
+          Monitoramento
+        </small>
+
+        <h3>
+          Visão ampla da propriedade
+        </h3>
+
       </div>
 
     </div>
+
 
     <div class="gallery-item reveal">
 
@@ -3637,11 +2177,19 @@ footer {
       >
 
       <div class="gallery-caption">
-        <small>Precisão</small>
-        <h3>Informação em cada hectare</h3>
+
+        <small>
+          Precisão
+        </small>
+
+        <h3>
+          Informação em cada hectare
+        </h3>
+
       </div>
 
     </div>
+
 
     <div class="gallery-item reveal">
 
@@ -3651,11 +2199,19 @@ footer {
       >
 
       <div class="gallery-caption">
-        <small>Solo</small>
-        <h3>Produção começa na terra</h3>
+
+        <small>
+          Solo
+        </small>
+
+        <h3>
+          Produção começa na terra
+        </h3>
+
       </div>
 
     </div>
+
 
     <div class="gallery-item reveal">
 
@@ -3665,11 +2221,19 @@ footer {
       >
 
       <div class="gallery-caption">
-        <small>Natureza</small>
-        <h3>Equilíbrio ambiental</h3>
+
+        <small>
+          Natureza
+        </small>
+
+        <h3>
+          Equilíbrio ambiental
+        </h3>
+
       </div>
 
     </div>
+
 
     <div class="gallery-item reveal">
 
@@ -3679,11 +2243,19 @@ footer {
       >
 
       <div class="gallery-caption">
-        <small>Regeneração</small>
-        <h3>Solo saudável</h3>
+
+        <small>
+          Regeneração
+        </small>
+
+        <h3>
+          Solo saudável
+        </h3>
+
       </div>
 
     </div>
+
 
     <div class="gallery-item reveal">
 
@@ -3693,8 +2265,15 @@ footer {
       >
 
       <div class="gallery-caption">
-        <small>Produção</small>
-        <h3>Crescimento sustentável</h3>
+
+        <small>
+          Produção
+        </small>
+
+        <h3>
+          Crescimento sustentável
+        </h3>
+
       </div>
 
     </div>
@@ -3703,8 +2282,9 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     LAB
+     LABORATÓRIO
 ===================================================== -->
 
 <section
@@ -3722,21 +2302,25 @@ footer {
 
       <h2>
         Agora é sua vez de
-        <span class="highlight">interagir.</span>
+        <span class="highlight">
+          interagir.
+        </span>
       </h2>
 
     </div>
 
     <p class="section-subtitle">
-      Teste conceitos do projeto através de pequenas experiências
-      interativas.
+      Teste conceitos do projeto através de pequenas
+      experiências interativas.
     </p>
 
   </div>
 
+
   <div class="lab-grid">
 
-    <!-- água -->
+
+    <!-- CALCULADORA -->
 
     <div class="module reveal">
 
@@ -3749,7 +2333,8 @@ footer {
           </h3>
 
           <p class="module-copy">
-            Simule uma redução hipotética de 30% no consumo.
+            Simule uma redução hipotética de 30%
+            no consumo.
           </p>
 
         </div>
@@ -3760,6 +2345,7 @@ footer {
 
       </div>
 
+
       <div class="input-wrap">
 
         <input
@@ -3769,26 +2355,36 @@ footer {
           placeholder="Litros utilizados por mês"
         >
 
-        <button onclick="calcular()">
+        <button
+          type="button"
+          onclick="calcular()"
+        >
           Calcular
         </button>
 
       </div>
 
+
       <div class="meter">
+
         <div id="meterFill"></div>
+
       </div>
+
 
       <p id="resultado">
         Digite um valor para iniciar a simulação.
       </p>
+
 
       <div
         class="water-highlight"
         id="waterHighlight"
       >
 
-        <span>Economia anual estimada</span>
+        <span>
+          Economia anual estimada
+        </span>
 
         <strong id="economiaAnual">
           0 L
@@ -3798,7 +2394,8 @@ footer {
 
     </div>
 
-    <!-- quiz -->
+
+    <!-- QUIZ -->
 
     <div class="module reveal">
 
@@ -3822,6 +2419,7 @@ footer {
 
       </div>
 
+
       <div
         class="quiz-progress"
         id="quizProgress"
@@ -3839,8 +2437,9 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     FACTS
+     CURIOSIDADES
 ===================================================== -->
 
 <section class="section">
@@ -3855,51 +2454,67 @@ footer {
 
       <h2>
         Pequenos fatos.
-        <span class="highlight">Grandes impactos.</span>
+        <span class="highlight">
+          Grandes impactos.
+        </span>
       </h2>
 
     </div>
 
   </div>
 
+
   <div class="facts">
+
 
     <div class="fact reveal">
 
-      <span class="fact-icon">🌎</span>
+      <span class="fact-icon">
+        🌎
+      </span>
 
       <p>
-        Alguns tipos de solo podem levar centenas de anos
-        para formar poucos centímetros.
+        Alguns tipos de solo podem levar centenas
+        de anos para formar poucos centímetros.
       </p>
 
     </div>
 
+
     <div class="fact reveal">
 
-      <span class="fact-icon">🚁</span>
+      <span class="fact-icon">
+        🚁
+      </span>
 
       <p>
         Drones conseguem analisar grandes áreas agrícolas
-        muito mais rapidamente do que inspeções exclusivamente terrestres.
+        muito mais rapidamente do que inspeções
+        exclusivamente terrestres.
       </p>
 
     </div>
 
+
     <div class="fact reveal">
 
-      <span class="fact-icon">☀️</span>
+      <span class="fact-icon">
+        ☀️
+      </span>
 
       <p>
-        Propriedades rurais podem utilizar telhados e áreas
-        improdutivas para geração de energia solar.
+        Propriedades rurais podem utilizar telhados
+        e áreas disponíveis para geração de energia solar.
       </p>
 
     </div>
 
+
     <div class="fact reveal">
 
-      <span class="fact-icon">🌱</span>
+      <span class="fact-icon">
+        🌱
+      </span>
 
       <p>
         Rotação de culturas ajuda a melhorar características
@@ -3912,8 +2527,9 @@ footer {
 
 </section>
 
+
 <!-- =====================================================
-     MAP
+     MAPA CONCEITUAL
 ===================================================== -->
 
 <section class="section">
@@ -3928,46 +2544,65 @@ footer {
 
       <h2>
         Uma propriedade.
-        <span class="highlight">Muitos dados.</span>
+        <span class="highlight">
+          Muitos dados.
+        </span>
       </h2>
 
     </div>
 
   </div>
 
+
   <div class="map-board reveal">
 
     <div class="map-pin">
+
       🌾
+
       <div class="map-tooltip">
         Talhão monitorado
       </div>
+
     </div>
 
+
     <div class="map-pin">
+
       💧
+
       <div class="map-tooltip">
         Irrigação inteligente
       </div>
+
     </div>
 
+
     <div class="map-pin">
+
       ☀️
+
       <div class="map-tooltip">
         Energia solar
       </div>
+
     </div>
 
+
     <div class="map-pin">
+
       🚁
+
       <div class="map-tooltip">
         Drone em operação
       </div>
+
     </div>
 
   </div>
 
 </section>
+
 
 <!-- =====================================================
      FAQ
@@ -3987,12 +2622,15 @@ footer {
 
         <h2>
           Entenda os
-          <span class="highlight">conceitos.</span>
+          <span class="highlight">
+            conceitos.
+          </span>
         </h2>
 
       </div>
 
     </div>
+
 
     <details class="reveal">
 
@@ -4001,13 +2639,14 @@ footer {
       </summary>
 
       <p>
-        É uma estratégia de manejo que utiliza dados, mapas,
-        sensores, GPS e outras tecnologias para compreender
-        as diferenças existentes dentro de uma propriedade
+        É uma estratégia de manejo que utiliza dados,
+        mapas, sensores, GPS e outras tecnologias para
+        compreender diferenças dentro de uma propriedade
         e tomar decisões mais específicas.
       </p>
 
     </details>
+
 
     <details class="reveal">
 
@@ -4024,6 +2663,7 @@ footer {
 
     </details>
 
+
     <details class="reveal">
 
       <summary>
@@ -4032,11 +2672,45 @@ footer {
 
       <p>
         Eles podem capturar imagens aéreas, identificar
-        falhas de plantio, analisar o desenvolvimento da
-        vegetação e facilitar a inspeção de grandes áreas.
+        falhas de plantio, analisar o desenvolvimento
+        da vegetação e facilitar a inspeção de grandes áreas.
       </p>
 
     </details>
+
+
+    <details class="reveal">
+
+      <summary>
+        Por que o agronegócio é importante para a economia?
+      </summary>
+
+      <p>
+        A cadeia do agronegócio envolve produtores,
+        indústrias, transporte, tecnologia, serviços,
+        processamento e comércio. Além da produção de
+        alimentos, o setor possui participação relevante
+        no comércio exterior brasileiro.
+      </p>
+
+    </details>
+
+
+    <details class="reveal">
+
+      <summary>
+        O que significa uma projeção econômica?
+      </summary>
+
+      <p>
+        É uma estimativa construída a partir de dados,
+        modelos e tendências. Ela ajuda a compreender
+        cenários possíveis, mas não representa uma
+        garantia de que o resultado acontecerá.
+      </p>
+
+    </details>
+
 
     <details class="reveal">
 
@@ -4059,6 +2733,7 @@ footer {
 
 </main>
 
+
 <!-- =====================================================
      FINAL
 ===================================================== -->
@@ -4072,16 +2747,16 @@ footer {
     </span>
 
     <h2>
-      Tecnologia para
+      Agro forte.
       <span class="highlight">
-        cultivar o amanhã.
+        Futuro sustentável.
       </span>
     </h2>
 
     <p>
       O futuro da agricultura será construído onde
-      conhecimento, natureza e inovação conseguirem
-      crescer juntos.
+      conhecimento, economia, tecnologia, natureza e
+      inovação conseguirem crescer juntos.
     </p>
 
     <a
@@ -4094,6 +2769,7 @@ footer {
   </div>
 
 </section>
+
 
 <!-- =====================================================
      FOOTER
@@ -4109,11 +2785,12 @@ footer {
 
     <p class="footer-copy">
       Produção inteligente para um planeta vivo.
-      Tecnologia, sustentabilidade e conhecimento
+      Tecnologia, sustentabilidade, economia e conhecimento
       conectando o campo ao futuro.
     </p>
 
   </div>
+
 
   <div class="footer-bottom">
 
@@ -4122,25 +2799,36 @@ footer {
     </span>
 
     <span>
-      CAMPO • TECNOLOGIA • SUSTENTABILIDADE
+      CAMPO • TECNOLOGIA • ECONOMIA • SUSTENTABILIDADE
     </span>
 
   </div>
 
 </footer>
 
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
+
 
 /* =========================================================
    MENU
 ========================================================= */
 
-const menu = document.getElementById("menu");
-const menuBtn = document.getElementById("menuBtn");
+const menu =
+  document.getElementById("menu");
+
+const menuBtn =
+  document.getElementById("menuBtn");
+
 
 function toggleMenu() {
 
-  const open = menu.classList.toggle("open");
+  const open =
+    menu.classList.toggle("open");
 
   menuBtn.setAttribute(
     "aria-expanded",
@@ -4148,6 +2836,7 @@ function toggleMenu() {
   );
 
 }
+
 
 menu
   .querySelectorAll("a")
@@ -4157,7 +2846,9 @@ menu
       "click",
       () => {
 
-        menu.classList.remove("open");
+        menu.classList.remove(
+          "open"
+        );
 
         menuBtn.setAttribute(
           "aria-expanded",
@@ -4169,11 +2860,16 @@ menu
 
   });
 
+
 /* =========================================================
    HEADER
 ========================================================= */
 
-const topbar = document.getElementById("topbar");
+const topbar =
+  document.getElementById(
+    "topbar"
+  );
+
 
 window.addEventListener(
   "scroll",
@@ -4187,16 +2883,24 @@ window.addEventListener(
   }
 );
 
+
 /* =========================================================
    CURSOR LIGHT
 ========================================================= */
 
 const cursorLight =
-  document.getElementById("cursorLight");
+  document.getElementById(
+    "cursorLight"
+  );
+
 
 window.addEventListener(
   "mousemove",
   event => {
+
+    if (!cursorLight) {
+      return;
+    }
 
     cursorLight.style.left =
       event.clientX + "px";
@@ -4207,137 +2911,446 @@ window.addEventListener(
   }
 );
 
+
 /* =========================================================
    SCROLL REVEAL
 ========================================================= */
 
 const revealObserver =
   new IntersectionObserver(
+
     entries => {
 
-      entries.forEach(entry => {
+      entries.forEach(
+        entry => {
 
-        if (entry.isIntersecting) {
+          if (
+            entry.isIntersecting
+          ) {
 
-          entry.target.classList.add(
-            "visible"
-          );
-
-          revealObserver.unobserve(
             entry.target
-          );
+              .classList
+              .add("visible");
+
+            revealObserver
+              .unobserve(
+                entry.target
+              );
+
+          }
 
         }
-
-      });
+      );
 
     },
+
     {
       threshold: .12
     }
+
   );
 
+
 document
-  .querySelectorAll(".reveal")
-  .forEach(element => {
+  .querySelectorAll(
+    ".reveal"
+  )
+  .forEach(
+    element => {
 
-    revealObserver.observe(element);
+      revealObserver.observe(
+        element
+      );
 
-  });
+    }
+  );
+
+
+/* =========================================================
+   SETAS DAS TECNOLOGIAS
+========================================================= */
+
+const tecnologias = {
+
+  precisao: {
+
+    tag:
+      "01 / PRECISÃO",
+
+    titulo:
+      "Agricultura de precisão",
+
+    descricao:
+      "A agricultura de precisão utiliza GPS, sensores, mapas digitais e dados para identificar diferenças dentro da própria lavoura. Com isso, recursos podem ser aplicados de forma mais específica.",
+
+    recursos: [
+      "Sensores agrícolas",
+      "Mapeamento por GPS",
+      "Mapas de produtividade",
+      "Aplicação localizada"
+    ],
+
+    impacto:
+      "Maior eficiência e redução de desperdícios."
+
+  },
+
+
+  irrigacao: {
+
+    tag:
+      "02 / ÁGUA",
+
+    titulo:
+      "Irrigação inteligente",
+
+    descricao:
+      "Sistemas inteligentes utilizam sensores de umidade, informações climáticas e automação para identificar quando e quanto irrigar.",
+
+    recursos: [
+      "Sensores de umidade",
+      "Automação",
+      "Dados climáticos",
+      "Controle de consumo"
+    ],
+
+    impacto:
+      "Uso mais eficiente dos recursos hídricos."
+
+  },
+
+
+  drones: {
+
+    tag:
+      "03 / VISÃO",
+
+    titulo:
+      "Drones agrícolas",
+
+    descricao:
+      "Drones conseguem observar extensas áreas agrícolas e produzir imagens que auxiliam na identificação de falhas, diferenças de desenvolvimento e outros problemas da lavoura.",
+
+    recursos: [
+      "Imagens aéreas",
+      "Mapeamento",
+      "Inspeção de áreas",
+      "Monitoramento agrícola"
+    ],
+
+    impacto:
+      "Problemas podem ser identificados mais rapidamente."
+
+  },
+
+
+  energia: {
+
+    tag:
+      "04 / ENERGIA",
+
+    titulo:
+      "Energia renovável",
+
+    descricao:
+      "Energia solar, biogás e biomassa podem ser incorporados às propriedades rurais para aumentar a autonomia energética e diminuir a dependência de determinadas fontes convencionais.",
+
+    recursos: [
+      "Energia solar",
+      "Biogás",
+      "Biomassa",
+      "Eficiência energética"
+    ],
+
+    impacto:
+      "Maior autonomia e redução de impactos ambientais."
+
+  }
+
+};
+
+
+function abrirTecnologia(
+  tipo
+) {
+
+  const tecnologia =
+    tecnologias[tipo];
+
+  if (!tecnologia) {
+    return;
+  }
+
+
+  document
+    .getElementById(
+      "modalTag"
+    )
+    .textContent =
+      tecnologia.tag;
+
+
+  document
+    .getElementById(
+      "modalTitle"
+    )
+    .textContent =
+      tecnologia.titulo;
+
+
+  document
+    .getElementById(
+      "modalDescription"
+    )
+    .textContent =
+      tecnologia.descricao;
+
+
+  document
+    .getElementById(
+      "modalImpact"
+    )
+    .textContent =
+      tecnologia.impacto;
+
+
+  const features =
+    document.getElementById(
+      "modalFeatures"
+    );
+
+
+  features.innerHTML =
+    "";
+
+
+  tecnologia.recursos
+    .forEach(
+      recurso => {
+
+        const item =
+          document.createElement(
+            "div"
+          );
+
+        item.className =
+          "modal-feature";
+
+        item.textContent =
+          recurso;
+
+        features.appendChild(
+          item
+        );
+
+      }
+    );
+
+
+  const modal =
+    document.getElementById(
+      "techModal"
+    );
+
+
+  modal.classList.add(
+    "open"
+  );
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body
+    .classList
+    .add(
+      "modal-open"
+    );
+
+}
+
+
+function fecharTecnologia() {
+
+  const modal =
+    document.getElementById(
+      "techModal"
+    );
+
+
+  modal.classList.remove(
+    "open"
+  );
+
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body
+    .classList
+    .remove(
+      "modal-open"
+    );
+
+}
+
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key ===
+      "Escape"
+    ) {
+
+      fecharTecnologia();
+
+    }
+
+  }
+);
+
 
 /* =========================================================
    COUNTERS
 ========================================================= */
 
 const counters =
-  document.querySelectorAll(".counter");
+  document.querySelectorAll(
+    ".counter"
+  );
 
-let countersStarted = false;
+
+let countersStarted =
+  false;
+
 
 const counterObserver =
   new IntersectionObserver(
+
     entries => {
 
-      entries.forEach(entry => {
+      entries.forEach(
+        entry => {
 
-        if (
-          entry.isIntersecting &&
-          !countersStarted
-        ) {
+          if (
+            entry.isIntersecting &&
+            !countersStarted
+          ) {
 
-          countersStarted = true;
+            countersStarted =
+              true;
 
-          counters.forEach(counter => {
 
-            const target =
-              Number(counter.dataset.target);
+            counters.forEach(
+              counter => {
 
-            let value = 0;
+                const target =
+                  Number(
+                    counter.dataset.target
+                  );
 
-            const duration = 1500;
 
-            const start =
-              performance.now();
+                const duration =
+                  1500;
 
-            function animate(time) {
 
-              const progress =
-                Math.min(
-                  (time - start) /
-                  duration,
-                  1
-                );
+                const start =
+                  performance.now();
 
-              const eased =
-                1 -
-                Math.pow(
-                  1 - progress,
-                  3
-                );
 
-              value =
-                Math.floor(
-                  target * eased
-                );
+                function animate(
+                  time
+                ) {
 
-              counter.textContent =
-                value;
+                  const progress =
+                    Math.min(
+                      (
+                        time -
+                        start
+                      ) /
+                      duration,
+                      1
+                    );
 
-              if (progress < 1) {
+
+                  const eased =
+                    1 -
+                    Math.pow(
+                      1 -
+                      progress,
+                      3
+                    );
+
+
+                  const value =
+                    Math.floor(
+                      target *
+                      eased
+                    );
+
+
+                  counter.textContent =
+                    value;
+
+
+                  if (
+                    progress <
+                    1
+                  ) {
+
+                    requestAnimationFrame(
+                      animate
+                    );
+
+                  }
+
+                }
+
 
                 requestAnimationFrame(
                   animate
                 );
 
               }
-
-            }
-
-            requestAnimationFrame(
-              animate
             );
 
-          });
+          }
 
         }
-
-      });
+      );
 
     },
+
     {
       threshold: .3
     }
+
   );
 
+
 const stats =
-  document.querySelector(".stats-wrap");
+  document.querySelector(
+    ".stats-wrap"
+  );
+
 
 if (stats) {
-  counterObserver.observe(stats);
+
+  counterObserver.observe(
+    stats
+  );
+
 }
 
+
 /* =========================================================
-   IMPACTS
+   IMPACTOS
 ========================================================= */
 
 function mostrarImpacto(
@@ -4346,35 +3359,49 @@ function mostrarImpacto(
 ) {
 
   document
-    .querySelectorAll(".impact-item")
-    .forEach(item => {
+    .querySelectorAll(
+      ".impact-item"
+    )
+    .forEach(
+      item => {
 
-      item.classList.remove(
-        "active"
-      );
+        item.classList.remove(
+          "active"
+        );
 
-    });
+      }
+    );
+
 
   element.classList.add(
     "active"
   );
+
 
   const output =
     document.getElementById(
       "impactoTexto"
     );
 
-  output.style.opacity = "0";
+
+  output.style.opacity =
+    "0";
+
 
   output.style.transform =
     "translateY(5px)";
 
+
   setTimeout(
     () => {
 
-      output.textContent = texto;
+      output.textContent =
+        texto;
 
-      output.style.opacity = "1";
+
+      output.style.opacity =
+        "1";
+
 
       output.style.transform =
         "translateY(0)";
@@ -4385,37 +3412,48 @@ function mostrarImpacto(
 
 }
 
+
 /* =========================================================
-   WATER CALCULATOR
+   CALCULADORA DE ÁGUA
 ========================================================= */
 
 function calcular() {
 
   const input =
-    document.getElementById("agua");
+    document.getElementById(
+      "agua"
+    );
+
 
   const resultado =
     document.getElementById(
       "resultado"
     );
 
+
   const meter =
     document.getElementById(
       "meterFill"
     );
+
 
   const highlight =
     document.getElementById(
       "waterHighlight"
     );
 
+
   const annual =
     document.getElementById(
       "economiaAnual"
     );
 
+
   const agua =
-    Number(input.value);
+    Number(
+      input.value
+    );
+
 
   if (
     !agua ||
@@ -4425,32 +3463,42 @@ function calcular() {
     resultado.textContent =
       "Digite uma quantidade válida de litros.";
 
+
     meter.style.width =
       "0%";
 
+
     highlight.style.display =
       "none";
+
 
     return;
 
   }
 
+
   const economiaMensal =
     agua * .30;
+
 
   const economiaAnual =
     economiaMensal * 12;
 
+
   resultado.innerHTML =
     `Com otimização de 30%, o consumo poderia cair de <strong>${formatNumber(agua)} L</strong> para aproximadamente <strong>${formatNumber(agua - economiaMensal)} L/mês</strong>.`;
+
 
   annual.textContent =
     formatNumber(
       economiaAnual
-    ) + " L";
+    ) +
+    " L";
+
 
   highlight.style.display =
     "block";
+
 
   requestAnimationFrame(
     () => {
@@ -4463,16 +3511,23 @@ function calcular() {
 
 }
 
-function formatNumber(value) {
+
+function formatNumber(
+  value
+) {
 
   return new Intl.NumberFormat(
     "pt-BR",
     {
       maximumFractionDigits: 0
     }
-  ).format(value);
+  )
+  .format(
+    value
+  );
 
 }
+
 
 /* =========================================================
    QUIZ
@@ -4481,6 +3536,7 @@ function formatNumber(value) {
 const quiz = [
 
   {
+
     q:
       "Qual tecnologia pode mapear uma lavoura pelo ar?",
 
@@ -4491,9 +3547,12 @@ const quiz = [
     ],
 
     c: 0
+
   },
 
+
   {
+
     q:
       "Qual prática contribui para melhorar a saúde do solo?",
 
@@ -4504,9 +3563,12 @@ const quiz = [
     ],
 
     c: 0
+
   },
 
+
   {
+
     q:
       "Qual destas é uma fonte de energia renovável?",
 
@@ -4517,9 +3579,12 @@ const quiz = [
     ],
 
     c: 2
+
   },
 
+
   {
+
     q:
       "Sensores de umidade ajudam principalmente a controlar:",
 
@@ -4530,53 +3595,93 @@ const quiz = [
     ],
 
     c: 0
+
+  },
+
+
+  {
+
+    q:
+      "O que significa dizer que um dado é uma projeção?",
+
+    a: [
+      "É uma garantia do futuro",
+      "É uma estimativa baseada em dados e tendências",
+      "É um valor aleatório"
+    ],
+
+    c: 1
+
   }
 
 ];
 
-let etapa = 0;
-let score = 0;
-let bloqueado = false;
+
+let etapa =
+  0;
+
+
+let score =
+  0;
+
+
+let bloqueado =
+  false;
+
 
 const pergunta =
   document.getElementById(
     "pergunta"
   );
 
+
 const respostas =
   document.getElementById(
     "respostas"
   );
+
 
 const pontuacao =
   document.getElementById(
     "pontuacao"
   );
 
+
 const progress =
   document.getElementById(
     "quizProgress"
   );
 
+
 function criarProgresso() {
 
-  progress.innerHTML = "";
+  progress.innerHTML =
+    "";
+
 
   quiz.forEach(
-    (_, index) => {
+    (
+      _,
+      index
+    ) => {
 
       const step =
         document.createElement(
           "span"
         );
 
-      if (index < etapa) {
+
+      if (
+        index <
+        etapa
+      ) {
 
         step.classList.add(
           "done"
         );
 
       }
+
 
       progress.appendChild(
         step
@@ -4587,46 +3692,65 @@ function criarProgresso() {
 
 }
 
+
 function carregarPergunta() {
 
-  bloqueado = false;
+  bloqueado =
+    false;
+
 
   criarProgresso();
 
-  pontuacao.textContent = "";
+
+  pontuacao.textContent =
+    "";
+
 
   const item =
     quiz[etapa];
 
+
   pergunta.textContent =
     item.q;
 
-  respostas.innerHTML = "";
+
+  respostas.innerHTML =
+    "";
+
 
   item.a.forEach(
-    (texto, index) => {
+    (
+      texto,
+      index
+    ) => {
 
       const button =
         document.createElement(
           "button"
         );
 
+
       button.type =
         "button";
+
 
       button.className =
         "quiz-answer";
 
+
       button.textContent =
         texto;
 
+
       button.addEventListener(
         "click",
-        () => responder(
-          index,
-          button
-        )
+        () =>
+          responder(
+            index,
+            button
+          )
       );
+
 
       respostas.appendChild(
         button
@@ -4637,32 +3761,48 @@ function carregarPergunta() {
 
 }
 
+
 function responder(
   index,
   selectedButton
 ) {
 
-  if (bloqueado) {
+  if (
+    bloqueado
+  ) {
+
     return;
+
   }
 
-  bloqueado = true;
+
+  bloqueado =
+    true;
+
 
   const correct =
     quiz[etapa].c;
+
 
   const buttons =
     Array.from(
       respostas.children
     );
 
-  buttons.forEach(
-    (button, buttonIndex) => {
 
-      button.disabled = true;
+  buttons.forEach(
+    (
+      button,
+      buttonIndex
+    ) => {
+
+      button.disabled =
+        true;
+
 
       if (
-        buttonIndex === correct
+        buttonIndex ===
+        correct
       ) {
 
         button.classList.add(
@@ -4674,7 +3814,11 @@ function responder(
     }
   );
 
-  if (index === correct) {
+
+  if (
+    index ===
+    correct
+  ) {
 
     score++;
 
@@ -4682,17 +3826,22 @@ function responder(
 
     selectedButton
       .classList
-      .add("wrong");
+      .add(
+        "wrong"
+      );
 
   }
+
 
   setTimeout(
     () => {
 
       etapa++;
 
+
       if (
-        etapa < quiz.length
+        etapa <
+        quiz.length
       ) {
 
         carregarPergunta();
@@ -4709,37 +3858,49 @@ function responder(
 
 }
 
+
 function finalizarQuiz() {
 
   criarProgresso();
 
+
   Array.from(
     progress.children
-  ).forEach(step => {
+  )
+  .forEach(
+    step => {
 
-    step.classList.add(
-      "done"
-    );
+      step.classList.add(
+        "done"
+      );
 
-  });
+    }
+  );
+
 
   pergunta.textContent =
     "Quiz finalizado.";
 
-  respostas.innerHTML = "";
+
+  respostas.innerHTML =
+    "";
+
 
   let message =
     "Continue explorando o projeto.";
 
+
   if (
-    score === quiz.length
+    score ===
+    quiz.length
   ) {
 
     message =
       "Excelente! Você acertou todas.";
 
   } else if (
-    score >= quiz.length / 2
+    score >=
+    quiz.length / 2
   ) {
 
     message =
@@ -4747,27 +3908,34 @@ function finalizarQuiz() {
 
   }
 
+
   pontuacao.innerHTML =
     `<strong>${score}/${quiz.length}</strong> — ${message}`;
+
 
   const restart =
     document.createElement(
       "button"
     );
 
+
   restart.className =
     "restart-btn";
+
 
   restart.textContent =
     "Refazer quiz";
 
+
   restart.style.marginTop =
     "16px";
+
 
   restart.addEventListener(
     "click",
     reiniciarQuiz
   );
+
 
   respostas.appendChild(
     restart
@@ -4775,16 +3943,414 @@ function finalizarQuiz() {
 
 }
 
+
 function reiniciarQuiz() {
 
-  etapa = 0;
-  score = 0;
+  etapa =
+    0;
+
+
+  score =
+    0;
+
 
   carregarPergunta();
 
 }
 
+
 carregarPergunta();
+
+
+/* =========================================================
+   GRÁFICO 1
+   EXPORTAÇÕES DO AGRONEGÓCIO
+========================================================= */
+
+const exportCanvas =
+  document.getElementById(
+    "exportChart"
+  );
+
+
+if (
+  exportCanvas &&
+  typeof Chart !==
+  "undefined"
+) {
+
+  new Chart(
+    exportCanvas,
+    {
+
+      type:
+        "bar",
+
+      data: {
+
+        labels: [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026*"
+        ],
+
+        datasets: [
+
+          {
+
+            label:
+              "Exportações do agro (US$ bilhões)",
+
+            data: [
+              120.6,
+              159.69,
+              165.05,
+              164.3,
+              169.2,
+              103.4
+            ],
+
+            borderWidth:
+              1,
+
+            borderRadius:
+              10
+
+          }
+
+        ]
+
+      },
+
+
+      options: {
+
+        responsive:
+          true,
+
+        maintainAspectRatio:
+          false,
+
+
+        interaction: {
+
+          intersect:
+            false,
+
+          mode:
+            "index"
+
+        },
+
+
+        plugins: {
+
+          legend: {
+            display:
+              false
+          },
+
+
+          tooltip: {
+
+            callbacks: {
+
+              label:
+                context => {
+
+                  const value =
+                    context.raw;
+
+
+                  if (
+                    context.dataIndex ===
+                    5
+                  ) {
+
+                    return (
+                      " US$ " +
+                      value +
+                      " bi — janeiro a julho"
+                    );
+
+                  }
+
+
+                  return (
+                    " US$ " +
+                    value +
+                    " bilhões"
+                  );
+
+                }
+
+            }
+
+          }
+
+        },
+
+
+        scales: {
+
+          x: {
+
+            grid: {
+              display:
+                false
+            },
+
+            ticks: {
+              color:
+                "#9bad9f"
+            }
+
+          },
+
+
+          y: {
+
+            beginAtZero:
+              true,
+
+            ticks: {
+
+              color:
+                "#9bad9f",
+
+              callback:
+                value =>
+                  "US$ " +
+                  value +
+                  " bi"
+
+            },
+
+            grid: {
+
+              color:
+                "rgba(255,255,255,.06)"
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  );
+
+}
+
+
+/* =========================================================
+   GRÁFICO 2
+   PRODUÇÃO DE GRÃOS + PROJEÇÃO
+========================================================= */
+
+const grainCanvas =
+  document.getElementById(
+    "grainChart"
+  );
+
+
+if (
+  grainCanvas &&
+  typeof Chart !==
+  "undefined"
+) {
+
+  new Chart(
+    grainCanvas,
+    {
+
+      type:
+        "line",
+
+      data: {
+
+        labels: [
+          "2023/24",
+          "2024/25",
+          "2025/26",
+          "2033/34"
+        ],
+
+        datasets: [
+
+          {
+
+            label:
+              "Produção de grãos",
+
+            data: [
+              298.4,
+              352.3,
+              360.8,
+              378.9
+            ],
+
+            tension:
+              .35,
+
+            pointRadius:
+              6,
+
+            pointHoverRadius:
+              9,
+
+            borderWidth:
+              3,
+
+            fill:
+              true
+
+          }
+
+        ]
+
+      },
+
+
+      options: {
+
+        responsive:
+          true,
+
+        maintainAspectRatio:
+          false,
+
+
+        interaction: {
+
+          intersect:
+            false,
+
+          mode:
+            "index"
+
+        },
+
+
+        plugins: {
+
+          legend: {
+            display:
+              false
+          },
+
+
+          tooltip: {
+
+            callbacks: {
+
+              label:
+                context =>
+                  context.raw +
+                  " milhões de toneladas",
+
+              afterLabel:
+                context => {
+
+                  if (
+                    context.dataIndex ===
+                    2
+                  ) {
+
+                    return (
+                      "Estimativa Conab — agosto/2026"
+                    );
+
+                  }
+
+
+                  if (
+                    context.dataIndex ===
+                    3
+                  ) {
+
+                    return (
+                      "Projeção MAPA para 2033/34"
+                    );
+
+                  }
+
+
+                  return (
+                    "Safra observada"
+                  );
+
+                }
+
+            }
+
+          }
+
+        },
+
+
+        scales: {
+
+          x: {
+
+            grid: {
+              display:
+                false
+            },
+
+            ticks: {
+              color:
+                "#9bad9f"
+            }
+
+          },
+
+
+          y: {
+
+            suggestedMin:
+              250,
+
+            suggestedMax:
+              400,
+
+            ticks: {
+
+              color:
+                "#9bad9f",
+
+              callback:
+                value =>
+                  value +
+                  " Mt"
+
+            },
+
+            grid: {
+
+              color:
+                "rgba(255,255,255,.06)"
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  );
+
+}
+
 
 /* =========================================================
    ACTIVE NAV
@@ -4795,25 +4361,32 @@ const sections =
     "section[id]"
   );
 
+
 const navLinks =
   document.querySelectorAll(
     "nav a"
   );
 
+
 window.addEventListener(
   "scroll",
   () => {
 
-    let current = "";
+    let current =
+      "";
+
 
     sections.forEach(
       section => {
 
         const top =
-          section.offsetTop - 180;
+          section.offsetTop -
+          180;
+
 
         if (
-          window.scrollY >= top
+          window.scrollY >=
+          top
         ) {
 
           current =
@@ -4824,6 +4397,7 @@ window.addEventListener(
       }
     );
 
+
     navLinks.forEach(
       link => {
 
@@ -4831,11 +4405,13 @@ window.addEventListener(
           "active"
         );
 
+
         if (
           link.getAttribute(
             "href"
           ) ===
-          "#" + current
+          "#" +
+          current
         ) {
 
           link.classList.add(
@@ -4850,7 +4426,9 @@ window.addEventListener(
   }
 );
 
+
 </script>
 
 </body>
+
 </html>
